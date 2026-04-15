@@ -6,6 +6,17 @@
                 "artisan",
                 "boost:mcp"
             ]
+        },
+        "statamic": {
+            "command": "php",
+            "args": [
+                "artisan",
+                "mcp:start",
+                "statamic"
+            ],
+            "env": {
+                "APP_ENV": "local"
+            }
         }
     }
 }

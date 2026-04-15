@@ -17,9 +17,10 @@
 /public/hot
 /public/static
 /public/storage
-/public/vendor/statamic
+/public/vendor
 /storage/*.key
 /storage/pail
+/storage
 /vendor
 _ide_helper.php
 Homestead.json
