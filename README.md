@@ -2,16 +2,6 @@
 
 Random Thoughts ist ein einfacher Blog, den du Schritt für Schritt selbst aufbaust. Als CMS kommt [Statamic](https://statamic.com) zum Einsatz, als Vorlage dient dieses [Figma-Projekt][figma]. Zuerst setzt du das Design statisch mit HTML und Tailwind CSS um. Im zweiten Schritt bindest du Statamic an, sodass die Inhalte dynamisch aus dem CMS geladen werden.
 
-## Branches
-
-Dieses Repository ist in mehrere Branches aufgeteilt, die jeweils einem Arbeitsschritt entsprechen:
-
-### static
-Dein Ausgangspunkt. Hier legst du los. Deine Aufgabe ist es, das Design des [Figma-Projekts][figma] eigenständig in `resources/views/blog.antlers.html` und `resources/views/post.antlers.html` umzusetzen. Als Referenz findest du die fertige statische Version unter <http://random-thoughts.test/static/blog> und <http://random-thoughts.test/static/post>.
-
-### main
-Der aktuelle Referenzstand des Projekts.
-
 ## Voraussetzungen
 
 Bevor es losgeht, installiere folgende Programme und Erweiterungen.
@@ -27,6 +17,16 @@ Bevor es losgeht, installiere folgende Programme und Erweiterungen.
 - [Antlers Toolbox](https://marketplace.visualstudio.com/items?itemName=stillat-llc.vscode-antlers) — Syntaxhervorhebung, Autovervollständigung und Tooling für Statamics Templating-Sprache Antlers.
 - [Laravel](https://marketplace.visualstudio.com/items?itemName=laravel.vscode-laravel) — Die offizielle Laravel-Erweiterung mit Autovervollständigung für Routes, Views, Configs und mehr.
 - [Claude Code](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code) — Bindet Claude Code direkt in VSCode ein, damit du ihn beim Coden zur Seite hast.
+
+## Branches
+
+Dieses Repository ist in mehrere Branches aufgeteilt, die jeweils einem Arbeitsschritt entsprechen:
+
+### static
+Dein Ausgangspunkt. Hier legst du los. Deine Aufgabe ist es, das Design des [Figma-Projekts][figma] eigenständig in `resources/views/blog.antlers.html` und `resources/views/post.antlers.html` umzusetzen. Als Referenz findest du die fertige statische Version unter <http://random-thoughts.test/static/blog> und <http://random-thoughts.test/static/post>.
+
+### main
+Der aktuelle Referenzstand des Projekts.
 
 ## Installation
 
