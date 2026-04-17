@@ -1,24 +1,18 @@
 {
     "agents": [
-        "cursor",
-        "copilot",
         "claude_code",
         "codex",
-        "opencode",
-        "amp",
-        "gemini",
-        "junie"
+        "gemini"
     ],
     "guidelines": true,
     "mcp": true,
     "nightwatch_mcp": false,
     "packages": [
-        "statamic/cms",
-        "fruitcake/laravel-debugbar"
+        "statamic/cms"
     ],
     "sail": false,
     "skills": [
         "laravel-best-practices",
-        "debug-using-debugbar"
+        "tailwindcss-development"
     ]
 }

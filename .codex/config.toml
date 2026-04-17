@@ -1,4 +1,4 @@
 [mcp_servers.laravel-boost]
 command = "php"
 args = ["artisan", "boost:mcp"]
-cwd = "/Users/michael/Code/statamic-coding-basics"
+cwd = "/Users/michael/Code/random-thoughts"
