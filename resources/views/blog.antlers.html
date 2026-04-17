@@ -1,1 +1,26 @@
-{{ title }}
+<section>
+    <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+        <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+        <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">This is description of the type of content you would expect to read here on this blog.</p>
+    </div>
+</section>
+
+<section>
+    <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-3">
+        {{ collection:posts sort="date:desc" }}
+            <article class="{{ if first }}md:col-span-2{{ /if }}">
+                <a href="{{ url }}" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
+                    {{ if featured_image }}
+                        <img src="{{ featured_image:url }}" alt="{{ title }}" class="object-cover w-full h-72">
+                    {{ else }}
+                        <div class="w-full h-72 bg-hot-pink"></div>
+                    {{ /if }}
+                    <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
+                        <h2 class="font-sans text-xl font-semibold md:text-2xl">{{ title }}</h2>
+                        <p class="font-sans text-xs">{{ date format="j. F Y" }}</p>
+                    </div>
+                </a>
+            </article>
+        {{ /collection:posts }}
+    </div>
+</section>
