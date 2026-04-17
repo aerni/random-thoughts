@@ -1,0 +1,11 @@
+super: true
+id: a670f34f-921c-43cb-ab7d-afb3eece5cb7
+password_hash: $2y$12$lbz5Odsg3ehP/WjDmi/M9.UNrTs5RxtzcHhOgYofqRto.H4uPF/x6
+preferences:
+  collections:
+    posts:
+      view: list
+    pages:
+      view: tree
+    authors:
+      view: list

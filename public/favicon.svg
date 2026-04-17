@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- thought bubble body -->
+  <rect x="1" y="1" width="24" height="18" rx="7" fill="#FD2D78"/>
+  <!-- thought dots -->
+  <circle cx="19" cy="23" r="2.5" fill="#FD2D78"/>
+  <circle cx="24" cy="28.5" r="1.8" fill="#FD2D78"/>
+  <!-- three dots inside bubble -->
+  <circle cx="7" cy="10" r="2.2" fill="#FFFBF6"/>
+  <circle cx="13" cy="10" r="2.2" fill="#FFFBF6"/>
+  <circle cx="19" cy="10" r="2.2" fill="#FFFBF6"/>
+</svg>

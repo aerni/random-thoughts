@@ -299,3 +299,41 @@ Most of the folder structure will feel familiar to Laravel developers. However, 
 - GitHub Issues: https://github.com/statamic/cms/issues
 
 </laravel-boost-guidelines>
+
+# Project: Random Thoughts
+
+A personal blog by Leonina, built with Statamic v6 + Laravel + Tailwind v4 + Antlers templating.
+
+## Structure
+
+- **Blog overview** → `/` — `resources/views/blog.antlers.html`, lists `posts` collection with tag filter + pagination (9/page)
+- **Blog post** → `/posts/{slug}` — `resources/views/post.antlers.html`, dynamic fields
+- **About** → `/about` — `resources/views/about.antlers.html`, content editable via CP
+- **Tag pages** → `/tags/{slug}` — `resources/views/tags/show.antlers.html`
+
+## Collections
+
+- `pages` — Static pages (Blog homepage, About)
+- `posts` — Blog posts with: title, author (→ authors), teaser_image (assets), intro, content (replicator), tags (taxonomy), date
+- `authors` — Author profiles with: title, bio, avatar (assets), links (replicator)
+
+## Taxonomies
+
+- `tags` — Tags: Gedanken, Essen, Technologie, Alltag, Leben (erweiterbar im CP)
+
+## Navigation
+
+- `main` — Haupt-Navigation, verwaltbar im CP unter Navigation → Main Navigation
+
+## Design
+
+- Farben: `bg-linen` (#FFFBF6), `bg-hot-pink` (#FD2D78), `text-black` (#12151E)
+- Fonts: Londrina Solid (Display/Titel), Poppins (Body)
+- Cards: `rounded-3xl` mit je einer eckigen Ecke (abwechselnd)
+- Favicon: Gedankenblase SVG, wechselt bei Tab-Wechsel zu schlafer Version
+
+## Notes
+
+- Leonina ist Anfängerin — Erklärungen auf Deutsch, anfänger-freundlich
+- Bilder liegen in `public/assets/`, Asset-Meta in `public/assets/.meta/`
+- CP Login: leonina.rieder@gmail.com

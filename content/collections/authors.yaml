@@ -1,0 +1,6 @@
+title: Authors
+template: authors/show
+revisions: false
+route: '/authors/{slug}'
+blueprints:
+  - author

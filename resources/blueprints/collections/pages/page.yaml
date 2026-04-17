@@ -17,6 +17,46 @@ tabs:
             field:
               type: template
               display: Template
+          -
+            handle: intro
+            field:
+              type: textarea
+              display: 'Intro Text'
+              instructions: 'Kurze Beschreibung unter dem Titel'
+          -
+            handle: bio
+            field:
+              type: replicator
+              display: 'Bio Abschnitte'
+              sets:
+                paragraph:
+                  display: Absatz
+                  fields:
+                    -
+                      handle: text
+                      field:
+                        type: textarea
+                        display: Text
+          -
+            handle: links
+            field:
+              type: replicator
+              display: Verlinkungen
+              sets:
+                link:
+                  display: Link
+                  fields:
+                    -
+                      handle: label
+                      field:
+                        type: text
+                        display: Bezeichnung
+                        instructions: 'z.B. Instagram, Portfolio, Email'
+                    -
+                      handle: url
+                      field:
+                        type: text
+                        display: URL
   sidebar:
     display: Sidebar
     sections:

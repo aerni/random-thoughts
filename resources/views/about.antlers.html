@@ -1,0 +1,43 @@
+<section>
+    <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+        <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">About</h1>
+        {{ if intro }}
+            <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ intro }}</p>
+        {{ /if }}
+    </div>
+</section>
+
+<section>
+    <div class="max-w-4xl px-6 mx-auto md:px-16">
+        {{ if bio }}
+            <div class="flex flex-col gap-6 font-sans text-base leading-7 md:text-lg md:leading-8 mb-16">
+                {{ bio }}
+                    {{ if type == "paragraph" }}
+                        <p>{{ text }}</p>
+                    {{ /if }}
+                {{ /bio }}
+            </div>
+        {{ /if }}
+
+        <h2 class="mb-8 font-sans text-3xl font-semibold md:text-4xl">Die Autor:innen</h2>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {{ collection:authors sort="title:asc" }}
+                <a href="{{ url }}" class="flex items-center gap-5 p-6 bg-white rounded-3xl rounded-tl-none shadow-lg transition ease-out hover:-translate-y-1 hover:shadow-xl">
+                    {{ if avatar }}
+                        <img src="{{ avatar }}" alt="{{ title }}" class="w-16 h-16 rounded-full object-cover shrink-0">
+                    {{ else }}
+                        <div class="flex items-center justify-center w-16 h-16 text-xl font-bold text-white rounded-full bg-hot-pink shrink-0 font-display">
+                            {{ title | upper | truncate:2:'' }}
+                        </div>
+                    {{ /if }}
+                    <div>
+                        <p class="font-sans font-semibold text-lg">{{ title }}</p>
+                        {{ if bio }}
+                            <p class="font-sans text-sm text-black/50 mt-1">{{ bio | truncate:60:'…' }}</p>
+                        {{ /if }}
+                    </div>
+                </a>
+            {{ /collection:authors }}
+        </div>
+    </div>
+</section>

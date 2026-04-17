@@ -1,0 +1,7 @@
+title: Posts
+template: post
+revisions: false
+date: true
+route: '/posts/{slug}'
+taxonomies:
+  - tags

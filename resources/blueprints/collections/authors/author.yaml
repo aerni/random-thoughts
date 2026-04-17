@@ -1,0 +1,43 @@
+title: Author
+tabs:
+  main:
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Name
+              required: true
+          -
+            handle: bio
+            field:
+              type: textarea
+              display: Bio
+          -
+            handle: avatar
+            field:
+              type: assets
+              display: Foto
+              container: assets
+              max_files: 1
+          -
+            handle: links
+            field:
+              type: replicator
+              display: Links
+              sets:
+                link:
+                  display: Link
+                  fields:
+                    -
+                      handle: label
+                      field:
+                        type: text
+                        display: Bezeichnung
+                    -
+                      handle: url
+                      field:
+                        type: text
+                        display: URL

@@ -1,0 +1,78 @@
+title: Post
+tabs:
+  main:
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: Titel
+          -
+            handle: author
+            field:
+              type: entries
+              display: Autor
+              collections:
+                - authors
+              max_items: 1
+              mode: select
+          -
+            handle: teaser_image
+            field:
+              type: assets
+              display: Teaserbild
+              container: assets
+              max_files: 1
+              required: true
+          -
+            handle: intro
+            field:
+              type: textarea
+              display: Einleitung
+              required: true
+          -
+            handle: content
+            field:
+              type: replicator
+              display: Inhalt
+              sets:
+                section:
+                  display: Abschnitt
+                  fields:
+                    -
+                      handle: heading
+                      field:
+                        type: text
+                        display: Überschrift
+                    -
+                      handle: text
+                      field:
+                        type: textarea
+                        display: Text
+          -
+            handle: tags
+            field:
+              type: terms
+              display: Tags
+              taxonomies:
+                - tags
+              mode: select
+  sidebar:
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
