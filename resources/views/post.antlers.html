@@ -1,6 +1,6 @@
 <header>
     <nav>
-        <div class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
+        <div class="flex items-start justify-between px-6 py-6 font-display italic font-medium text-base md:text-xl md:px-16">
             <p>Random Thoughts</p>
             <div class="flex items-center gap-4 md:gap-8">
                 <a href="/">Blog</a>
@@ -14,19 +14,21 @@
     <article class="contents">
         <section>
             <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-                <h1 class="text-5xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+                <h1 class="text-5xl leading-none tracking-tight font-bold font-display md:text-8xl">{{ title }}</h1>
                 <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ intro }}</p>
-                {{ author }}
-                <div class="flex items-center justify-center gap-2">
-                    {{ if avatar }}
-                        <img src="{{ avatar }}" alt="{{ name }}" class="w-8 h-8 rounded-full object-cover">
-                    {{ else }}
-                        <div class="flex items-center justify-center w-8 h-8 rounded-full bg-hot-pink text-white text-xs font-semibold font-sans">{{ initials }}</div>
-                    {{ /if }}
-                    <p class="font-sans text-sm md:text-base">{{ name }}</p>
+                <div class="flex flex-col items-center gap-2 md:flex-row md:gap-4">
+                    {{ author }}
+                    <div class="flex items-center gap-2">
+                        {{ if avatar }}
+                            <img src="{{ avatar }}" alt="{{ name }}" class="w-5 h-5 rounded-full object-cover">
+                        {{ else }}
+                            <div class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-600 text-zinc-300 text-xs font-semibold font-sans">{{ initials }}</div>
+                        {{ /if }}
+                        <p class="font-sans text-xs">{{ name }}</p>
+                    </div>
+                    {{ /author }}
+                    {{ if date }}<p class="font-sans text-xs">{{ date format="j. F Y" }}</p>{{ /if }}
                 </div>
-                {{ /author }}
-                {{ if date }}<p class="font-sans text-sm md:text-base">{{ date format="j. F Y" }}</p>{{ /if }}
             </div>
         </section>
 
@@ -41,7 +43,7 @@
                 {{ /if }}
 
                 {{ if content }}
-                <div class="max-w-4xl px-6 mx-auto md:px-16 font-sans prose prose-headings:font-semibold prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 md:prose-h2:text-4xl md:prose-h2:mt-14 md:prose-h2:mb-6 prose-p:text-base prose-p:leading-7 md:prose-p:text-lg md:prose-p:leading-8 prose-a:text-hot-pink hover:prose-a:underline">
+                <div class="max-w-4xl px-6 mx-auto md:px-16 font-sans prose prose-invert prose-p:text-orange-100 prose-p:font-light prose-headings:text-orange-100 prose-headings:font-semibold prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 md:prose-h2:text-4xl md:prose-h2:mt-14 md:prose-h2:mb-6 prose-p:text-base prose-p:leading-7 md:prose-p:text-lg md:prose-p:leading-8 prose-a:text-hot-pink hover:prose-a:underline">
                     {{ content }}
                 </div>
                 {{ /if }}

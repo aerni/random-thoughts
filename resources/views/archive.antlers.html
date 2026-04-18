@@ -1,6 +1,6 @@
 <header>
     <nav>
-        <div class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
+        <div class="flex items-start justify-between px-6 py-6 font-display italic font-medium text-base md:text-xl md:px-16">
             <p>Random Thoughts</p>
             <div class="flex items-center gap-4 md:gap-8">
                 <a href="/">Blog</a>
@@ -13,12 +13,12 @@
 <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
     <section>
         <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-            <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">Archive</h1>
+            <h1 class="text-6xl leading-none tracking-tight font-bold font-display md:text-8xl">Archive</h1>
             <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">All posts from the past.</p>
         </div>
     </section>
 
-    {{ collection:posts sort="last_modified:desc" offset="5" paginate="12" as="posts" }}
+    {{ collection:posts sort="date:desc" offset="5" paginate="12" as="posts" }}
 
     <section>
         <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
