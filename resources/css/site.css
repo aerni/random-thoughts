@@ -3,6 +3,21 @@
 @source "../views";
 @source "../../content";
 
+.article-content {
+    & > p:first-of-type {
+        @apply font-sans text-xl leading-8 md:text-2xl md:leading-10;
+    }
+    & > h2 {
+        @apply mt-10 mb-4 font-sans text-3xl font-semibold md:mt-14 md:mb-6 md:text-4xl;
+    }
+    & > p {
+        @apply mb-6 font-sans text-base leading-7 md:text-lg md:leading-8 last:mb-0;
+    }
+    & a {
+        @apply text-hot-pink hover:underline;
+    }
+}
+
 @theme {
     --color-black: #12151E;
     --color-linen: #FFFBF6;
