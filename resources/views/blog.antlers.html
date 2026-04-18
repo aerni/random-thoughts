@@ -1,286 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Random Thoughts – Blog</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --cream: #F5F0E8;
-      --ink: #1a1a1a;
-      --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
+<!doctype html>
+<html lang="{{ site:short_locale }}">
 
-    body {
-      background-color: var(--cream);
-      font-family: 'Poppins', sans-serif;
-      color: var(--ink);
-    }
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title ?? site:name }}</title>
+        {{ vite src="resources/js/site.js|resources/css/site.css" }}
+        <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Poppins:ital,wght@0,400;0,600;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
 
-    .font-main-display {
-      font-family: 'Poppins', sans-serif;
-    }
+    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black bg-linen">
 
-    /* Navbar */
-    nav {
-      background-color: var(--cream);
-    }
+        <header>
+            <nav>
+                <div class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
+                    <p>Random Thoughts</p>
+                    <div class="flex items-center gap-4 md:gap-8">
+                        <a href="/">Blog</a>
+                        <a href="/about">About</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
-    /* Blog title */
-    .blog-title {
-      font-family: 'Anton', sans-serif;
-      font-weight: 400;
-      font-size: 4.5rem;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      line-height: 1;
-    }
+        <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
+            <section>
+                <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+                    <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">Blog</h1>
+                    <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">This is description of the type of content you would expect to read here on this blog.</p>
+                </div>
+            </section>
 
-    /* Card hover */
-    .post-card {
-      background: #ffffff;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-    }
+            <section>
+                <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
+                    <article class="md:col-span-2">
+                        <a href="#" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
+                            <img src="/assets/octopus.jpg" alt="" class="object-cover w-full h-72 bg-hot-pink">
+                            <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
+                                <h2 class="font-sans text-xl font-semibold md:text-2xl">There's something secret and dangerous lurking in your pocket</h2>
+                                <p class="font-sans text-xs">15. April 2025</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
+                            <img src="/assets/donut.jpg" alt="" class="object-cover w-full h-72 bg-hot-pink">
+                            <div class="flex flex-col gap-4 p-6 md:gap-5 md:p-8">
+                                <h2 class="font-sans text-xl font-semibold md:text-2xl">Everything is better when donuts are involved</h2>
+                                <p class="font-sans text-xs">15. April 2025</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
+                            <img src="/assets/pizza-wifi.jpg" alt="" class="object-cover w-full h-72 bg-hot-pink">
+                            <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
+                                <h2 class="font-sans text-xl font-semibold md:text-2xl">Would you rather give up pizza or wifi?</h2>
+                                <p class="font-sans text-xs">15. April 2025</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
+                            <img src="/assets/blinking-carot.gif" alt="" class="object-cover w-full h-72 bg-hot-pink">
+                            <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
+                                <h2 class="font-sans text-xl font-semibold md:text-2xl">Beginnings are the best &amp; the worst</h2>
+                                <p class="font-sans text-xs">15. April 2025</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article>
+                        <a href="#" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
+                            <img src="/assets/idea.jpg" alt="" class="object-cover w-full h-72 bg-hot-pink">
+                            <div class="flex flex-col gap-4 p-6 md:gap-5 md:p-8">
+                                <h2 class="font-sans text-xl font-semibold md:text-2xl">I had a really good idea but got sidetracked and forgot it.</h2>
+                                <p class="font-sans text-xs">15. April 2025</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </section>
+        </main>
 
-    .post-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.13);
-    }
+        <footer>
+            <div class="flex items-start justify-center px-6 py-10 font-sans text-sm md:px-16">
+                <p>&copy; 2026 Random Thoughts</p>
+            </div>
+        </footer>
 
-    /* Card image containers */
-    .card-img {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+    </body>
 
-    .card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Nav link hover */
-    .nav-link {
-      position: relative;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--ink);
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1.5px;
-      background: var(--ink);
-      transition: width 0.2s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* Date text */
-    .post-date {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      font-size: 0.7rem;
-      color: #888;
-      letter-spacing: 0.02em;
-    }
-
-    /* Post title */
-    .post-title {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      line-height: 1.4;
-      color: var(--ink);
-    }
-
-    .post-title-lg {
-      font-size: 1.15rem;
-    }
-
-    /* Footer */
-    footer {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 500;
-      font-size: 0.75rem;
-      color: #888;
-    }
-
-    /* Staggered fade-in animation */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-up {
-      opacity: 0;
-      animation: fadeUp 0.55s ease forwards;
-    }
-
-    .delay-1 { animation-delay: 0.05s; }
-    .delay-2 { animation-delay: 0.12s; }
-    .delay-3 { animation-delay: 0.20s; }
-    .delay-4 { animation-delay: 0.28s; }
-    .delay-5 { animation-delay: 0.36s; }
-    .delay-6 { animation-delay: 0.44s; }
-  </style>
-</head>
-<body class="min-h-screen flex flex-col">
-
-  <nav class="px-8 py-5 flex items-center justify-between border-b border-black/5">
-    <a href="#" class="nav-link font-main-display font-bold text-base tracking-wide">Random Thoughts</a>
-    <div class="flex items-center gap-8">
-      <a href="/post" class="nav-link">Blog</a>
-      <a href="/about" class="nav-link">About</a>
-    </div>
-  </nav>
-
-  <main class="flex-1 max-w-3xl mx-auto w-full px-4 pt-14 pb-20">
-
-    <div class="text-center mb-14 fade-up delay-1">
-      <h1 class="blog-title mb-5">Blog</h1>
-      <p class="text-base text-gray-500 leading-relaxed max-w-sm mx-auto font-medium">
-        This is description of the type of content you would expect to read here on this blog.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-
-      <a href="post.antlers.html" class="post-card fade-up delay-2 block">
-        <div class="card-img" style="height:210px; background: linear-gradient(135deg,#00b8d4 0%, #00e5ff 100%);">
-          <svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-            <rect x="95" y="110" width="72" height="58" rx="8" fill="#fff" opacity="0.92"/>
-            <rect x="99" y="115" width="64" height="44" rx="5" fill="#222"/>
-            <rect x="116" y="164" width="30" height="3" rx="2" fill="#ccc"/>
-            <path d="M131 112 Q120 88 108 72 Q100 60 112 52 Q124 44 125 70 Q126 88 131 112Z" fill="#e05a5a" opacity="0.9"/>
-            <path d="M131 110 Q118 86 122 65 Q125 50 138 50 Q148 52 141 70 Q136 86 131 110Z" fill="#e8826e" opacity="0.9"/>
-            <path d="M131 110 Q138 82 150 66 Q158 54 168 60 Q176 68 162 78 Q150 86 131 110Z" fill="#e05a5a" opacity="0.9"/>
-            <path d="M131 110 Q148 84 158 78 Q168 72 172 82 Q176 92 162 96 Q148 98 131 110Z" fill="#e8826e" opacity="0.9"/>
-            <path d="M131 112 Q108 96 98 102 Q88 108 92 118 Q96 126 108 118 Q120 110 131 112Z" fill="#e05a5a" opacity="0.9"/>
-            <circle cx="111" cy="66" r="3" fill="#c0392b" opacity="0.7"/>
-            <circle cx="123" cy="58" r="3" fill="#c0392b" opacity="0.7"/>
-            <circle cx="138" cy="56" r="3" fill="#c0392b" opacity="0.7"/>
-            <circle cx="155" cy="63" r="3" fill="#c0392b" opacity="0.7"/>
-            <circle cx="163" cy="78" r="3" fill="#c0392b" opacity="0.7"/>
-            <circle cx="164" cy="92" r="3" fill="#c0392b" opacity="0.7"/>
-          </svg>
-        </div>
-        <div class="p-5">
-          <p class="post-title post-title-lg mb-3">There's something secret and dangerous lurking in your pocket</p>
-          <p class="post-date">15. April 2025</p>
-        </div>
-      </a>
-
-      <a href="post.antlers.html" class="post-card fade-up delay-3 block">
-        <div class="card-img" style="height:210px; background: linear-gradient(135deg,#c850c0 0%, #f857a6 50%, #ff5f6d 100%);">
-          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-            <ellipse cx="100" cy="75" rx="48" ry="15" fill="#f4a261" opacity="0.25"/>
-            <ellipse cx="100" cy="68" rx="52" ry="26" fill="#f4a261"/>
-            <ellipse cx="100" cy="66" rx="52" ry="26" fill="#e8834a"/>
-            <ellipse cx="100" cy="66" rx="52" ry="26" fill="none" stroke="#fce4ec" stroke-width="14"/>
-            <ellipse cx="100" cy="66" rx="52" ry="26" fill="none" stroke="#f8bbd0" stroke-width="13" stroke-dasharray="8 6" stroke-dashoffset="3"/>
-            <ellipse cx="100" cy="66" rx="20" ry="10" fill="#c850c0"/>
-            <rect x="80" y="48" width="7" height="2.5" rx="1.5" fill="#80deea" transform="rotate(-20 80 48)"/>
-            <rect x="108" y="52" width="7" height="2.5" rx="1.5" fill="#fff9c4" transform="rotate(15 108 52)"/>
-            <rect x="122" y="62" width="7" height="2.5" rx="1.5" fill="#f48fb1" transform="rotate(-10 122 62)"/>
-            <rect x="76" y="68" width="7" height="2.5" rx="1.5" fill="#b39ddb" transform="rotate(25 76 68)"/>
-            <rect x="100" y="44" width="7" height="2.5" rx="1.5" fill="#a5d6a7" transform="rotate(5 100 44)"/>
-            <circle cx="91" cy="68" r="4" fill="#fff"/>
-            <circle cx="109" cy="68" r="4" fill="#fff"/>
-            <circle cx="92" cy="68" r="2" fill="#333"/>
-            <circle cx="110" cy="68" r="2" fill="#333"/>
-            <ellipse cx="100" cy="100" rx="42" ry="8" fill="#000" opacity="0.12"/>
-          </svg>
-        </div>
-        <div class="p-5">
-          <p class="post-title post-title-lg mb-3">Everything is better when donuts are involved</p>
-          <p class="post-date">15. April 2025</p>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-
-      <a href="post.antlers.html" class="post-card fade-up delay-3 block">
-        <div class="card-img" style="height:140px; background: #fef3c7;">
-          <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-            <path d="M80 30 Q110 10 140 30" stroke="#e07b39" stroke-width="10" fill="none" stroke-linecap="round"/>
-            <path d="M80 52 Q110 36 130 52" stroke="#e07b39" stroke-width="10" fill="none" stroke-linecap="round"/>
-            <path d="M80 72 Q104 60 118 72" stroke="#e07b39" stroke-width="10" fill="none" stroke-linecap="round"/>
-            <circle cx="80" cy="88" r="7" fill="#c0392b"/>
-            <circle cx="90" cy="27" r="3" fill="#fbbf24" opacity="0.8"/>
-            <circle cx="113" cy="44" r="2.5" fill="#fbbf24" opacity="0.8"/>
-            <circle cx="99" cy="68" r="2" fill="#fbbf24" opacity="0.8"/>
-          </svg>
-        </div>
-        <div class="p-4">
-          <p class="post-title mb-3">Would you rather give up pizza or wifi?</p>
-          <p class="post-date">15. April 2025</p>
-        </div>
-      </a>
-
-      <a href="post.antlers.html" class="post-card fade-up delay-4 block">
-        <div class="card-img" style="height:140px; background: #111;">
-          <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-            <rect x="72" y="42" width="14" height="36" rx="2" fill="#e63946"/>
-            <rect x="72" y="42" width="14" height="36" rx="2" fill="#e63946" opacity="0.5">
-              <animate attributeName="opacity" values="0.5;0;0.5" dur="1.1s" repeatCount="indefinite"/>
-            </rect>
-          </svg>
-        </div>
-        <div class="p-4">
-          <p class="post-title mb-3">Beginnings are the best &amp; the worst</p>
-          <p class="post-date">15. April 2025</p>
-        </div>
-      </a>
-
-      <a href="post.antlers.html" class="post-card fade-up delay-5 block">
-        <div class="card-img" style="height:140px; background: #b0b8c4;">
-          <svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-            <ellipse cx="68" cy="85" rx="22" ry="14" fill="#f5e6c8"/>
-            <ellipse cx="100" cy="82" rx="20" ry="13" fill="#f5e6c8"/>
-            <circle cx="83" cy="72" r="16" fill="#fbbf24"/>
-            <circle cx="83" cy="72" r="11" fill="#f59e0b"/>
-            <circle cx="78" cy="70" r="2" fill="#333"/>
-            <circle cx="88" cy="70" r="2" fill="#333"/>
-            <path d="M78 77 Q83 81 88 77" stroke="#333" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <line x1="83" y1="52" x2="83" y2="46" stroke="#fde68a" stroke-width="2" stroke-linecap="round"/>
-            <line x1="94" y1="56" x2="98" y2="52" stroke="#fde68a" stroke-width="2" stroke-linecap="round"/>
-            <line x1="72" y1="56" x2="68" y2="52" stroke="#fde68a" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="p-4">
-          <p class="post-title mb-3">I had a really good idea but got sidetracked and forgot it.</p>
-          <p class="post-date">15. April 2025</p>
-        </div>
-      </a>
-
-    </div>
-  </main>
-
-  <footer class="text-center py-6 border-t border-black/5">
-    <span>© 2028 Random Thoughts</span>
-  </footer>
-
-</body>
 </html>

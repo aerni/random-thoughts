@@ -1,0 +1,19 @@
+title: Articles
+icon: collections
+template: post
+layout: layout
+revisions: false
+route: '/story/{slug}'
+date: true
+sort_dir: asc
+default_status: draft
+date_behavior:
+  past: public
+  future: private
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true
+structure:
+  root: false
