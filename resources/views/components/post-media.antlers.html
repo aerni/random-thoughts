@@ -1,0 +1,5 @@
+{{ if teaser_video }}
+    <video src="{{ teaser_video }}" autoplay loop muted playsinline class="{{ media_class }}"></video>
+{{ else }}
+    <img src="{{ teaser_image }}" alt="{{ title }}" class="{{ media_class }}">
+{{ /if }}

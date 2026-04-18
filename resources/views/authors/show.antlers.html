@@ -27,31 +27,8 @@
 
 <section>
     <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
-        {{ collection:posts :author:entries="id" sort="date:desc" }}
-            {{ if first }}
-                <article class="md:col-span-2">
-            {{ else }}
-                <article>
-            {{ /if }}
-                <a href="{{ url }}" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-3xl hover:-translate-y-1 hover:shadow-xl
-                    {{ if loop_index == 1 }}rounded-tl-none
-                    {{ elseif loop_index == 2 }}rounded-br-none
-                    {{ elseif loop_index == 3 }}rounded-tr-none
-                    {{ elseif loop_index == 4 }}rounded-bl-none
-                    {{ else }}rounded-br-none
-                    {{ /if }}">
-                    <img src="{{ teaser_image }}" alt="{{ title }}" class="object-cover w-full h-72">
-                    <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
-                        <h2 class="font-sans text-xl font-semibold md:text-2xl">{{ title }}</h2>
-                        {{ if tags }}
-                            <div class="flex flex-wrap gap-1.5">
-                                {{ tags }}<span class="px-2.5 py-1 font-sans text-xs font-semibold rounded-full bg-linen text-black/60">{{ title }}</span>{{ /tags }}
-                            </div>
-                        {{ /if }}
-                        <p class="font-sans text-xs">{{ date format="j. F Y" }}</p>
-                    </div>
-                </a>
-            </article>
+        {{ collection:posts :author:contains="id" sort="date:desc" }}
+            {{ partial:components/post-card }}
         {{ /collection:posts }}
     </div>
 </section>

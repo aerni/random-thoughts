@@ -1,59 +1,14 @@
-<section>
-    <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-        <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">Blog</h1>
-        <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">This is description of the type of content you would expect to read here on this blog.</p>
-
-        {{ taxonomy:tags }}
-            {{ if first }}<div class="flex flex-wrap items-center justify-center gap-2">{{ /if }}
-                <a href="{{ url }}" class="px-4 py-1.5 font-sans text-sm font-semibold rounded-full bg-white shadow hover:bg-hot-pink hover:text-white transition ease-out">{{ title }}</a>
-            {{ if last }}</div>{{ /if }}
-        {{ /taxonomy:tags }}
-    </div>
-</section>
+{{ partial:components/hero
+    title="Blog"
+    description="This is description of the type of content you would expect to read here on this blog."
+}}
 
 <section>
     <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
 
         {{ collection:posts sort="date:desc" limit="9" paginate="true" as="posts" }}
             {{ posts }}
-                {{ if first }}
-                    <article class="md:col-span-2">
-                {{ else }}
-                    <article>
-                {{ /if }}
-                    <a href="{{ url }}" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-3xl hover:-translate-y-1 hover:shadow-xl
-                        {{ if loop_index == 1 }}rounded-tl-none
-                        {{ elseif loop_index == 2 }}rounded-br-none
-                        {{ elseif loop_index == 3 }}rounded-tr-none
-                        {{ elseif loop_index == 4 }}rounded-bl-none
-                        {{ else }}rounded-br-none
-                        {{ /if }}">
-                        <img src="{{ teaser_image }}" alt="{{ title }}" class="object-cover w-full h-72">
-                        <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
-                            <h2 class="font-sans text-xl font-semibold md:text-2xl">{{ title }}</h2>
-                            {{ if tags }}
-                                <div class="flex flex-wrap gap-1.5">
-                                    {{ tags }}
-                                        <span class="px-2.5 py-1 font-sans text-xs font-semibold rounded-full bg-linen text-black/60">{{ title }}</span>
-                                    {{ /tags }}
-                                </div>
-                            {{ /if }}
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    {{ author }}
-                                        <div href="{{ url }}" class="flex items-center gap-2 hover:opacity-70 transition">
-                                            {{ if avatar }}<img src="{{ avatar }}" alt="{{ title }}" class="w-8 h-8 rounded-full object-cover shrink-0">
-                                            {{ else }}<div class="flex items-center justify-center w-8 h-8 text-xs font-semibold text-white rounded-full bg-hot-pink shrink-0">{{ title | upper | substr:0:2 }}</div>
-                                            {{ /if }}
-                                            <span class="font-sans text-xs font-medium">{{ title }}</span>
-                                        </div>
-                                    {{ /author }}
-                                </div>
-                                <p class="font-sans text-xs">{{ date format="j. F Y" }}</p>
-                            </div>
-                        </div>
-                    </a>
-                </article>
+                {{ partial:components/post-card }}
             {{ /posts }}
 
             {{ paginate }}

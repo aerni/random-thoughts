@@ -1,0 +1,11 @@
+<section>
+    <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+        <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+        <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ description }}</p>
+        {{ taxonomy:tags }}
+            {{ if first }}<div class="flex flex-wrap items-center justify-center gap-2">{{ /if }}
+                <a href="{{ url }}" class="px-4 py-1.5 font-sans text-sm font-semibold rounded-full bg-white shadow hover:bg-hot-pink hover:text-white transition ease-out">{{ title }}</a>
+            {{ if last }}</div>{{ /if }}
+        {{ /taxonomy:tags }}
+    </div>
+</section>
