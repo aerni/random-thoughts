@@ -50,4 +50,4 @@ Logge dich unter <http://random-thoughts.test/cp> mit dem Benutzernamen `coding@
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [Alpine.js](https://alpinejs.dev/start-here)
 
-[figma]: https://www.figma.com/design/7NNuiMDjQjnACjHFP1LJsv/Random-Thoughts?node-id=1-341&t=6d7O5A9Kfw0Vny62-1
+[figma]: https://www.figma.com/design/O5nrefeUlq0FcjrNEjFXeP/Random-Thoughts--Copy-?node-id=1-341&p=f&t=qe6qjwtxAbO6Ihq8-0

@@ -17,6 +17,31 @@ tabs:
             field:
               type: template
               display: Template
+          -
+            handle: hero_image
+            field:
+              type: assets
+              display: 'Hero Image'
+              container: assets
+              max_files: 1
+              mode: list
+          -
+            handle: intro
+            field:
+              type: textarea
+              display: 'Intro Text'
+          -
+            handle: content
+            field:
+              type: bard
+              display: Content
+              buttons:
+                - h2
+                - bold
+                - italic
+                - link
+                - unorderedlist
+                - orderedlist
   sidebar:
     display: Sidebar
     sections:

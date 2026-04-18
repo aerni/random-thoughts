@@ -1,1 +1,47 @@
-{{ title }}
+<header>
+    <nav>
+        <div class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
+            <p>Random Thoughts</p>
+            <div class="flex items-center gap-4 md:gap-8">
+                <a href="/">Blog</a>
+                <a href="/about">About</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
+    <article class="contents">
+        <section>
+            <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+                <h1 class="text-5xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+                <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ intro }}</p>
+                <p class="font-sans text-sm md:text-base">{{ date iso_format="dddd, DD MMMM " }}</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+                {{ if hero_image }}
+                <div class="px-6 mx-auto max-w-7xl md:px-16">
+                    {{ hero_image }}
+                    <img src="{{ url }}" alt="{{ alt }}" class="object-cover w-full aspect-2/1 rounded-xl bg-hot-pink">
+                    {{ /hero_image }}
+                </div>
+                {{ /if }}
+
+                {{ if content }}
+                <div class="max-w-4xl px-6 mx-auto md:px-16 font-sans prose prose-headings:font-semibold prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 md:prose-h2:text-4xl md:prose-h2:mt-14 md:prose-h2:mb-6 prose-p:text-base prose-p:leading-7 md:prose-p:text-lg md:prose-p:leading-8 prose-a:text-hot-pink hover:prose-a:underline">
+                    {{ content }}
+                </div>
+                {{ /if }}
+            </div>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <div class="flex items-start justify-center px-6 py-10 font-sans text-sm md:px-16">
+        <p>&copy; 2026 Random Thoughts</p>
+    </div>
+</footer>

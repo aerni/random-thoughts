@@ -13,28 +13,47 @@
 <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
     <section>
         <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-            <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">Blog</h1>
-            <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">This is description of the type of content you would expect to read here on this blog.</p>
+            <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">Archive</h1>
+            <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">All posts from the past.</p>
         </div>
     </section>
 
-    {{ collection:pages template:is="post" sort="last_modified:desc" paginate="5" as="posts" }}
+    {{ collection:pages template:is="post" sort="last_modified:desc" offset="5" paginate="12" as="posts" }}
 
     <section>
         <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
             {{ posts }}
-            <article{{ if first }} class="md:col-span-2"{{ /if }}>
+            <article>
                 {{ partial:card }}
             </article>
             {{ /posts }}
         </div>
     </section>
 
+    {{ paginate }}
+    {{ if prev_page_url or next_page_url }}
+    <section>
+        <div class="flex items-center justify-between px-6 mx-auto md:px-16 max-w-8xl">
+            <div>
+                {{ if prev_page_url }}
+                <a href="{{ prev_page_url }}" class="font-sans font-semibold text-sm hover:underline">← Newer</a>
+                {{ /if }}
+            </div>
+            <div>
+                {{ if next_page_url }}
+                <a href="{{ next_page_url }}" class="font-sans font-semibold text-sm hover:underline">Older →</a>
+                {{ /if }}
+            </div>
+        </div>
+    </section>
+    {{ /if }}
+    {{ /paginate }}
+
     {{ /collection:pages }}
 
     <section>
         <div class="flex justify-center px-6 md:px-16">
-            <a href="/archive" class="font-sans font-semibold text-sm hover:underline">Older posts →</a>
+            <a href="/" class="font-sans font-semibold text-sm hover:underline">← Back to latest posts</a>
         </div>
     </section>
 </main>
