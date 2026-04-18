@@ -3,6 +3,8 @@
 @source "../views";
 @source "../../content";
 
+* { cursor: none; }
+
 @theme {
     --color-black: #12151E;
     --color-linen: #FFFBF6;
