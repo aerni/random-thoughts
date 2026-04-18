@@ -1,0 +1,6 @@
+title: Article
+route: 'article/{slug}'
+revisions: false
+date_behavior:
+  past: public
+  future: private
