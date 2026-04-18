@@ -1,14 +1,14 @@
 <section>
     <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
         <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">food for thought</h1>
-        <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">This is description of the type of content you would expect to read here on this blog.</p>
+        <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">This is where mildly questionable thoughts, unnecessary debates, and strangely convincing arguments live—none of them essential, all of them oddly satisfying. It won’t solve your problems, but it might make them feel slightly less serious. Donuts help.</p>
     </div>
 </section>
 
 <section>
-    <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-3">
+    <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2">
         {{ collection:artikel sort="date:asc" }}
-        <article class="{{ if first }}md:col-span-2 {{ /if }}">
+        <article>
             <a href="{{ url }}" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
                 {{ image }}
                 <img src="{{ url }}" alt="{{ title }}" class="object-cover w-full h-72">
