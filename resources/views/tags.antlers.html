@@ -14,30 +14,34 @@
 <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
     <section>
         <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-            <h1 class="text-6xl leading-none tracking-tight font-bold font-display md:text-8xl">Blog</h1>
-            <p class="font-sans font-light text-xl leading-8 md:text-2xl md:leading-10">A small collection of writing<br/> about the things worth looking at slowly.</p>
+            {{ if get:tag }}
+                {{ taxonomy:tags }}{{ if slug == {get:tag} }}<h1 class="text-6xl leading-none tracking-tight font-bold font-display md:text-8xl">{{ title }}</h1>{{ /if }}{{ /taxonomy:tags }}
+                <a href="/tags" class="font-sans text-xs hover:underline">← All tags</a>
+            {{ else }}
+                <h1 class="text-6xl leading-none tracking-tight font-bold font-display md:text-8xl">Tags</h1>
+            {{ /if }}
         </div>
     </section>
 
-    {{ collection:posts sort="date:desc" paginate="5" as="posts" }}
-
+    {{ if get:tag }}
     <section>
         <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
-            {{ posts }}
-            <article{{ if first }} class="md:col-span-2"{{ /if }}>
+            {{ collection:posts :taxonomy:tags="get:tag" sort="date:desc" }}
+            <article>
                 {{ partial:card }}
             </article>
-            {{ /posts }}
+            {{ /collection:posts }}
         </div>
     </section>
-
-    {{ /collection:posts }}
-
+    {{ else }}
     <section>
-        <div class="flex justify-center px-6 md:px-16">
-            <a href="/archive" class="font-sans font-semibold text-sm hover:underline">Older posts →</a>
+        <div class="flex flex-wrap justify-center gap-3 px-6 mx-auto max-w-4xl md:px-16">
+            {{ taxonomy:tags }}
+            <a href="/tags?tag={{ slug }}" class="font-sans text-sm px-4 py-2 rounded-full border border-orange-100/30 hover:border-orange-100/60 transition ease-out">{{ title }}</a>
+            {{ /taxonomy:tags }}
         </div>
     </section>
+    {{ /if }}
 </main>
 
 <footer>

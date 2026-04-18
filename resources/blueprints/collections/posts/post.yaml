@@ -37,6 +37,14 @@ tabs:
             field:
               type: bard
               display: Content
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
   sidebar:
     display: Sidebar
     sections:

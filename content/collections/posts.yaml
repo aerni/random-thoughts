@@ -1,9 +1,11 @@
 title: Posts
 icon: text-formatting-image-top
-route: /posts/{slug}
 template: post
 layout: layout
+taxonomies:
+  - tags
 revisions: false
+route: '/posts/{slug}'
 date: true
 sort_dir: asc
 date_behavior:

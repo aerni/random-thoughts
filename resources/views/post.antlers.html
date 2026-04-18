@@ -4,6 +4,7 @@
             <p>Random Thoughts</p>
             <div class="flex items-center gap-4 md:gap-8">
                 <a href="/">Blog</a>
+                <a href="/tags">Tags</a>
                 <a href="/about">About</a>
             </div>
         </div>
@@ -14,6 +15,13 @@
     <article class="contents">
         <section>
             <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+                {{ if tags }}
+                <div class="flex flex-wrap justify-center gap-2">
+                    {{ tags scope="tag" }}
+                    <a href="/tags?tag={{ tag:slug }}" class="font-sans text-xs px-3 py-1 rounded-full border border-orange-100/30 hover:border-orange-100/60 transition ease-out">{{ tag:title }}</a>
+                    {{ /tags }}
+                </div>
+                {{ /if }}
                 <h1 class="text-5xl leading-none tracking-tight font-bold font-display md:text-8xl">{{ title }}</h1>
                 <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ intro }}</p>
                 <div class="flex flex-col items-center gap-2 md:flex-row md:gap-4">
@@ -22,7 +30,7 @@
                         {{ if avatar }}
                             <img src="{{ avatar }}" alt="{{ name }}" class="w-5 h-5 rounded-full object-cover">
                         {{ else }}
-                            <div class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-600 text-zinc-300 text-xs font-semibold font-sans">{{ initials }}</div>
+                            <div class="flex items-center justify-center w-5 h-5 rounded-full border border-orange-100/30 bg-zinc-600 text-zinc-300 text-xs font-semibold font-sans">{{ initials }}</div>
                         {{ /if }}
                         <p class="font-sans text-xs">{{ name }}</p>
                     </div>
