@@ -24,6 +24,7 @@
 /* Versteckt den Standard-Mauszeiger — wir haben unseren eigenen (in site.js) */
 * { cursor: none; }
 
+
 @theme {
     /* FARBEN */
     --color-black: #12151E;          /* Fast-Schwarz für Text */

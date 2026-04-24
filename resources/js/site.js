@@ -77,6 +77,80 @@ if (window.location.pathname === '/') {
 }
 
 
+// H1-MALBUCH — nur auf Blog-Post-Seiten (/posts/...)
+// ---------------------------------------------------------------
+// Wenn die Maus über dem h1-Titel ist, kann man ihn mit kräftigem Pink bemalen.
+// Doppelklick → Leinwand leeren.
+
+if (window.location.pathname.startsWith('/posts/')) {
+
+    const h1 = document.querySelector('article h1');
+
+    if (h1) {
+        const canvas2 = document.createElement('canvas');
+        canvas2.style.cssText = `
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 10;
+            mix-blend-mode: screen;
+        `;
+        document.body.appendChild(canvas2);
+
+        const ctx2 = canvas2.getContext('2d');
+
+        function resizeCanvas2() {
+            canvas2.width = window.innerWidth;
+            canvas2.height = window.innerHeight;
+        }
+        resizeCanvas2();
+        window.addEventListener('resize', resizeCanvas2);
+
+        // Nur malen wenn Maus über dem h1 ist
+        let uberH1 = false;
+        h1.addEventListener('mouseenter', () => { uberH1 = true; });
+        h1.addEventListener('mouseleave', () => { uberH1 = false; });
+
+        let lX = 0, lY = 0, mX = 0, mY = 0, aktiv = false;
+
+        document.addEventListener('mousemove', (e) => {
+            if (!uberH1) { aktiv = false; return; }
+
+            if (!aktiv) {
+                lX = e.clientX; lY = e.clientY;
+                mX = e.clientX; mY = e.clientY;
+                aktiv = true;
+                return;
+            }
+
+            const neuMX = (lX + e.clientX) / 2;
+            const neuMY = (lY + e.clientY) / 2;
+
+            ctx2.beginPath();
+            ctx2.moveTo(mX, mY);
+            ctx2.quadraticCurveTo(lX, lY, neuMX, neuMY);
+            ctx2.strokeStyle = '#FD2D78';
+            ctx2.lineWidth = 28;
+            ctx2.lineCap = 'round';
+            ctx2.lineJoin = 'round';
+            ctx2.globalAlpha = 0.7;
+            ctx2.stroke();
+
+            mX = neuMX; mY = neuMY;
+            lX = e.clientX; lY = e.clientY;
+        });
+
+        // Beim Scrollen leeren — sonst verschiebt sich die Malerei auf anderen Inhalt
+        window.addEventListener('scroll', () => {
+            ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+        });
+
+        document.addEventListener('dblclick', () => {
+            ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+        });
+    }
+}
+
+
 // CUSTOM CURSOR — EIGENER MAUSZEIGER
 // ---------------------------------------------------------------
 // Wir ersetzen den normalen Mauszeiger durch zwei Elemente:
