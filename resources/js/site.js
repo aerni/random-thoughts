@@ -1,10 +1,80 @@
 // =============================================================
 // site.js — JAVASCRIPT FÜR DIE GANZE WEBSITE
 // =============================================================
-// Diese Datei wird auf jeder Seite geladen (via layout.antlers.html).
-// Hier sind zwei interaktive Features: Custom Cursor + Favicon-Wechsel.
+// Features: Custom Cursor + Hintergrund-Malbuch (nur Home) + Favicon-Wechsel
 // (Der Favicon-Wechsel ist direkt in layout.antlers.html, nicht hier.)
 // =============================================================
+
+
+// HINTERGRUND-MALBUCH — nur auf der Startseite (/)
+// ---------------------------------------------------------------
+// Canvas liegt hinter dem Inhalt. Mausbewegung → zarte pink Linie.
+// Doppelklick → Leinwand leeren.
+
+if (window.location.pathname === '/') {
+
+    const canvas = document.createElement('canvas');
+    canvas.style.cssText = `
+        position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%;
+        pointer-events: none; z-index: 0;
+        filter: blur(6px);
+    `;
+    document.body.prepend(canvas);
+
+    // main und footer müssen über dem Canvas liegen (header hat bereits z-50)
+    document.querySelector('main').style.cssText += 'position:relative;z-index:1;';
+    document.querySelector('footer').style.cssText += 'position:relative;z-index:1;';
+
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let letzteX = 0, letzteY = 0, mitteX = 0, mitteY = 0, zeichnen = false;
+
+    document.addEventListener('mousemove', (e) => {
+        if (!zeichnen) {
+            letzteX = e.clientX;
+            letzteY = e.clientY;
+            mitteX = e.clientX;
+            mitteY = e.clientY;
+            zeichnen = true;
+            return;
+        }
+
+        // Mittelpunkt zwischen letzter und aktueller Position berechnen
+        // → Bezier-Kurve durch Mittelpunkte = immer glatte, verbundene Linie
+        const neuMitteX = (letzteX + e.clientX) / 2;
+        const neuMitteY = (letzteY + e.clientY) / 2;
+
+        ctx.beginPath();
+        ctx.moveTo(mitteX, mitteY);
+        ctx.quadraticCurveTo(letzteX, letzteY, neuMitteX, neuMitteY);
+        ctx.strokeStyle = '#FD2D78';
+        ctx.lineWidth = 24;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.globalAlpha = 0.12;
+        ctx.stroke();
+
+        mitteX = neuMitteX;
+        mitteY = neuMitteY;
+        letzteX = e.clientX;
+        letzteY = e.clientY;
+    });
+
+    document.addEventListener('mouseleave', () => { zeichnen = false; });
+
+    // Doppelklick → Leinwand leeren
+    document.addEventListener('dblclick', () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+}
 
 
 // CUSTOM CURSOR — EIGENER MAUSZEIGER
