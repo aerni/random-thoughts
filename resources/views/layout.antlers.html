@@ -46,7 +46,8 @@
                     <div class="flex items-center gap-4 md:gap-8">
                         {{# nav:main holt die Navigationslinks aus Statamic CP > Navigation > main #}}
                         {{ nav:main }}
-                            <a href="{{ url }}">{{ title }}</a>
+                            {{# is_current = true wenn dieser Link zur aktuellen Seite gehört #}}
+                            <a href="{{ url }}" class="hover:text-hot-pink transition {{ if is_current }}text-hot-pink underline underline-offset-4{{ /if }}">{{ title }}</a>
                         {{ /nav:main }}
                     </div>
                 </div>
