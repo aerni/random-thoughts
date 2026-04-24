@@ -1,0 +1,22 @@
+<article class="contents">
+    {{ partial:components/article-hero
+        :title="title"
+        :date="date"
+    }}
+
+    <section>
+        <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+            {{ if assets_field }}
+            <div class="px-6 mx-auto max-w-7xl md:px-16">
+                {{ assets_field }}
+                <img src="{{ url }}" alt="{{ alt }}" class="object-cover w-full aspect-2/1 rounded-xl bg-hot-pink">
+                {{ /assets_field }}
+            </div>
+            {{ /if }}
+
+            <div class="max-w-4xl px-6 mx-auto md:px-16 prose prose-lg">
+                {{ content }}
+            </div>
+        </div>
+    </section>
+</article>
