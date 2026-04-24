@@ -21,12 +21,22 @@ tabs:
               validate:
                 - required
           -
+            handle: content
+            field:
+              type: markdown
+              display: Content
+          -
             handle: image
             field:
               container: assets
               max_files: 1
               type: assets
               display: Image
+          -
+            handle: video_field
+            field:
+              type: video
+              display: 'Video Field'
   sidebar:
     display: Sidebar
     sections:

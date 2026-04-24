@@ -1,182 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Everything is better when donuts are involved – Random Thoughts</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --cream: #F5F0E8;
-      --ink: #1a1a1a;
-    }
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{ title ?? site:name }}</title>
+        {{ vite src="resources/js/site.js|resources/css/site.css" }}
+        <link
+            href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Poppins:ital,wght@0,400;0,600;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
 
-    body {
-      background-color: var(--cream);
-      font-family: 'Poppins', sans-serif;
-      color: var(--ink);
-    }
+    <body
+        class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black healthy-comic-bg"
+    >
+        <header>
+            <nav>
+                <div
+                    class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16"
+                >
+                    <p
+                        class="bg-black text-white px-3 py-1 rotate-[-2deg] inline-block"
+                    >
+                        Random Thoughts
+                    </p>
+                    <div class="flex items-center gap-4 md:gap-8">
+                        <a href="/" class="hover:text-hot-pink transition"
+                            >Blog</a
+                        >
+                        <a href="/about" class="hover:text-hot-pink transition"
+                            >About</a
+                        >
+                    </div>
+                </div>
+            </nav>
+        </header>
 
-    /* Typography */
-    .font-main-display {
-      font-family: 'Poppins', sans-serif;
-    }
+        <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
+            <section>
+                <div
+                    class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16"
+                >
+                    <h1
+                        class="text-6xl leading-none uppercase font-display md:text-8xl drop-shadow-[4px_4px_0px_rgba(255,105,180,1)]"
+                    >
+                        About
+                    </h1>
+                </div>
+            </section>
 
-    .article-title {
-      font-family: 'Anton', sans-serif;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-      line-height: 1.1;
-    }
+            <section>
+                <div
+                    class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16"
+                >
+                    <p
+                        class="font-sans text-xl leading-8 md:text-2xl md:leading-10 italic"
+                    >
+                        Who We Are At our core, we are a group of curious minds,
+                        creative thinkers, and relentless problem-solvers. We
+                        don’t just believe in doing things differently; we
+                        believe in doing them better. In an era where everything
+                        is fast-paced and often transactional, we’ve made it our
+                        mission to slow down where it matters. We focus on the
+                        intersection of innovation and human connection,
+                        ensuring that every project we touch serves a real
+                        purpose and solves a real problem.
+                    </p>
+                </div>
+            </section>
+        </main>
 
-    /* Navbar */
-    nav {
-      background-color: var(--cream);
-    }
-
-    .nav-link {
-      position: relative;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--ink);
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1.5px;
-      background: var(--ink);
-      transition: width 0.2s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* Animations */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-up {
-      opacity: 0;
-      animation: fadeUp 0.6s ease forwards;
-    }
-
-    .delay-1 { animation-delay: 0.05s; }
-    .delay-2 { animation-delay: 0.15s; }
-    .delay-3 { animation-delay: 0.25s; }
-  </style>
-</head>
-<body class="min-h-screen flex flex-col">
-
-  <nav class="px-8 py-5 flex items-center justify-between border-b border-black/5">
-    <a href="blog.antlers.html" class="nav-link font-main-display font-bold text-base tracking-wide">Random Thoughts</a>
-    <div class="flex items-center gap-8">
-      <a href="post.antlers.html" class="nav-link">Blog</a>
-      <a href="about.antlers.html" class="nav-link">About</a>
-    </div>
-  </nav>
-
-  <main class="flex-1 w-full pt-16 pb-24">
+        <footer>
+            <div
+                class="flex items-start justify-center px-6 py-10 font-sans text-sm md:px-16"
+            >
+                <p class="font-bold">&copy; 2026 Random Thoughts</p>
+            </div>
+        </footer>
+    </body>
+        <div id="parallax-bg" class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden opacity-10">
     
-    <header class="text-center px-4 max-w-3xl mx-auto mb-14 fade-up delay-1">
-      <h1 class="article-title text-4xl sm:text-5xl md:text-6xl uppercase mb-8">
-        Everything is<br/>better when donuts<br/>are involved
-      </h1>
-      <p class="text-base text-gray-700 max-w-xl mx-auto leading-relaxed mb-6 font-medium">
-        Job interviews are painful. But with a pocketful of donuts they are never a waste of time. Hate waiting at the DMV? Try pounding a dozen donuts and splattering jelly all over form 90210. You're welcome.
-      </p>
-      <p class="text-[0.7rem] font-medium text-gray-500 tracking-wider uppercase">
-        15. April 2025
-      </p>
-    </header>
+    <div class="absolute top-10 left-10 w-48 h-48 border-[12px] border-black rounded-full scroll-item" data-speed="0.1"></div>
 
-    <div class="max-w-4xl mx-auto px-4 mb-16 fade-up delay-2">
-      <div class="w-full h-[300px] md:h-[450px] rounded-xl flex items-center justify-center overflow-hidden shadow-sm" style="background: linear-gradient(135deg,#c850c0 0%, #f857a6 50%, #ff5f6d 100%);">
-        
-        <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" class="h-48 md:h-64 w-auto drop-shadow-xl">
-          <line x1="90" y1="110" x2="90" y2="135" stroke="#333" stroke-width="3" stroke-linecap="round"/>
-          <line x1="110" y1="110" x2="110" y2="135" stroke="#333" stroke-width="3" stroke-linecap="round"/>
-          <path d="M82 135 h14 v4 a4 4 0 0 1 -4 4 h-6 a4 4 0 0 1 -4 -4 v-4 z" fill="#fff" stroke="#333" stroke-width="2"/>
-          <path d="M104 135 h14 v4 a4 4 0 0 1 -4 4 h-6 a4 4 0 0 1 -4 -4 v-4 z" fill="#fff" stroke="#333" stroke-width="2"/>
-          <ellipse cx="100" cy="142" rx="35" ry="5" fill="#000" opacity="0.15"/>
-          
-          <ellipse cx="100" cy="75" rx="48" ry="15" fill="#f4a261" opacity="0.25"/>
-          <ellipse cx="100" cy="68" rx="52" ry="26" fill="#f4a261"/>
-          <ellipse cx="100" cy="66" rx="52" ry="26" fill="#e8834a"/>
-          
-          <ellipse cx="100" cy="66" rx="52" ry="26" fill="none" stroke="#fce4ec" stroke-width="14"/>
-          <ellipse cx="100" cy="66" rx="52" ry="26" fill="none" stroke="#f8bbd0" stroke-width="13" stroke-dasharray="8 6" stroke-dashoffset="3"/>
-          
-          <ellipse cx="100" cy="66" rx="20" ry="10" fill="#c850c0"/>
-          
-          <rect x="80" y="48" width="7" height="2.5" rx="1.5" fill="#80deea" transform="rotate(-20 80 48)"/>
-          <rect x="108" y="52" width="7" height="2.5" rx="1.5" fill="#fff9c4" transform="rotate(15 108 52)"/>
-          <rect x="122" y="62" width="7" height="2.5" rx="1.5" fill="#f48fb1" transform="rotate(-10 122 62)"/>
-          <rect x="76" y="68" width="7" height="2.5" rx="1.5" fill="#b39ddb" transform="rotate(25 76 68)"/>
-          <rect x="100" y="44" width="7" height="2.5" rx="1.5" fill="#a5d6a7" transform="rotate(5 100 44)"/>
-          
-          <circle cx="88" cy="66" r="5" fill="#fff"/>
-          <circle cx="112" cy="66" r="5" fill="#fff"/>
-          <circle cx="89" cy="66" r="2.5" fill="#333"/>
-          <circle cx="111" cy="66" r="2.5" fill="#333"/>
-          
-          <path d="M125 110 L140 100" stroke="#333" stroke-width="2" stroke-linecap="round"/>
-          <rect x="135" y="85" width="26" height="16" rx="2" fill="#fff" stroke="#333" stroke-width="1.5"/>
-          <text x="138" y="93" font-family="Arial" font-size="4" font-weight="bold" fill="#333">DONUT</text>
-          <text x="140" y="98" font-family="Arial" font-size="4" font-weight="bold" fill="#333">CARE</text>
+    <div class="absolute top-20 right-20 w-32 h-32 bg-black rotate-12 scroll-item" data-speed="0.3"></div>
+
+    <div class="absolute top-[40%] left-[-20px] w-40 h-40 scroll-item" data-speed="0.15">
+        <svg viewBox="0 0 100 100" class="w-full h-full fill-none stroke-black stroke-[8]">
+            <polygon points="50,15 90,85 10,85" />
         </svg>
-
-      </div>
     </div>
 
-    <article class="max-w-2xl mx-auto px-4 fade-up delay-3">
-      
-      <p class="text-[15px] leading-[1.8] text-gray-800 mb-12">
-        Sure they're not healthy for you, but neither is the stress you carry when you spend time doing things you hate. All of these things are better with donuts.
-      </p>
+    <div class="absolute top-[50%] right-[15%] w-16 h-16 border-4 border-black rounded-full scroll-item" data-speed="0.5"></div>
+    <div class="absolute top-[52%] right-[12%] w-8 h-8 bg-black rounded-full scroll-item" data-speed="0.2"></div>
 
-      <div class="space-y-12">
+    <div class="absolute top-[70%] left-[10%] w-64 h-32 border-4 border-black -rotate-6 scroll-item" data-speed="0.25"></div>
+
+    <div class="absolute top-[85%] right-[5%] w-20 h-20 scroll-item" data-speed="0.4">
+        <svg viewBox="0 0 100 100" class="w-full h-full fill-black rotate-45">
+            <polygon points="50,15 90,85 10,85" />
+        </svg>
+    </div>
+
+    <div class="absolute top-[90%] left-[40%] w-24 h-24 border-8 border-black rotate-[30deg] scroll-item" data-speed="0.1"></div>
+
+</div>
+
+<script>
+    // This script keeps the parallax logic working
+    window.addEventListener('scroll', function() {
+        const items = document.querySelectorAll('.scroll-item');
+        let scrollY = window.pageYOffset;
         
-        <section>
-          <h2 class="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Sugar Diplomacy</h2>
-          <p class="text-[14px] leading-[1.8] text-gray-800">
-            Donuts have a way of <span class="text-[#ff5f6d] font-semibold">resolving conflict</span> that no formal process ever could. Passive-aggressive email from accounting? Show up with a pink box and suddenly everyone is “circling back” with a much better attitude. Neighbors fighting over a hedge line? Glazed. Peace restored. World leaders spend billions on strategy, defense, and negotiation, yet somehow no one has seriously explored the stabilizing influence of a warm cruller. History may someday look back on this oversight with deep embarrassment.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Emotional Cushioning</h2>
-          <p class="text-[14px] leading-[1.8] text-gray-800">
-            Life insists on happening to you at full speed. Missed train. Weird text. Dentist appointment. The donut does not remove these burdens, but it does place a soft, frosted barrier between you and total psychological collapse. Experts agree that holding a donut in one hand makes any inconvenience feel 14% more manageable. This number was not verified, but it feels spiritually correct.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Tactical Celebration</h2>
-          <p class="text-[14px] leading-[1.8] text-gray-800">
-            Donuts are uniquely qualified for events that do not deserve a full cake but still require recognition. Survived Monday? Donut. Sent one difficult email? Donut. Made it through a social gathering without once saying “you too” to the waiter? Huge donut moment. Unlike other desserts, donuts understand the importance of immediacy. They ask for no plates, no ceremony, no long speech. They simply arrive, do the work, and leave a faint dusting of sugar as proof that joy briefly existed.
-          </p>
-        </section>
-
-      </div>
-    </article>
-
-  </main>
-
-  <footer class="text-center py-8 border-t border-black/5 mt-auto">
-    <span class="font-medium text-[0.75rem] text-gray-500 tracking-wide">© 2028 Random Thoughts</span>
-  </footer>
-
-</body>
+        items.forEach(item => {
+            let speed = item.getAttribute('data-speed');
+            item.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+    });
+</script>
 </html>

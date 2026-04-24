@@ -8,16 +8,56 @@
         <title>{{ title ?? site:name }}</title>
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
         <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Poppins:ital,wght@0,400;0,600;1,400;1,700&display=swap" rel="stylesheet">
+        
+        <style>
+            @keyframes subtleFlow {
+                0% { background-position: 0% 0%; }
+                50% { background-position: 100% 100%; }
+                100% { background-position: 0% 0%; }
+            }
+
+            .healthy-comic-bg {
+                /* A soft, eye-friendly palette: Warm Sand to Muted Sage */
+                background-color: #f4f1ea;
+                background-image: 
+                    radial-gradient(at 0% 0%, rgba(232, 243, 241, 0.5) 0px, transparent 50%),
+                    radial-gradient(at 100% 100%, rgba(243, 232, 241, 0.5) 0px, transparent 50%),
+                    /* This adds a very subtle "paper texture" noise */
+                    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+                background-attachment: fixed;
+                background-size: cover, cover, 150px 150px;
+                opacity: 0.98;
+                animation: subtleFlow 30s ease-in-out infinite;
+            }
+
+            /* Comic-style cards with "Neobrutalist" shadows */
+            .comic-card {
+                background: white;
+                border: 3px solid #000;
+                box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+                transition: all 0.2s ease;
+            }
+
+            .comic-card:hover {
+                transform: translate(-4px, -4px);
+                box-shadow: 14px 14px 0px 0px rgba(0,0,0,1);
+            }
+            
+        </style>
     </head>
 
-    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black bg-linen">
+    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black healthy-comic-bg">
 
         <header>
             <nav>
                 <div class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
-                    <p>Random Thoughts</p>
+                    <p class="bg-black text-white px-3 py-1 rotate-[-2deg] inline-block">Random Thoughts</p>
+                    <form action="/search/results">
+                        <input type="search" name="q" placeholder="Search">
+                        <button type="submit">Search</button>
+                    </form>
                     <div class="flex items-center gap-4 md:gap-8">
-                        <a href="/">Blog</a>
+                        <a href="/" class="hover:text-hot-pink transition">Blog</a>
                         <a href="/about">About</a>
                     </div>
                 </div>
@@ -27,68 +67,75 @@
         <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
             <section>
                 <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-                    <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">Blog</h1>
-                    <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">This is description of the type of content you would expect to read here on this blog.</p>
+                    <h1 class="text-6xl leading-none uppercase font-display md:text-8xl drop-shadow-[4px_4px_0px_rgba(255,105,180,1)]">Blog</h1>
+                    <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10 italic">Insights, experiments, and general curiosities.</p>
                 </div>
             </section>
 
             <section>
-                <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
-                    <article class="md:col-span-2">
-                        <a href="#" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
-                            <img src="/assets/octopus.jpg" alt="" class="object-cover w-full h-72 bg-hot-pink">
+                <div class="grid grid-cols-1 gap-12 px-6 mx-auto md:px-16 max-w-6xl md:grid-cols-2 justify-center justify-items-center">
+                    {{ collection:articles }}
+                    <article class="w-full">
+                        <a href="{{url}}" class="comic-card flex flex-col h-full overflow-hidden rounded-lg">
+                            <img src="{{ image }}" alt="{{ title }}" class="object-cover w-full h-72 border-b-3 border-black">
                             <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
-                                <h2 class="font-sans text-xl font-semibold md:text-2xl">There's something secret and dangerous lurking in your pocket</h2>
-                                <p class="font-sans text-xs">15. April 2025</p>
+                                <h2 class="font-sans text-2xl font-bold md:text-3xl leading-tight">{{ title }}</h2>
+                                <p class="font-sans text-sm font-semibold text-gray-600 uppercase tracking-wider">{{ date format="M. d. Y" }}</p>
                             </div>
                         </a>
                     </article>
-                    <article>
-                        <a href="#" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
-                            <img src="/assets/donut.jpg" alt="" class="object-cover w-full h-72 bg-hot-pink">
-                            <div class="flex flex-col gap-4 p-6 md:gap-5 md:p-8">
-                                <h2 class="font-sans text-xl font-semibold md:text-2xl">Everything is better when donuts are involved</h2>
-                                <p class="font-sans text-xs">15. April 2025</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article>
-                        <a href="#" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
-                            <img src="/assets/pizza-wifi.jpg" alt="" class="object-cover w-full h-72 bg-hot-pink">
-                            <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
-                                <h2 class="font-sans text-xl font-semibold md:text-2xl">Would you rather give up pizza or wifi?</h2>
-                                <p class="font-sans text-xs">15. April 2025</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article>
-                        <a href="#" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
-                            <img src="/assets/blinking-carot.gif" alt="" class="object-cover w-full h-72 bg-hot-pink">
-                            <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
-                                <h2 class="font-sans text-xl font-semibold md:text-2xl">Beginnings are the best &amp; the worst</h2>
-                                <p class="font-sans text-xs">15. April 2025</p>
-                            </div>
-                        </a>
-                    </article>
-                    <article>
-                        <a href="#" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
-                            <img src="/assets/idea.jpg" alt="" class="object-cover w-full h-72 bg-hot-pink">
-                            <div class="flex flex-col gap-4 p-6 md:gap-5 md:p-8">
-                                <h2 class="font-sans text-xl font-semibold md:text-2xl">I had a really good idea but got sidetracked and forgot it.</h2>
-                                <p class="font-sans text-xs">15. April 2025</p>
-                            </div>
-                        </a>
-                    </article>
+                    {{ /collection:articles }}
                 </div>
             </section>
         </main>
 
         <footer>
             <div class="flex items-start justify-center px-6 py-10 font-sans text-sm md:px-16">
-                <p>&copy; 2026 Random Thoughts</p>
+                <p class="font-bold">&copy; 2026 Random Thoughts</p>
             </div>
         </footer>
 
     </body>
 
+
+    
+    <div id="parallax-bg" class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden opacity-10">
+    
+    <div class="absolute top-10 left-10 w-48 h-48 border-[12px] border-black rounded-full scroll-item" data-speed="0.1"></div>
+
+    <div class="absolute top-20 right-20 w-32 h-32 bg-black rotate-12 scroll-item" data-speed="0.3"></div>
+
+    <div class="absolute top-[40%] left-[-20px] w-40 h-40 scroll-item" data-speed="0.15">
+        <svg viewBox="0 0 100 100" class="w-full h-full fill-none stroke-black stroke-[8]">
+            <polygon points="50,15 90,85 10,85" />
+        </svg>
+    </div>
+
+    <div class="absolute top-[50%] right-[15%] w-16 h-16 border-4 border-black rounded-full scroll-item" data-speed="0.5"></div>
+    <div class="absolute top-[52%] right-[12%] w-8 h-8 bg-black rounded-full scroll-item" data-speed="0.2"></div>
+
+    <div class="absolute top-[70%] left-[10%] w-64 h-32 border-4 border-black -rotate-6 scroll-item" data-speed="0.25"></div>
+
+    <div class="absolute top-[85%] right-[5%] w-20 h-20 scroll-item" data-speed="0.4">
+        <svg viewBox="0 0 100 100" class="w-full h-full fill-black rotate-45">
+            <polygon points="50,15 90,85 10,85" />
+        </svg>
+    </div>
+
+    <div class="absolute top-[90%] left-[40%] w-24 h-24 border-8 border-black rotate-[30deg] scroll-item" data-speed="0.1"></div>
+
+</div>
+
+<script>
+    // This script keeps the parallax logic working
+    window.addEventListener('scroll', function() {
+        const items = document.querySelectorAll('.scroll-item');
+        let scrollY = window.pageYOffset;
+        
+        items.forEach(item => {
+            let speed = item.getAttribute('data-speed');
+            item.style.transform = `translateY(${scrollY * speed}px)`;
+        });
+    });
+</script>
 </html>

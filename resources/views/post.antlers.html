@@ -1,20 +1,25 @@
 <!doctype html>
 <html lang="{{ site:short_locale }}">
-
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{{ title ?? site:name }}</title>
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
-        <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Poppins:ital,wght@0,400;0,600;1,400;1,700&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Poppins:ital,wght@0,400;0,600;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
     </head>
 
-    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black bg-linen">
-
+    <body
+        class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black bg-linen"
+    >
         <header>
             <nav>
-                <div class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
+                <div
+                    class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16"
+                >
                     <p>Random Thoughts</p>
                     <div class="flex items-center gap-4 md:gap-8">
                         <a href="/">Blog</a>
@@ -27,44 +32,161 @@
         <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
             <article class="contents">
                 <section>
-                    <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-                        <h1 class="text-5xl leading-none uppercase font-display md:text-8xl">Everything is better when donuts are involved</h1>
-                        <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">Job interviews are painful. But with a pocketful of donuts they are never a waste of time. Hate waiting at the DMV? Try pounding a dozen donuts and splattering jelly all over form 90210. You're welcome.</p>
-                        <p class="font-sans text-sm md:text-base">15. April 2025</p>
+                    <div
+                        class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16"
+                    >
+                        <h1
+                            class="text-5xl leading-none uppercase font-display md:text-8xl"
+                        >
+                            {{ title }}
+                        </h1>
+                        <p class="font-sans text-sm md:text-base">
+                            {{ date format="d. F Y" }}
+                        </p>
                     </div>
                 </section>
 
                 <section>
                     <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+                        {{# Featured Image #}}
                         <div class="px-6 mx-auto max-w-7xl md:px-16">
-                            <img src="/assets/donut.jpg" alt="" class="object-cover w-full aspect-2/1 rounded-xl bg-hot-pink">
+                            <img
+                                src="{{ image }}"
+                                alt="{{ title }}"
+                                class="object-cover w-full aspect-2/1 rounded-xl bg-hot-pink"
+                            />
                         </div>
 
+                        {{# Article Content #}}
                         <div class="max-w-4xl px-6 mx-auto md:px-16">
-                            <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">Sure they're not healthy for you, but neither is the stress you carry when you spend time doing things you hate. All of these things are better with donuts.</p>
+                            <div class="prose max-w-none">{{ content }}</div>
                         </div>
 
-                        <div class="max-w-4xl px-6 mx-auto md:px-16">
-                            <h2 class="mt-10 mb-4 font-sans text-3xl font-semibold md:mt-14 md:mb-6 md:text-4xl first:mt-0">Sugar Diplomacy</h2>
-                            <p class="mb-6 font-sans text-base leading-7 md:text-lg md:leading-8 last:mb-0">Donuts have a way of <a href="#" class="text-hot-pink hover:underline">resolving conflict</a> that no formal process ever could. Passive-aggressive email from accounting? Show up with a pink box and suddenly everyone is &ldquo;circling back&rdquo; with a much better attitude. Neighbors fighting over a hedge line? Glazed. Peace restored. World leaders spend billions on strategy, defense, and negotiation, yet somehow no one has seriously explored the stabilizing influence of a warm cruller. History may someday look back on this oversight with deep embarrassment.</p>
-
-                            <h2 class="mt-10 mb-4 font-sans text-3xl font-semibold md:mt-14 md:mb-6 md:text-4xl first:mt-0">Emotional Cushioning</h2>
-                            <p class="mb-6 font-sans text-base leading-7 md:text-lg md:leading-8 last:mb-0">Life insists on happening to you at full speed. Missed train. Weird text. Dentist appointment. The donut does not remove these burdens, but it does place a soft, frosted barrier between you and total psychological collapse. Experts agree that holding a donut in one hand makes any inconvenience feel 14% more manageable. This number was not verified, but it feels spiritually correct.</p>
-
-                            <h2 class="mt-10 mb-4 font-sans text-3xl font-semibold md:mt-14 md:mb-6 md:text-4xl first:mt-0">Tactical Celebration</h2>
-                            <p class="mb-6 font-sans text-base leading-7 md:text-lg md:leading-8 last:mb-0">Donuts are uniquely qualified for events that do not deserve a full cake but still require recognition. Survived Monday? Donut. Sent one difficult email? Donut. Made it through a social gathering without once saying &ldquo;you too&rdquo; to the waiter? Huge donut moment. Unlike other desserts, donuts understand the importance of immediacy. They ask for no plates, no ceremony, no long speech. They simply arrive, do the work, and leave a faint dusting of sugar as proof that joy briefly existed.</p>
+                        {{# Video Field #}} {{ if video_field }}
+                        <div class="w-full max-w-5xl mx-auto px-6 md:px-16">
+                            <div class="aspect-video">
+                                <iframe
+                                    src="{{ video_field | embed_url }}"
+                                    class="w-full h-full rounded-xl shadow-lg"
+                                ></iframe>
+                            </div>
                         </div>
+                        {{ /if }}
                     </div>
                 </section>
             </article>
+
+            {{# Post Navigation #}}
+            <section class="max-w-4xl px-6 mx-auto md:px-16 w-full mt-10">
+                <div
+                    class="flex justify-between items-center pt-10 border-t border-black/10 gap-8 font-sans"
+                >
+                    {{# Previous Link #}} {{ collection:previous in="articles"
+                    limit="1" as="prev" }} {{ prev }}
+                    <a
+                        href="{{ url }}"
+                        class="group flex flex-col items-start max-w-[45%]"
+                    >
+                        <span
+                            class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1"
+                            >Previous Post</span
+                        >
+                        <span
+                            class="text-base md:text-lg font-semibold group-hover:text-hot-pink transition-colors"
+                            >&larr; {{ title }}</span
+                        >
+                    </a>
+                    {{ /prev }} {{ /collection:previous }} {{# Next Link #}} {{
+                    collection:next in="articles" limit="1" as="next" }} {{ next
+                    }}
+                    <a
+                        href="{{ url }}"
+                        class="group flex flex-col items-end text-right max-w-[45%] ml-auto"
+                    >
+                        <span
+                            class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1"
+                            >Next Post</span
+                        >
+                        <span
+                            class="text-base md:text-lg font-semibold group-hover:text-hot-pink transition-colors"
+                            >{{ title }} &rarr;</span
+                        >
+                    </a>
+                    {{ /next }} {{ /collection:next }}
+                </div>
+            </section>
         </main>
 
         <footer>
-            <div class="flex items-start justify-center px-6 py-10 font-sans text-sm md:px-16">
+            <div
+                class="flex items-start justify-center px-6 py-10 font-sans text-sm md:px-16"
+            >
                 <p>&copy; 2026 Random Thoughts</p>
             </div>
         </footer>
 
-    </body>
+        {{# Parallax Background Elements #}}
+        <div
+            id="parallax-bg"
+            class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden opacity-10"
+        >
+            <div
+                class="absolute top-10 left-10 w-48 h-48 border-[12px] border-black rounded-full scroll-item"
+                data-speed="0.1"
+            ></div>
+            <div
+                class="absolute top-20 right-20 w-32 h-32 bg-black rotate-12 scroll-item"
+                data-speed="0.3"
+            ></div>
+            <div
+                class="absolute top-[40%] left-[-20px] w-40 h-40 scroll-item"
+                data-speed="0.15"
+            >
+                <svg
+                    viewBox="0 0 100 100"
+                    class="w-full h-full fill-none stroke-black stroke-[8]"
+                >
+                    <polygon points="50,15 90,85 10,85" />
+                </svg>
+            </div>
+            <div
+                class="absolute top-[50%] right-[15%] w-16 h-16 border-4 border-black rounded-full scroll-item"
+                data-speed="0.5"
+            ></div>
+            <div
+                class="absolute top-[52%] right-[12%] w-8 h-8 bg-black rounded-full scroll-item"
+                data-speed="0.2"
+            ></div>
+            <div
+                class="absolute top-[70%] left-[10%] w-64 h-32 border-4 border-black -rotate-6 scroll-item"
+                data-speed="0.25"
+            ></div>
+            <div
+                class="absolute top-[85%] right-[5%] w-20 h-20 scroll-item"
+                data-speed="0.4"
+            >
+                <svg
+                    viewBox="0 0 100 100"
+                    class="w-full h-full fill-black rotate-45"
+                >
+                    <polygon points="50,15 90,85 10,85" />
+                </svg>
+            </div>
+            <div
+                class="absolute top-[90%] left-[40%] w-24 h-24 border-8 border-black rotate-[30deg] scroll-item"
+                data-speed="0.1"
+            ></div>
+        </div>
 
+        <script>
+            window.addEventListener("scroll", function () {
+                const items = document.querySelectorAll(".scroll-item");
+                let scrollY = window.pageYOffset;
+                items.forEach((item) => {
+                    let speed = item.getAttribute("data-speed");
+                    item.style.transform = `translateY(${scrollY * speed}px)`;
+                });
+            });
+        </script>
+    </body>
 </html>
