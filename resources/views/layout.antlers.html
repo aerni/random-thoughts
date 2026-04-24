@@ -6,19 +6,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ title ?? site:name }}</title>
+        <script>
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        </script>
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
         <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Poppins:ital,wght@0,400;0,600;1,400;1,700&display=swap" rel="stylesheet">
     </head>
 
-    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black bg-linen">
+    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black bg-linen dark:bg-black dark:text-linen">
 
-        <header>
+        <header class="sticky top-0 z-50 bg-linen dark:bg-black">
             <nav>
                 <div class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
                     <a href="/">Food For Thought</a>
                     <div class="flex items-center gap-4 md:gap-8">
                         <a href="/">Blog</a>
                         <a href="/about">About</a>
+                        <button id="theme-toggle" aria-label="Toggle dark mode" class="flex items-center justify-center w-8 h-8 rounded-full transition-colors hover:bg-black/10 dark:hover:bg-linen/10">
+                            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="hidden dark:block w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 7a5 5 0 100 10A5 5 0 0012 7z" />
+                            </svg>
+                            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="block dark:hidden w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </nav>
