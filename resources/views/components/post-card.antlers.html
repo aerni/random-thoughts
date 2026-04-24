@@ -32,13 +32,7 @@
 
     {{# Der ganze Card ist anklickbar → führt zum Blog-Post #}}
     <a href="{{ url }}" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-3xl hover:-translate-y-1 hover:shadow-xl
-        {{# Eckige Ecke: wechselt je nach Position in der Liste (loop_index = 1, 2, 3...) #}}
-        {{ if loop_index == 1 }}rounded-tl-none
-        {{ elseif loop_index == 2 }}rounded-br-none
-        {{ elseif loop_index == 3 }}rounded-tr-none
-        {{ elseif loop_index == 4 }}rounded-bl-none
-        {{ else }}rounded-br-none
-        {{ /if }}">
+        random-corner">
 
         <div class="relative overflow-hidden h-72">
             {{ partial:components/post-media media_class="absolute inset-0 object-cover w-full h-full" }}

@@ -6,6 +6,13 @@
 
 
 
+// ZUFÄLLIGE ECKE — jede Karte bekommt beim Laden eine andere eckige Ecke
+const ecken = ['rounded-tl-none', 'rounded-br-none', 'rounded-tr-none', 'rounded-bl-none'];
+document.querySelectorAll('.post-card a.random-corner').forEach(card => {
+    card.classList.add(ecken[Math.floor(Math.random() * 4)]);
+});
+
+
 // CARD TILT — 3D-Kippeffekt auf Blog-Karten
 // ---------------------------------------------------------------
 // Maus bewegt sich über eine Karte → Karte kippt leicht in Mausrichtung.
