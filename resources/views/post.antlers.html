@@ -82,6 +82,26 @@
                 {{ /content }}
             </div>
 
+            {{#
+                SPOTIFY-PLAYER: nur anzeigen wenn ein Link eingetragen ist.
+                Im CP muss die Embed-URL eingefügt werden (nicht der normale Share-Link):
+                → Spotify → Song → ... → Teilen → Einbettungscode kopieren → src="..." herauskopieren
+                Beispiel: https://open.spotify.com/embed/track/abc123
+            #}}
+            {{ if spotify_link }}
+                <div class="max-w-4xl px-6 mx-auto md:px-16">
+                    <iframe
+                        src="{{ spotify_link }}"
+                        width="100%"
+                        height="152"
+                        frameborder="0"
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"
+                        class="rounded-xl">
+                    </iframe>
+                </div>
+            {{ /if }}
+
         </div>
     </section>
 
