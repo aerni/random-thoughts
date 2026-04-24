@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/typography";
 @source "../views";
 @source "../../content";
+@custom-variant dark (&:where(.dark, .dark *));
 
 .article-content {
     & > p:first-of-type {
@@ -22,6 +23,7 @@
     --color-black: #12151E;
     --color-linen: #FFFBF6;
     --color-hot-pink: #FD2D78;
+    --color-dark-surface: #1E2130;
     --font-display: Londrina Solid, sans-serif;
     --font-sans: Poppins, sans-serif;
     --container-8xl: 88rem;
