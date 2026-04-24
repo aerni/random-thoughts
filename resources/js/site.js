@@ -1,9 +1,37 @@
 // =============================================================
 // site.js — JAVASCRIPT FÜR DIE GANZE WEBSITE
 // =============================================================
-// Features: Custom Cursor + Hintergrund-Malbuch (nur Home) + Favicon-Wechsel
-// (Der Favicon-Wechsel ist direkt in layout.antlers.html, nicht hier.)
+// Features: Card Tilt + Custom Cursor + Malbuch + Favicon-Wechsel
 // =============================================================
+
+
+// CARD TILT — 3D-Kippeffekt auf Blog-Karten
+// ---------------------------------------------------------------
+// Maus bewegt sich über eine Karte → Karte kippt leicht in Mausrichtung.
+// Gibt einen modernen, dreidimensionalen Look.
+
+document.querySelectorAll('.post-card a').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+
+        // Position der Maus relativ zur Kartenmitte (-0.5 bis 0.5)
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        // Kippwinkel: max. 6 Grad
+        const rotateX = -y * 6;
+        const rotateY = x * 6;
+
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        card.style.transition = 'transform 0.1s ease';
+    });
+
+    card.addEventListener('mouseleave', () => {
+        // Zurück zur Ausgangsposition — weicher Übergang
+        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+        card.style.transition = 'transform 0.5s ease';
+    });
+});
 
 
 // HINTERGRUND-MALBUCH — nur auf der Startseite (/)
