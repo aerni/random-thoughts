@@ -6,3 +6,11 @@ fields:
       type: list
       display: Pills
       instructions: 'Each item becomes a floating pill on the home page.'
+  -
+    handle: images
+    field:
+      type: assets
+      display: 'Floating Images'
+      container: assets
+      instructions: 'SVG or PNG files to float alongside the text pills.'
+      restrict: false

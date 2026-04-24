@@ -1,9 +1,12 @@
 {{ partial:header }}
 
-<div class="fixed inset-0 z-100 overflow-hidden pointer-events-none">
+<div class="pills-container fixed inset-0 z-50 overflow-hidden pointer-events-none">
     {{ pills:items }}
-    <span class="floating-pill pointer-events-auto absolute font-display italic font-medium text-base px-5 py-2.5 rounded-full border border-orange-100/30 bg-zinc-900/70 backdrop-blur-sm cursor-grab active:cursor-grabbing select-none whitespace-nowrap md:text-xl md:px-7 md:py-3">{{ value }}</span>
+    <span class="floating-pill pointer-events-auto absolute hidden md:block font-display italic font-medium text-base px-5 py-2.5 rounded-full border border-orange-100/30 bg-zinc-900/70 backdrop-blur-sm cursor-grab active:cursor-grabbing select-none whitespace-nowrap md:text-xl md:px-7 md:py-3">{{ value }}</span>
     {{ /pills:items }}
+    {{ pills:images }}
+    <img src="{{ url }}" alt="{{ alt }}" class="floating-pill pointer-events-auto absolute w-16 h-16 object-contain cursor-grab active:cursor-grabbing select-none md:w-24 md:h-24">
+    {{ /pills:images }}
 </div>
 
 <div class="relative z-10 flex items-center justify-center mt-40 md:mt-14">
