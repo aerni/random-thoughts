@@ -1,0 +1,7 @@
+title: Posts
+revisions: false
+date: true
+sort_by: date
+sort_dir: desc
+template: post
+route: /blog/{slug}

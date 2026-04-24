@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.pexels.com)",
+      "Bash(curl -s \"https://commons.wikimedia.org/w/api.php?action=query&list=search&srsearch=octopus+underwater&srnamespace=6&srlimit=3&format=json\")",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(r['title']\\) for r in data['query']['search']]\")",
+      "Bash(php -r '$d=json_decode\\(file_get_contents\\(\"php://stdin\"\\),true\\); foreach\\($d[\"query\"][\"search\"] as $r\\) echo $r[\"title\"].\"\\\\n\";')",
+      "mcp__statamic__statamic-users",
+      "Bash(curl -s http://random-thoughts.test/about)",
+      "mcp__statamic__statamic-terms",
+      "Bash(curl -s http://random-thoughts.test/blog/theres-something-secret-and-dangerous-lurking-in-your-pocket)"
+    ]
+  }
+}
