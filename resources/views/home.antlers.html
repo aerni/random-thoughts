@@ -1,0 +1,15 @@
+{{ partial:header }}
+
+<div class="fixed inset-0 z-100 overflow-hidden pointer-events-none">
+    {{ pills:items }}
+    <span class="floating-pill pointer-events-auto absolute font-display italic font-medium text-base px-5 py-2.5 rounded-full border border-orange-100/30 bg-zinc-900/70 backdrop-blur-sm cursor-grab active:cursor-grabbing select-none whitespace-nowrap md:text-xl md:px-7 md:py-3">{{ value }}</span>
+    {{ /pills:items }}
+</div>
+
+<div class="relative z-10 flex items-center justify-center mt-40 md:mt-14">
+    <h1 class="font-display italic font-medium text-center text-7xl leading-none tracking-tight md:text-[12rem] lg:text-[16rem]"><span class="block md:inline">Random</span> <span class="block md:inline">Thoughts</span></h1>
+</div>
+
+<div class="fixed bottom-0 left-0 right-0 z-10">
+    {{ partial:footer }}
+</div>

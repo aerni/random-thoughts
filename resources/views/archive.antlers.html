@@ -1,14 +1,4 @@
-<header>
-    <nav>
-        <div class="flex items-start justify-between px-6 py-6 font-display italic font-medium text-base md:text-xl md:px-16">
-            <p>Random Thoughts</p>
-            <div class="flex items-center gap-4 md:gap-8">
-                <a href="/">Blog</a>
-                <a href="/about">About</a>
-            </div>
-        </div>
-    </nav>
-</header>
+{{ partial:header }}
 
 <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
     <section>
@@ -58,8 +48,4 @@
     </section>
 </main>
 
-<footer>
-    <div class="flex items-start justify-center px-6 py-10 font-sans text-sm md:px-16">
-        <p>&copy; 2026 Random Thoughts</p>
-    </div>
-</footer>
+{{ partial:footer }}

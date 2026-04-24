@@ -1,0 +1,8 @@
+title: Pills
+fields:
+  -
+    handle: items
+    field:
+      type: list
+      display: Pills
+      instructions: 'Each item becomes a floating pill on the home page.'
