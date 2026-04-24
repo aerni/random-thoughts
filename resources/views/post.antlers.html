@@ -1,1 +1,61 @@
-{{ title }}
+<article class="contents">
+    <section>
+        <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+            <h1 class="text-5xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+            {{ if intro }}
+                <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ intro }}</p>
+            {{ /if }}
+            <p class="font-sans text-sm md:text-base">{{ date format="j. F Y" }}</p>
+<div class="bg-yellow-200 rounded-2xl p-4 shadow flex items-center">
+
+{{ author }}
+
+  <img class="w-10 h-10 rounded-full" src="{{ avatar }}" alt="Avatar of {{ name }}">
+
+    <div class="text-sm font-semibold ml-4">
+
+      <p class="text-gray-900 leading-none">{{ name }}</p>
+
+
+
+    </div>
+
+{{ /author }}
+
+</div>
+            {{# Autoren aus Autor-Taxonomie #}}
+            <div class="flex items-center justify-center gap-2 flex-wrap">
+                {{ taxonomie_begriffe_feld }}
+                    {{ if taxonomy:handle == 'Autor' }}
+                        <span class="font-sans text-2xl font-semibold text-blue-900">{{ title }}</span>
+                    {{ /if }}
+                {{ /taxonomie_begriffe_feld }}
+            </div>
+
+            {{# Tags aus Spasstag-Taxonomie #}}
+            <div class="flex items-center justify-center gap-2 flex-wrap">
+                {{ taxonomie_begriffe_feld }}
+                    {{ if taxonomy:handle == 'spasstag' }}
+                        <a href="{{ url }}" class="font-sans text-xs px-3 py-1 bg-black text-linen rounded-full hover:bg-hot-pink transition-colors">{{ title }}</a>
+                    {{ /if }}
+                {{ /taxonomie_begriffe_feld }}
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+            {{ if featured_image }}
+                <div class="px-6 mx-auto max-w-7xl md:px-16">
+                    <img src="{{ featured_image:url }}" alt="{{ title }}" class="object-cover w-full aspect-2/1 rounded-xl">
+                </div>
+            {{ /if }}
+
+            <div class="max-w-4xl px-6 mx-auto md:px-16">
+                <div class="prose prose-lg prose-headings:font-sans prose-headings:font-semibold prose-a:text-hot-pink prose-a:no-underline hover:prose-a:underline max-w-none">
+                    {{ content }}
+                </div>
+            </div>
+        </div>
+    </section>
+</article>

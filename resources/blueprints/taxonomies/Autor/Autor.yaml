@@ -1,0 +1,70 @@
+title: Tage
+tabs:
+  main:
+    display: Hauptbereich
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: taxonomie_begriffe_feld
+            field:
+              type: terms
+              display: 'Taxonomie-Begriffe Feld'
+          -
+            handle: author
+            field:
+              type: users
+              display: Author
+              default:
+                - 8e1e3b0f-c42c-4c75-b7bc-81db50612021
+              localizable: true
+              max_items: 1
+          -
+            handle: content
+            field:
+              type: markdown
+              display: Content
+              localizable: true
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              required: true
+              validate:
+                - required
+                - 'max:200'
+          -
+            handle: markdown_feld
+            field:
+              type: markdown
+              display: 'Markdown Feld'
+              width: 66
+          -
+            handle: markdown_feld_duplicate
+            field:
+              type: markdown
+              display: 'Markdown Feld (Duplicate)'
+              width: 33
+  neuer_tab:
+    display: 'Neuer Tab'
+    sections:
+      -
+        display: 'Neuer Abschnitt'

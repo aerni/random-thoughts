@@ -1,0 +1,9 @@
+name: Gloria
+avatar: cannes_071319_img_9295_gloria-jaeger.png
+super: true
+groups:
+  - kader
+  - backoffice
+roles:
+  - admin
+id: 13c0f8ab-e4fa-4f0d-bfa8-fe14d4cdc6a3

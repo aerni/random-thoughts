@@ -1,4 +1,4 @@
-# admin:
-#   title: Administrator
-#   permissions:
-#     - super
+admin:
+  title: Admin
+editor:
+  title: Editor

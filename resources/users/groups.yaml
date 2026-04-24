@@ -1,4 +1,4 @@
-# admin:
-#   title: Administrators
-#   roles:
-#     - admin
+kader:
+  title: Kader
+backoffice:
+  title: Backoffice

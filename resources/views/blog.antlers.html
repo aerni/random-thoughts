@@ -17,7 +17,21 @@
                     {{ /if }}
                     <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
                         <h2 class="font-sans text-xl font-semibold md:text-2xl">{{ title }}</h2>
-                        <p class="font-sans text-xs">{{ date format="j. F Y" }}</p>
+                                    <div class="bg-yellow-200 rounded-2xl p-1 shadow items-center">
+                            {{ author }}
+                                    <div class="text-ml ml-4">
+                                <p class="text-gray-900  font-semibold leading-none">{{ name }}</p>
+                                </div>
+                            {{ /author }}
+                            </div>
+                        <div class="flex items-center justify-between gap-2">
+                            <p class="font-sans text-xs">{{ date format="j. F Y" }}</p>
+                            {{ taxonomie_begriffe_feld }}
+                                {{ if taxonomy:handle == 'Autor' }}
+                                    <span class="font-sans text-lg font-semibold text-blue-900">{{ title }}</span>
+                                {{ /if }}
+                            {{ /taxonomie_begriffe_feld }}
+                        </div>
                     </div>
                 </a>
             </article>

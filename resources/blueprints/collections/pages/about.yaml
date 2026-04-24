@@ -1,0 +1,17 @@
+title: About
+tabs:
+  main:
+    sections:
+      -
+        fields:
+          -
+            handle: intro
+            field:
+              type: textarea
+              display: Intro
+              instructions: 'Kurzer Einleitungstext unter dem Titel'
+          -
+            handle: content
+            field:
+              type: bard
+              display: Inhalt

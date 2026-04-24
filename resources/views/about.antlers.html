@@ -1,0 +1,18 @@
+<section>
+    <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+        <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+        {{ if intro }}
+            <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ intro }}</p>
+        {{ /if }}
+    </div>
+</section>
+
+{{ if content }}
+    <section>
+        <div class="max-w-4xl px-6 mx-auto md:px-16">
+            <div class="prose prose-lg prose-headings:font-sans prose-headings:font-semibold prose-headings:text-black prose-a:text-hot-pink prose-a:no-underline hover:prose-a:underline max-w-none">
+                {{ content }}
+            </div>
+        </div>
+    </section>
+{{ /if }}
