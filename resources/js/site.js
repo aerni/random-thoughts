@@ -146,6 +146,19 @@ ring.style.cssText = `
 document.body.appendChild(dot);
 document.body.appendChild(ring);
 
+// PILZ-CURSOR — nur auf dem Pilz-Blog-Post
+if (window.location.pathname.includes('das-geheime-internet')) {
+    dot.innerHTML = '🍄';
+    dot.style.background = 'none';
+    dot.style.width = '28px';
+    dot.style.height = '28px';
+    dot.style.fontSize = '22px';
+    dot.style.borderRadius = '0';
+    dot.style.display = 'flex';
+    dot.style.alignItems = 'center';
+    dot.style.justifyContent = 'center';
+}
+
 // Aktuelle Mausposition
 let mouseX = 0, mouseY = 0;
 
