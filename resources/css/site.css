@@ -24,6 +24,15 @@
 /* Versteckt den Standard-Mauszeiger — wir haben unseren eigenen (in site.js) */
 * { cursor: none; }
 
+/* Videos in Karten füllen den Container ohne schwarze Balken */
+.post-card-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 
 @theme {
     /* FARBEN */
