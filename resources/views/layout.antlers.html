@@ -38,11 +38,16 @@
 
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black bg-linen">
 
-        {{# NAVIGATION — erscheint auf jeder Seite oben #}}
-        <header>
+        {{# NAVIGATION — erscheint auf jeder Seite oben
+            sticky top-0 z-50  → Navi bleibt beim Scrollen oben fixiert
+            bg-linen           → gleiche Hintergrundfarbe wie die Seite (kein Transparenz-Trick nötig)
+            shadow-sm          → dünner Schatten nach unten, trennt Navi vom Inhalt
+        #}}
+        <header class="sticky top-0 z-50 bg-linen shadow-sm">
             <nav>
-                <div class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
-                    <a href="/">Random Thoughts</a>
+                <div class="flex items-center justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
+                    {{# Logo/Schriftzug: Londrina Solid (Display-Font), pink, gross #}}
+                    <a href="/" class="font-display text-2xl md:text-3xl uppercase text-hot-pink hover:opacity-70 transition">Random Thoughts</a>
                     <div class="flex items-center gap-4 md:gap-8">
                         {{# nav:main holt die Navigationslinks aus Statamic CP > Navigation > main #}}
                         {{ nav:main }}
