@@ -1,0 +1,30 @@
+title: Kontakt
+fields:
+  -
+    handle: name
+    field:
+      type: text
+      display: Name
+      validate:
+        - required
+  -
+    handle: email
+    field:
+      type: text
+      display: E-Mail
+      input_type: email
+      validate:
+        - required
+        - email
+  -
+    handle: phone
+    field:
+      type: text
+      display: Telefon
+  -
+    handle: message
+    field:
+      type: textarea
+      display: Notiz / Nachricht
+      validate:
+        - required

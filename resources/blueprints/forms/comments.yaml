@@ -1,0 +1,28 @@
+title: Kommentare
+fields:
+  -
+    handle: first_name
+    field:
+      type: text
+      display: Vorname
+      validate:
+        - required
+  -
+    handle: last_name
+    field:
+      type: text
+      display: Nachname
+      validate:
+        - required
+  -
+    handle: comment
+    field:
+      type: textarea
+      display: Kommentar
+      validate:
+        - required
+  -
+    handle: post_id
+    field:
+      type: text
+      display: Post ID

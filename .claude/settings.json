@@ -8,7 +8,18 @@
       "mcp__statamic__statamic-users",
       "Bash(curl -s http://random-thoughts.test/about)",
       "mcp__statamic__statamic-terms",
-      "Bash(curl -s http://random-thoughts.test/blog/theres-something-secret-and-dangerous-lurking-in-your-pocket)"
+      "Bash(curl -s http://random-thoughts.test/blog/theres-something-secret-and-dangerous-lurking-in-your-pocket)",
+      "Bash(php please *)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80\" -o team.jpg)",
+      "Bash(curl -s http://random-thoughts.test/kontakt)",
+      "Bash(curl -s http://random-thoughts.test/contact)",
+      "mcp__laravel-boost__last-error",
+      "Bash(curl -s \"http://random-thoughts.test/blog/everything-is-better-when-donuts-are-involved\")",
+      "Bash(curl -s \"http://random-thoughts.test/blog/the-octopus-is-the-most-underrated-creature\")",
+      "Bash(curl -s \"http://random-thoughts.test/blog/the-octopus-is-the-most-underrated-creature\" -o /tmp/octopus.html)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://random-thoughts.test/blog/the-octopus-is-the-most-underrated-creature\")",
+      "Bash(curl -s \"http://random-thoughts.test/blog/would-you-rather-give-up-pizza-or-wifi\")"
     ]
   }
 }
