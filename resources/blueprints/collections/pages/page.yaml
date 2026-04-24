@@ -13,10 +13,16 @@ tabs:
               validate:
                 - required
           -
-            handle: template
+            handle: markdown
             field:
-              type: template
-              display: Template
+              type: markdown
+              display: Markdown
+          -
+            handle: image
+            field:
+              container: assets
+              type: assets
+              display: Image
   sidebar:
     display: Sidebar
     sections:
