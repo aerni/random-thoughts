@@ -24,6 +24,13 @@
 /* Versteckt den Standard-Mauszeiger — wir haben unseren eigenen (in site.js) */
 * { cursor: none; }
 
+/* Externe Links: beim Hover pink unterstrichen */
+a[href^="http"]:hover, a[href^="https"]:hover {
+    color: #FD2D78;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 
 
 @theme {
