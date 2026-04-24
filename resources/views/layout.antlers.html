@@ -11,23 +11,31 @@
     </head>
 
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black bg-linen">
-        <header>
-            <nav>
-                <div class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
-                    <a href="/">Random Thoughts</a>
+        <header class="sticky top-0 z-50 px-6 md:px-16 pt-6">
+            <nav class="bg-linen/40 backdrop-blur-xl border border-linen/30 rounded-2xl shadow-lg">
+
+                <div class="flex items-start justify-between px-6 py-4 font-sans text-base font-semibold md:text-xl">
+
+                    <a href="/">Entenhausen</a>
+
                     <div class="flex items-center gap-4 md:gap-8">
-                        <a href="/">Blog</a>
-                        <a href="/about">About</a>
+                        <a href="/" class="transition-colors duration-200 hover:text-[#ff2f7f]"> Blog
+                        </a>
+
+                        <a href="/about" class="transition-colors duration-200 hover:text-[#ff2f7f]">About
+                       </a>
                     </div>
+
                 </div>
+
             </nav>
         </header>
         <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
             {{ template_content }}
         </main>
         <footer>
-            <div class="flex items-start justify-center px-6 py-10 font-sans text-sm md:px-16">
-                <p>&copy; 2026 Random Thoughts</p>
+            <div class="flex items-start justify-center px-6 py-10 font-sans text-sm md:px-16 text-[#ec97b8]">
+                <p>&copy; 2026 Ducktales</p>
             </div>
         </footer>
     </body>

@@ -1,55 +1,180 @@
-<section>
-    <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-        <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">{{title}}</h1>
-        <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{about_SO}}</p>
-    </div>
-</section>
 <div class="flex flex-col gap-10">
 
     <!-- Card 1 -->
-    <div class="mx-100 p-6 rounded-2xl shadow-md" style="background-color:#f4ebda;">
+    <div class="mx-100 p-6 rounded-2xl shadow-md bg-[#f4ebda] group">
         <div class="flex gap-20 items-start">
 
-            <img src="http://random-thoughts.test/assets/ente.png" alt="" class="object-cover w-70 h-70 rounded-2xl">
+            <img src="http://random-thoughts.test/assets//ente.png" class="object-cover w-70 h-70 rounded-2xl">
 
-        <div class="flex flex-col w-150">
-                <b class="text-yellow-600 text-6xl font-display flex-col h-20" style="color:#fabb5e;"">
-                    Entinne Vogel
-                </b>
+            <div class="flex flex-col h-70 justify-between">
 
-                <p>
-                    Es ist einfach eine Ente die zu spät kommt oder? Wenn der dann entlich bei seinen Freunden ankommt
-                    sagen alle na
-                    Entlich! und sind erleichtert aber Enten sind bekanntlich ja auch voll auf Fakenews abgestimmt also
-                    was soll man da
-                    genau machen?
+                <!-- TOP -->
+                <div>
+                    <b class="text-6xl font-display" style="color:#fabb5e;">
+                        Entinne Vogel
+                    </b>
+
+                    <p>
+                        Es ist einfach eine Ente die zu spaet kommt oder? Wenn der dann endlich bei seinen Freunden
+                        ankommt
+                        sagen alle na endlich! und sind erleichtert aber Enten sind bekanntlich ja auch voll auf
+                        Fakenews
+                        abgestimmt also was soll man da genau machen?
+                    </p>
+                </div>
+
+                <!-- BOTTOM -->
+                <p class="text-sm font-semibold text-[#fabb5e]
+                          opacity-0 translate-y-2 transition-all duration-300
+                          group-hover:opacity-100 group-hover:translate-y-0">
+                    Hobby: Lockenwickler eindrehen
                 </p>
+
             </div>
 
         </div>
     </div>
 
     <!-- Card 2 -->
-    <div class="mx-100 p-6 rounded-2xl shadow-md" style="background-color:#edeee5;">
+    <div class="mx-100 p-6 rounded-2xl shadow-md bg-[#edeee5] group">
         <div class="flex gap-20 items-start">
 
-            <img src="http://random-thoughts.test/assets/ente_2.png" alt="" class="object-cover w-70 h-70 rounded-2xl">
+            <img src="http://random-thoughts.test/assets/ente_2.png" class="object-cover w-70 h-70 rounded-2xl">
 
-            <div class="flex flex-col justify-between w-150 h-72">
-                <b class="text-6xl font-display flex-col h-20"" style="color:#828e7c;">
-                    Enten Mutter
-                </b>
+            <div class="flex flex-col h-70 justify-between">
 
-                <p>
-                    Hier steht dann ein Text. Dieser Text ist jetzt extra lang und geht über mehrere Zeilen.
-                    Das kann man mal so mal so machen aber ich habe mich jetzt halt einfach für Content entschieden.
-                    Man bin ich gut in einfach irgendwas schreiben. Gibts das als Beruf? Lorem Ipsumerin oder bin ich
-                    dann
-                    einfach Lorem Ipsum das wäre doch eine gute Frage?
+                <div>
+                    <b class="text-6xl font-display" style="color:#828e7c;">
+                        Erpelus Vogelvieh
+                    </b>
+
+                    <p>
+                        Die Badeente ist klein, gelb und komplett unterschaetzt – aber genau darin liegt ihr ganzer
+                        Charme.
+                        Sie liegt meistens einfach nur ruhig im Wasser.
+                    </p>
+                </div>
+
+                <p class="text-sm font-semibold text-[#828e7c]
+                          opacity-0 translate-y-2 transition-all duration-300
+                          group-hover:opacity-100 group-hover:translate-y-0">
+                    Hobby: Badewasser einlassen
                 </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="mx-100 p-6 rounded-2xl shadow-md bg-[#f6e4e1] group">
+        <div class="flex gap-20 items-start">
+
+            <img src="http://random-thoughts.test/assets//enterich.png" class="object-cover w-70 h-70 rounded-2xl">
+
+            <div class="flex flex-col h-70 justify-between">
+
+                <div>
+                    <b class="text-6xl font-display" style="color:#e59d96;">
+                        Enterich Duck
+                    </b>
+
+                    <p class="mt-2">
+                        Der Enterich Duck ist pure Coolness auf Fluegeln: Lederjacke, Vokuhila und ein Blick, der sagt,
+                        er
+                        kennt die Story schon vor dir.
+                    </p>
+                </div>
+
+                <p class="text-sm font-semibold text-[#e59d96]
+                          opacity-0 translate-y-2 transition-all duration-300
+                          group-hover:opacity-100 group-hover:translate-y-0">
+                    Hobby: Moppet fahren
+                </p>
+
             </div>
 
         </div>
     </div>
 
 </div>
+
+<!-- CURSOR EFFECT (UNVERÄNDERT) -->
+<div id="cursor-container"></div>
+
+<style>
+    #cursor-container {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    .star {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #4cb6eb;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.9;
+        box-shadow: 0 0 10px #4cb6eb, 0 0 20px #4cb6eb;
+        animation: fade 0.9s ease-out forwards;
+    }
+
+    @keyframes fade {
+        to {
+            opacity: 0;
+            transform: scale(0.2);
+        }
+    }
+</style>
+
+<script>
+    const container = document.getElementById('cursor-container');
+
+    document.addEventListener('mousemove', (e) => {
+        createStar(e.clientX, e.clientY);
+    });
+
+    function createStar(x, y) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+
+        star.style.left = x + 'px';
+        star.style.top = y + 'px';
+
+        container.appendChild(star);
+
+        setTimeout(() => star.remove(), 800);
+    }
+
+    document.addEventListener('click', (e) => {
+        for (let i = 0; i < 20; i++) {
+            createExplosion(e.clientX, e.clientY);
+        }
+    });
+
+    function createExplosion(x, y) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 80;
+
+        const dx = Math.cos(angle) * distance;
+        const dy = Math.sin(angle) * distance;
+
+        star.style.left = x + 'px';
+        star.style.top = y + 'px';
+
+        container.appendChild(star);
+
+        requestAnimationFrame(() => {
+            star.style.transform = `translate(${dx}px, ${dy}px) scale(0)`;
+            star.style.opacity = 0;
+        });
+
+        setTimeout(() => star.remove(), 800);
+    }
+</script>

@@ -1,25 +1,363 @@
+<!-- ===================== -->
+<!-- TITLE ANIMATION -->
+<!-- ===================== -->
+
 <section>
     <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-        <h1 class="text-6xl leading-none uppercase font-display md:text-8xl style="color:#fabb5e">{{title}}  </h1>
-        <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">Hier steht dann um was es überhaupt geht. Was interessiert uns eigentlich? Es ist doch alles spannend oder nicht? Ich schreibe hier einfach einen Text, damit ich da ein wenig Fleisch am Knochen habe dann kann ich da wirklich schauen wie es aussieht.</p>
+
+        <h1 class="text-6xl leading-none uppercase font-display md:text-8xl flex justify-center gap-1">
+
+            <span class="letter b">B</span>
+            <span class="letter l">L</span>
+            <span class="letter o">O</span>
+            <span class="letter g">G</span>
+
+        </h1>
+
     </div>
 </section>
 
-<section>
+<!-- ===================== -->
+<!-- FOOD RAIN + COURIER -->
+<!-- ===================== -->
+
+<div id="food-rain"></div>
+
+<div id="cursor-courier">
+    <img id="duck-img" src="http://random-thoughts.test/assets/ente_c_-01.png" alt="Ente">
+</div>
+
+<!-- ===================== -->
+<!-- BLOG GRID -->
+<!-- ===================== -->
+
+<section style="position:relative; z-index:2;">
     <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
-        {{ collection from="article" }}
-            <article class="{{ first ?= 'md:col-span-2' }}">
-                <a href="{{url}}"
-                    class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
-                    <img src="{{ image }}" alt="" class="object-cover w-full h-72 bg-hot-pink">
-                    <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
-                        <h2 class="font-sans text-xl font-semibold md:text-2xl">{{ title }}</h2>
-                        <p class="font-sans text-xs">{{ date | format('d.m.y') }}</p>
+
+        {{ collection from="article" limit="8" sort="date:desc" :id:not="id" }}
+
+        <article class="{{ first ?= 'md:col-span-2' }}">
+
+            <a href="{{url}}"
+                class="group flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
+
+                <img src="{{ image }}" alt="" class="object-cover w-full h-72 bg-hot-pink">
+
+                <div class="flex flex-col flex-1 gap-4 p-6 md:gap-5 md:p-8">
+
+                    <h2 class="font-sans text-xl font-semibold md:text-2xl">
+                        {{ title }}
+                    </h2>
+
+                    <p class="font-sans text-xs">
+                        {{ date | format('l, d.m.y') }}
+                    </p>
+
+                    <div class="flex-1"></div>
+
+                    <div class="flex justify-end">
+                        <span
+                            class="inline-flex items-center justify-center px-5 py-2 text-xs uppercase tracking-wider rounded-full bg-[#f794ba] text-white transition group-hover:bg-[#ff2f7f] w-fit">
+                            Zum Artikel
+                        </span>
                     </div>
-                </a>
-            </article>
+
+                </div>
+
+            </a>
+
+        </article>
+
         {{ /collection }}
 
-
     </div>
 </section>
+
+<!-- ===================== -->
+<!-- STYLES -->
+<!-- ===================== -->
+
+<style>
+    /* ---------- FOOD RAIN ---------- */
+
+    #food-rain {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .food {
+        position: absolute;
+        top: -50px;
+        font-size: 24px;
+        opacity: 0.9;
+        animation: fall linear infinite;
+        pointer-events: auto;
+        cursor: grab;
+        user-select: none;
+    }
+
+    .food.dragging {
+        animation: none !important;
+        cursor: grabbing;
+        z-index: 9999;
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(-10vh) rotate(0deg);
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    /* ---------- TITLE ---------- */
+
+    .letter {
+        display: inline-block;
+        opacity: 0;
+        transform: scale(0.3);
+        animation:
+            pop 0.6s ease forwards,
+            float 2.5s ease-in-out infinite;
+        transition: transform 0.25s ease, color 0.25s ease;
+    }
+
+    /* Pop startet sofort, Float startet nach dem Pop */
+    .b {
+        animation-delay: 0s, 0.6s;
+    }
+
+    .l {
+        animation-delay: 0.1s, 0.8s;
+    }
+
+    .o {
+        animation-delay: 0.2s, 1.0s;
+    }
+
+    .g {
+        animation-delay: 0.3s, 1.2s;
+    }
+
+    @keyframes pop {
+        0% {
+            opacity: 0;
+            transform: scale(0.3) rotate(-10deg);
+        }
+
+        70% {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    /* ---------- HOVER COLORS ---------- */
+
+    .b:hover {
+        color: #ff2f7f;
+        transform: scale(1.8) rotate(-6deg);
+    }
+
+    .l:hover {
+        color: #4cb6eb;
+        transform: scale(1.8) translateY(-6px);
+    }
+
+    .o:hover {
+        color: #fabb5e;
+        transform: scale(1.9);
+    }
+
+    .g:hover {
+        color: #828e7c;
+        transform: scale(1.8) rotate(8deg);
+    }
+
+    /* ---------- COURIER CURSOR ---------- */
+
+    #cursor-courier {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        will-change: transform;
+    }
+
+    #duck-img {
+        width: 80px;
+        height: auto;
+        display: block;
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+</style>
+
+<!-- ===================== -->
+<!-- SCRIPT -->
+<!-- ===================== -->
+
+<script>
+
+    /* ---------- FOOD RAIN ---------- */
+
+    const foods = ["🍔", "🍟", "🍕", "🌭", "🍩", "🍿", "🥤"]
+    const rainContainer = document.getElementById("food-rain");
+
+    function createFood() {
+        const el = document.createElement("div");
+        el.classList.add("food");
+
+        el.innerText = foods[Math.floor(Math.random() * foods.length)];
+        el.style.left = Math.random() * 100 + "vw";
+        el.style.fontSize = (Math.random() * 20 + 20) + "px";
+        el.style.animationDuration = (Math.random() * 5 + 4) + "s";
+
+        enableDrag(el);
+        rainContainer.appendChild(el);
+
+        setTimeout(() => {
+            if (!el.classList.contains("dragging")) el.remove();
+        }, 12000);
+    }
+
+    function enableDrag(el) {
+        let active = null;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        function start(e) {
+            e.preventDefault();
+            active = el;
+
+            el.classList.add("dragging");
+            el.style.animation = "none";
+            el.style.position = "fixed";
+
+            const rect = el.getBoundingClientRect();
+            const x = e.touches ? e.touches[0].clientX : e.clientX;
+            const y = e.touches ? e.touches[0].clientY : e.clientY;
+
+            offsetX = x - rect.left;
+            offsetY = y - rect.top;
+
+            document.addEventListener("mousemove", move);
+            document.addEventListener("mouseup", end);
+            document.addEventListener("touchmove", move, { passive: false });
+            document.addEventListener("touchend", end);
+        }
+
+        function move(e) {
+            if (!active) return;
+
+            const x = e.touches ? e.touches[0].clientX : e.clientX;
+            const y = e.touches ? e.touches[0].clientY : e.clientY;
+
+            active.style.left = (x - offsetX) + "px";
+            active.style.top = (y - offsetY) + "px";
+        }
+
+        function end() {
+            if (!active) return;
+
+            active.classList.remove("dragging");
+            active.style.position = "absolute";
+            active.style.top = "-50px";
+            active.style.left = Math.random() * 100 + "vw";
+            active.style.animation = "";
+
+            active = null;
+
+            document.removeEventListener("mousemove", move);
+            document.removeEventListener("mouseup", end);
+            document.removeEventListener("touchmove", move);
+            document.removeEventListener("touchend", end);
+        }
+
+        el.addEventListener("mousedown", start);
+        el.addEventListener("touchstart", start, { passive: false });
+    }
+
+    setInterval(createFood, 250);
+
+    /* ---------- DUCK CURSOR ---------- */
+
+    const courier = document.getElementById("cursor-courier");
+    const duckImg = document.getElementById("duck-img");
+
+    const duckOpen = "http://random-thoughts.test/assets/ente_c_-01.png";
+    const duckClosed = "http://random-thoughts.test/assets/ente_c_-02.png";
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    /* Maus Position */
+    document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    /* Schnabel zu */
+    document.addEventListener("mousedown", () => {
+        duckImg.src = duckClosed;
+    });
+
+    /* Schnabel auf */
+    document.addEventListener("mouseup", () => {
+        duckImg.src = duckOpen;
+    });
+
+    /* Touch */
+    document.addEventListener("touchstart", () => {
+        duckImg.src = duckClosed;
+    });
+
+    document.addEventListener("touchend", () => {
+        duckImg.src = duckOpen;
+    });
+
+    /* Smooth Follow */
+    function animateCourier() {
+        currentX += (mouseX - currentX) * 0.15;
+        currentY += (mouseY - currentY) * 0.15;
+
+        courier.style.transform =
+            `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
+
+        requestAnimationFrame(animateCourier);
+    }
+
+    animateCourier();
+
+</script>

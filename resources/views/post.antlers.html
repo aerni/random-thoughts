@@ -1,89 +1,179 @@
 <article class="contents">
+
     <section>
         <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-            <h1 class="text-[#ff2f7f] text-5xl leading-none uppercase font-display md:text-8xl">
+            <h1 class="text-[#ff2f7f] text-5xl tracking-[0.04em] leading-none uppercase font-display md:text-8xl">
                 {{ title }}
             </h1>
-            <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10" > {{ lead }}</p>
-            <p class="font-sans text-sm md:text-base">{{date | format('l, d.m.y')}}</p>
+            <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">
+                {{ lead }}
+            </p>
+            <p class="font-sans text-sm md:text-base">
+                {{ date | format('l, d.m.y') }}
+            </p>
         </div>
     </section>
 
     <section>
         <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+
             <div class="px-6 mx-auto max-w-7xl md:px-16">
                 <img src="{{ image }}" alt="" class="object-cover w-full aspect-2/1 rounded-xl bg-hot-pink">
             </div>
 
-            <div class="max-w-4xl px-6 mx-auto md:px-16">
-                <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">Sure they're not healthy for you, but
-                    neither is the stress you carry when you spend time doing things you hate. All of these things are
-                    better with donuts.</p>
+            <div class="max-w-4xl px-6 mx-auto md:px-16 prose prose-lg prose-headings:font-bold prose-a:text-[#ff2f7f]">
+                <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">
+                    {{ content }}
+                </p>
             </div>
 
-            <div class="max-w-4xl px-6 mx-auto md:px-16">
-                <h2 class="mt-10 mb-4 font-sans text-3xl font-semibold md:mt-14 md:mb-6 md:text-4xl first:mt-0">Sugar
-                    Diplomacy</h2>
-                <p class="mb-6 font-sans text-base leading-7 md:text-lg md:leading-8 last:mb-0">Donuts have a way of <a
-                        href="#" class="text-hot-pink hover:underline">resolving conflict</a> that no formal process
-                    ever could. Passive-aggressive email from accounting? Show up with a pink box and suddenly everyone
-                    is &ldquo;circling back&rdquo; with a much better attitude. Neighbors fighting over a hedge line?
-                    Glazed. Peace restored. World leaders spend billions on strategy, defense, and negotiation, yet
-                    somehow no one has seriously explored the stabilizing influence of a warm cruller. History may
-                    someday look back on this oversight with deep embarrassment.</p>
-
-                <h2 class="mt-10 mb-4 font-sans text-3xl font-semibold md:mt-14 md:mb-6 md:text-4xl first:mt-0">
-                    Emotional Cushioning</h2>
-                <p class="mb-6 font-sans text-base leading-7 md:text-lg md:leading-8 last:mb-0">Life insists on
-                    happening to you at full speed. Missed train. Weird text. Dentist appointment. The donut does not
-                    remove these burdens, but it does place a soft, frosted barrier between you and total psychological
-                    collapse. Experts agree that holding a donut in one hand makes any inconvenience feel 14% more
-                    manageable. This number was not verified, but it feels spiritually correct.</p>
-
-                <h2 class="mt-10 mb-4 font-sans text-3xl font-semibold md:mt-14 md:mb-6 md:text-4xl first:mt-0">Tactical
-                    Celebration</h2>
-                <p class="mb-6 font-sans text-base leading-7 md:text-lg md:leading-8 last:mb-0">Donuts are uniquely
-                    qualified for events that do not deserve a full cake but still require recognition. Survived Monday?
-                    Donut. Sent one difficult email? Donut. Made it through a social gathering without once saying
-                    &ldquo;you too&rdquo; to the waiter? Huge donut moment. Unlike other desserts, donuts understand the
-                    importance of immediacy. They ask for no plates, no ceremony, no long speech. They simply arrive, do
-                    the work, and leave a faint dusting of sugar as proof that joy briefly existed.</p>
-            </div>
         </div>
     </section>
+
 </article>
-<nav class="flex justify-between items-stretch mt-24 border-t pt-10 px-10 md:px-16 font-sans gap-12">
 
-    <!-- Previous -->
-    <a href="{{ prev_url }}" class="group flex items-center gap-4 max-w-sm">
+<!-- ===================== -->
+<!-- RELATED ARTICLES -->
+<!-- ===================== -->
 
-        <span class="flex items-center justify-center transition-transform group-hover:-translate-x-1">
-            ←
-        </span>
+<nav>
+    <section class="px-6 md:px-16">
 
-        <div>
-            <p class="text-sm text-gray-500">Vorheriger Beitrag</p>
-            <p class="text-lg leading-snug group-hover:underline">
-                {{ prev_title }}
-            </p>
+        <h1 class="text-2xl leading-none uppercase font-display md:text-6xl mb-10 text-center">
+            Könnte dich auch interessieren:
+        </h1>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+
+            {{ collection:article limit="4" sort="random" :id:not="id" }}
+
+            <a href="{{ url }}" class="block group h-full">
+
+                <div class="h-full rounded-2xl shadow-md overflow-hidden bg-[#e7e8e7] flex flex-col transition group-hover:-translate-y-1 group-hover:shadow-xl">
+
+                    <div class="overflow-hidden">
+                        <img src="{{ image }}" alt="{{ title }}"
+                            class="w-full aspect-[4/3] object-cover transition duration-300 group-hover:scale-105">
+                    </div>
+
+                    <div class="p-4 flex flex-col flex-1">
+
+                        <b class="text-[25px] font-display leading-[1.05] tracking-[0.05em] text-[#ff2f7f] min-h-[4rem]">
+                            {{ title }}
+                        </b>
+
+                        <p class="text-xs leading-snug line-clamp-3 mt-2">
+                            {{ prev_text }}
+                        </p>
+
+                        <div class="flex-1"></div>
+
+                        <div class="mt-4">
+
+                            <p class="text-[10px] text-gray-500 mb-3">
+                                {{ date | format('l, d.m.y') }}
+                            </p>
+
+                            <span
+                                class="inline-flex items-center justify-center w-full py-2 text-xs uppercase tracking-wider rounded-full bg-[#f794ba] text-white transition group-hover:bg-[#ff2f7f]">
+                                Zum Artikel
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+            {{ /collection:article }}
+
         </div>
 
-    </a>
-
-    <!-- Next -->
-    <a href="{{ next_url }}" class="group flex items-center gap-4 text-right max-w-sm ml-auto">
-
-        <div>
-            <p class="text-sm text-gray-500">Nächster Beitrag</p>
-            <p class="text-lg leading-snug group-hover:underline">
-                {{ next_title }}
-            </p>
-        </div>
-
-        <span class="flex items-center justify-center transition-transform group-hover:translate-x-1">
-            →
-        </span>
-
-    </a>
-
+    </section>
 </nav>
+
+<!-- ===================== -->
+<!-- CURSOR EFFECT -->
+<!-- ===================== -->
+
+<div id="cursor-container"></div>
+
+<style>
+    #cursor-container {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    .star {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #ff2f7f;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.8;
+        animation: fade 0.8s linear forwards;
+    }
+
+    @keyframes fade {
+        to {
+            opacity: 0;
+            transform: scale(0.3);
+        }
+    }
+</style>
+
+<script>
+const container = document.getElementById('cursor-container');
+
+// Cursor trail
+document.addEventListener('mousemove', (e) => {
+    createStar(e.clientX, e.clientY);
+});
+
+function createStar(x, y) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    star.style.left = x + 'px';
+    star.style.top = y + 'px';
+
+    container.appendChild(star);
+
+    setTimeout(() => star.remove(), 800);
+}
+
+// Click explosion
+document.addEventListener('click', (e) => {
+    for (let i = 0; i < 20; i++) {
+        createExplosion(e.clientX, e.clientY);
+    }
+});
+
+function createExplosion(x, y) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    const angle = Math.random() * Math.PI * 2;
+    const distance = Math.random() * 80;
+
+    const dx = Math.cos(angle) * distance;
+    const dy = Math.sin(angle) * distance;
+
+    star.style.left = x + 'px';
+    star.style.top = y + 'px';
+
+    container.appendChild(star);
+
+    requestAnimationFrame(() => {
+        star.style.transform = `translate(${dx}px, ${dy}px) scale(0)`;
+        star.style.opacity = 0;
+    });
+
+    setTimeout(() => star.remove(), 800);
+}
+</script>

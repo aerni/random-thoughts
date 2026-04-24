@@ -29,6 +29,16 @@ tabs:
               display: Image
               validate:
                 - required
+          -
+            handle: content
+            field:
+              type: markdown
+              display: Content
+          -
+            handle: prev_text
+            field:
+              type: text
+              display: 'Text Field'
   sidebar:
     display: Sidebar
     sections:
@@ -40,3 +50,11 @@ tabs:
               type: slug
               localizable: true
               validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
