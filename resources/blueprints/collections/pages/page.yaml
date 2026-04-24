@@ -17,6 +17,12 @@ tabs:
             field:
               type: template
               display: Template
+          -
+            handle: description
+            field:
+              type: textarea
+              display: Description
+              instructions: 'Short description shown below the page title'
   sidebar:
     display: Sidebar
     sections:

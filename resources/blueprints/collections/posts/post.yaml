@@ -1,0 +1,35 @@
+title: Post
+tabs:
+  main:
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              required: true
+              validate:
+                - required
+          -
+            handle: lead
+            field:
+              type: text
+              display: Lead
+              instructions: 'Short description shown on the blog listing'
+          -
+            handle: image
+            field:
+              type: assets
+              display: Image
+              container: assets
+              max_files: 1
+              instructions: 'Featured image for the post'
+          -
+            handle: slug
+            field:
+              type: slug
+              display: Slug
+              localizable: true
+              validate: 'max:200'

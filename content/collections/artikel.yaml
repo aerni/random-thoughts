@@ -1,0 +1,14 @@
+title: Artikel
+icon: collections
+template: post
+layout: layout
+revisions: false
+route: '/story/{slug}'
+date: true
+sort_field: date
+sort_dir: asc
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true

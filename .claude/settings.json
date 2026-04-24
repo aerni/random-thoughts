@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__laravel-boost__application-info",
+      "mcp__statamic__statamic-system",
+      "Bash(awk '{print $NF}')",
+      "Bash(grep \"\\\\.php$\")",
+      "mcp__statamic__statamic-blueprints",
+      "mcp__statamic__statamic-entries",
+      "mcp__statamic__statamic-structures",
+      "Bash(php artisan *)",
+      "Bash(php please *)",
+      "Bash(sed -i '' 's/^id: b2c3d4e5-f6a7-8901-bcde-f12345678901$/id: b2c3d4e5-f6a7-8901-bcde-f12345678901\\\\ndate: 2025-01-08/' content/collections/artikel/beginnings-are-the-best-and-the-worst.md)",
+      "Bash(sed -i '' 's/^id: f8bd0e99-9e9a-4a24-9632-98eae6acb9a1$/id: f8bd0e99-9e9a-4a24-9632-98eae6acb9a1\\\\ndate: 2025-02-14/' content/collections/artikel/everything-is-better-when-donuts-are-involved.md)",
+      "Bash(sed -i '' 's/^id: d4e5f6a7-b8c9-0123-defa-234567890123$/id: d4e5f6a7-b8c9-0123-defa-234567890123\\\\ndate: 2025-03-05/' content/collections/artikel/everything-is-better-when-pasta-is-involved.md)",
+      "Bash(sed -i '' 's/^id: c3d4e5f6-a7b8-9012-cdef-123456789012$/id: c3d4e5f6-a7b8-9012-cdef-123456789012\\\\ndate: 2025-03-22/' content/collections/artikel/i-had-a-really-good-idea-but-got-sidetracked-and-forgot-it.md)",
+      "Bash(sed -i '' 's/^id: cd426d8a-4585-46d6-a4d6-fbaf8a0aedf4$/id: cd426d8a-4585-46d6-a4d6-fbaf8a0aedf4\\\\ndate: 2025-04-03/' content/collections/artikel/theres-something-secret-and-dangerous-lurking-in-your-pocket.md)",
+      "Bash(mv beginnings-are-the-best-and-the-worst.md 2025-01-22.beginnings-are-the-best-and-the-worst.md)",
+      "Bash(mv everything-is-better-when-donuts-are-involved.md 2025-03-05.everything-is-better-when-donuts-are-involved.md)",
+      "Bash(mv everything-is-better-when-pasta-is-involved.md 2025-05-14.everything-is-better-when-pasta-is-involved.md)",
+      "Bash(mv \"i-had-a-really-good-idea-but-got-sidetracked-and-forgot-it.md\" \"2025-07-09.i-had-a-really-good-idea-but-got-sidetracked-and-forgot-it.md\")",
+      "Bash(mv theres-something-secret-and-dangerous-lurking-in-your-pocket.md 2025-09-03.theres-something-secret-and-dangerous-lurking-in-your-pocket.md)",
+      "mcp__laravel-boost__last-error",
+      "mcp__laravel-boost__browser-logs",
+      "Bash(curl -s http://random-thoughts.test/story/everything-is-better-when-donuts-are-involved)"
+    ]
+  }
+}

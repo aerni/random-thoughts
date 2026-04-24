@@ -1,1 +1,36 @@
-{{ title }}
+<main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
+    <section>
+        <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+            <h1 class="text-6xl leading-none uppercase font-display md:text-8xl bg-gradient-to-r from-hot-pink to-violet-500 bg-clip-text text-transparent">Fooood,<br>that makes you happy</h1>
+            <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ description }}</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-7xl md:grid-cols-2">
+            {{ collection:artikel }}
+                <article{{ if loop.iteration == 1 }} class="relative md:col-span-2"{{ else }} class="relative"{{ /if }}>
+                    <a href="{{ url }}" class="group flex flex-col h-full overflow-hidden bg-white shadow-lg rounded-xl hover:shadow-xl transition-shadow ease-out">
+                        {{ bild }}
+                            <img src="{{ url }}" alt="{{ alt ?? title }}" class="object-cover w-full h-72 bg-hot-pink transition-transform duration-500 ease-out group-hover:scale-110">
+                        {{ /bild }}
+                        <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
+                            <h2 class="font-sans text-xl font-semibold md:text-2xl text-hot-pink">{{ title }}</h2>
+                            {{ if text }}<p class="font-sans text-sm leading-6 text-gray-600">{{ text }}</p>{{ /if }}
+                            <p class="font-sans text-xs text-gray-400">{{ date format="j. F Y" }}</p>
+                        </div>
+                    </a>
+                    <button
+                        class="like-btn absolute top-3 right-3 p-2 rounded-full bg-hot-pink/15 transition hover:scale-110"
+                        data-slug="{{ slug }}"
+                        aria-label="Save article"
+                    >
+                        <svg class="like-icon w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#FD2D78" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                        </svg>
+                    </button>
+                </article>
+            {{ /collection:artikel }}
+        </div>
+    </section>
+</main>

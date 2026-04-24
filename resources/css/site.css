@@ -6,8 +6,82 @@
 @theme {
     --color-black: #12151E;
     --color-linen: #FFFBF6;
+    --color-blush: #FFE8EF;
     --color-hot-pink: #FD2D78;
     --font-display: Londrina Solid, sans-serif;
     --font-sans: Poppins, sans-serif;
     --container-8xl: 88rem;
+}
+
+.post-content h2 {
+    @apply mt-10 mb-4 font-sans text-3xl font-semibold first:mt-0 md:mt-14 md:mb-6 md:text-4xl;
+}
+
+.post-content p {
+    @apply mb-6 font-sans text-base leading-7 last:mb-0 md:text-lg md:leading-8;
+}
+
+.post-content a {
+    @apply text-hot-pink hover:underline;
+}
+
+@keyframes fly-burger {
+    0%   { transform: translateX(-150px) translateY(0px) rotate(0deg); }
+    25%  { transform: translateX(35vw) translateY(-15px) rotate(20deg); }
+    50%  { transform: translateX(65vw) translateY(15px) rotate(-15deg); }
+    75%  { transform: translateX(85vw) translateY(-10px) rotate(25deg); }
+    100% { transform: translateX(110vw) translateY(0px) rotate(10deg); }
+}
+
+.flying-burger {
+    position: fixed;
+    bottom: 15%;
+    left: 0;
+    width: 80px;
+    height: auto;
+    pointer-events: none;
+    z-index: 50;
+    animation: fly-burger 8s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+@keyframes fly-glace {
+    0%   { transform: translateX(110vw) translateY(0px) rotate(0deg); }
+    25%  { transform: translateX(75vw) translateY(15px) rotate(-20deg); }
+    50%  { transform: translateX(40vw) translateY(-15px) rotate(15deg); }
+    75%  { transform: translateX(15vw) translateY(10px) rotate(-25deg); }
+    100% { transform: translateX(-150px) translateY(0px) rotate(-10deg); }
+}
+
+@keyframes fly-erdbeer {
+    0%   { transform: translateY(-150px) translateX(0px) rotate(0deg); }
+    25%  { transform: translateY(25vh) translateX(15px) rotate(20deg); }
+    50%  { transform: translateY(50vh) translateX(-15px) rotate(-15deg); }
+    75%  { transform: translateY(75vh) translateX(10px) rotate(20deg); }
+    100% { transform: translateY(110vh) translateX(0px) rotate(10deg); }
+}
+
+.flying-erdbeer {
+    position: fixed;
+    top: 0;
+    left: 18%;
+    width: 90px;
+    height: auto;
+    pointer-events: none;
+    z-index: 50;
+    animation: fly-erdbeer 7s ease-in-out infinite;
+    animation-delay: 1.5s;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+.flying-glace {
+    position: fixed;
+    top: 8%;
+    left: 0;
+    width: 110px;
+    height: auto;
+    pointer-events: none;
+    z-index: 50;
+    animation: fly-glace 8s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
 }

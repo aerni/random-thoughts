@@ -1,1 +1,46 @@
-{{ title }}
+<main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
+    <article class="contents">
+        <section>
+            <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+                <h1 class="text-5xl leading-none uppercase font-display md:text-8xl bg-gradient-to-r from-hot-pink to-violet-500 bg-clip-text text-transparent">{{ title }}</h1>
+                {{ if text }}
+                    <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ text }}</p>
+                {{ /if }}
+                {{ if date }}
+                    <p class="font-sans text-sm md:text-base">{{ date format="j. F Y" }}</p>
+                {{ /if }}
+            </div>
+        </section>
+
+        <section>
+            <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+                {{ bild }}
+                    <div class="px-6 mx-auto max-w-7xl md:px-16">
+                        <img src="{{ url }}" alt="{{ alt }}" class="object-contain w-full aspect-video rounded-xl bg-blush">
+                    </div>
+                {{ /bild }}
+
+                <div class="max-w-4xl px-6 mx-auto md:px-16 post-content">
+                    {{ content }}
+                </div>
+
+                {{ if gallery }}
+                    <div class="px-6 mx-auto max-w-7xl md:px-16">
+                        <div class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+                            {{ gallery }}
+                                <button class="gallery-btn overflow-hidden rounded-xl aspect-square" data-src="/assets/{{ path }}">
+                                    <img src="/assets/{{ path }}" alt="" class="object-cover w-full h-full transition-transform duration-500 ease-out hover:scale-110">
+                                </button>
+                            {{ /gallery }}
+                        </div>
+                    </div>
+
+                    <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4" role="dialog">
+                        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-3xl leading-none">&times;</button>
+                        <img id="lightbox-img" src="" alt="" class="max-h-screen max-w-full rounded-xl shadow-2xl">
+                    </div>
+                {{ /if }}
+            </div>
+        </section>
+    </article>
+</main>
