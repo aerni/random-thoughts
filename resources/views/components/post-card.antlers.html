@@ -1,31 +1,72 @@
+{{#
+    components/post-card.antlers.html — DIE BLOG-KARTE
+    ====================================================
+    Diese Komponente wird überall dort eingesetzt wo Posts als Karten angezeigt werden:
+    - Blog-Übersicht (blog.antlers.html)
+    - Tag-Seite (tags/show.antlers.html)
+    - Autoren-Seite (authors/show.antlers.html)
+
+    DESIGN-ENTSCHEIDUNG: Jede Karte hat eine andere eckige Ecke.
+    loop_index gibt die Reihenfolge: 1. Karte → oben-links eckig, 2. → unten-rechts, usw.
+
+    WICHTIG — Warum <a> aussen und <div> innen beim Autor?
+    Der ganze Card ist ein Link (<a href="{{ url }}">). Würden wir den Autor auch als <a> machen,
+    entsteht ein Link IN einem Link — das ist in HTML nicht erlaubt und bricht das Layout.
+    Deshalb ist der Autor-Badge eine <div> (in author-badge.antlers.html).
+
+    ALLE DATEN KOMMEN AUS STATAMIC (aus dem aktuellen Post in der Schleife):
+    - {{ url }} → Link zur Detailseite
+    - {{ title }} → Post-Titel
+    - {{ tags }} → zugewiesene Tags
+    - {{ date }} → Veröffentlichungsdatum
+    - post-media → Bild oder Video
+    - author-badge → Autor-Avatar und Name
+#}}
+
+{{# Erste Karte spannt 2 Spalten (macht sie grösser) — "first" ist eine Antlers-Variable #}}
 {{ if first }}
     <article class="md:col-span-2">
 {{ else }}
     <article>
 {{ /if }}
+
+    {{# Der ganze Card ist anklickbar → führt zum Blog-Post #}}
     <a href="{{ url }}" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-3xl hover:-translate-y-1 hover:shadow-xl
+        {{# Eckige Ecke: wechselt je nach Position in der Liste (loop_index = 1, 2, 3...) #}}
         {{ if loop_index == 1 }}rounded-tl-none
         {{ elseif loop_index == 2 }}rounded-br-none
         {{ elseif loop_index == 3 }}rounded-tr-none
         {{ elseif loop_index == 4 }}rounded-bl-none
         {{ else }}rounded-br-none
         {{ /if }}">
+
+        {{# BILD ODER VIDEO — Komponente entscheidet selbst welches angezeigt wird #}}
         {{ partial:components/post-media media_class="object-cover w-full h-72" }}
+
         <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
+
+            {{# Post-Titel aus Statamic CP #}}
             <h2 class="font-sans text-xl font-semibold md:text-2xl">{{ title }}</h2>
+
+            {{# Tags: nur anzeigen wenn welche vorhanden sind #}}
             {{ if tags }}
                 <div class="flex flex-wrap gap-1.5">
                     {{ tags }}
+                        {{# Jedes Tag als kleine Pille — hier kein Link, da der Card schon ein Link ist #}}
                         <span class="px-2.5 py-1 font-sans text-xs font-semibold rounded-full bg-linen text-black/60">{{ title }}</span>
                     {{ /tags }}
                 </div>
             {{ /if }}
+
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
+                    {{# AUTOR-BADGE: zeigt Avatar + Name — ist ein <div> nicht <a>! (siehe oben) #}}
                     {{ partial:components/author-badge }}
                 </div>
+                {{# Datum formatiert: z.B. "24. April 2026" #}}
                 <p class="font-sans text-xs">{{ date format="j. F Y" }}</p>
             </div>
+
         </div>
     </a>
 </article>

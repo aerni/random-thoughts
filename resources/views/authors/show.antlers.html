@@ -1,5 +1,31 @@
+{{#
+    authors/show.antlers.html — DIE AUTOREN-SEITE
+    ================================================
+    Diese Seite zeigt das Profil eines Autors + alle seine/ihre Posts.
+    URL: /authors/{slug}  (z.B. /authors/leonina)
+
+    WAS AUS STATAMIC KOMMT:
+    - {{ avatar }}  → Profilbild des Autors (im CP hochgeladen)
+    - {{ title }}   → Name des Autors
+    - {{ bio }}     → Kurzbiographie (optional)
+    - {{ links }}   → Social-Media-Links oder andere Links (optional)
+    - {{ id }}      → Eindeutige ID des Autors (intern, nicht sichtbar)
+
+    WIE DER POST-FILTER FUNKTIONIERT:
+    :author:contains="id"  →  filtert Posts die diesen Autor enthalten
+    Der Doppelpunkt bedeutet: "id" ist eine Variable (die ID des aktuellen Autors)
+    Das "contains" ist wichtig weil das author-Feld als Array gespeichert ist: ["id"]
+
+    BEKANNTE TÜCKE:
+    Wenn author als String "id" statt Array ["id"] gespeichert ist, funktioniert
+    der :contains-Filter NICHT → Abhilfe: Post im CP öffnen und Autor neu setzen.
+#}}
+
+{{# AUTOREN-PROFIL: Bild, Name, Bio, Links #}}
 <section>
     <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+
+        {{# Profilbild — oder Initialen in pinkem Kreis wenn kein Bild vorhanden #}}
         {{ if avatar }}
             <img src="{{ avatar }}" alt="{{ title }}" class="w-28 h-28 rounded-full object-cover">
         {{ else }}
@@ -7,10 +33,16 @@
                 {{ title | upper | truncate:2:'' }}
             </div>
         {{ /if }}
+
+        {{# Autorenname gross #}}
         <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+
+        {{# Bio: nur anzeigen wenn vorhanden #}}
         {{ if bio }}
             <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ bio }}</p>
         {{ /if }}
+
+        {{# Links: nur anzeigen wenn vorhanden (z.B. Instagram, Website) #}}
         {{ if links }}
             <div class="flex flex-wrap items-center justify-center gap-3">
                 {{ links }}
@@ -22,11 +54,17 @@
                 {{ /links }}
             </div>
         {{ /if }}
+
     </div>
 </section>
 
+{{# POST-GRID: nur Posts von diesem Autor #}}
 <section>
     <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
+        {{#
+            :author:contains="id"  → zeigt nur Posts wo dieser Autor eingetragen ist
+            id = die eindeutige ID des Autors (automatisch verfügbar auf der Autoren-Seite)
+        #}}
         {{ collection:posts :author:contains="id" sort="date:desc" }}
             {{ partial:components/post-card }}
         {{ /collection:posts }}

@@ -1,3 +1,26 @@
+{{#
+    blog.antlers.html — DIE BLOG-ÜBERSICHT (Startseite)
+    =====================================================
+    Diese Seite zeigt alle Blog-Posts als Karten-Grid an.
+
+    WAS STATISCH IST:
+    - Der Titel "Blog" und die Beschreibung im hero (könnten aber auch ins CP)
+    - Das Layout (Grid, Abstände, Pagination-Buttons)
+
+    WAS AUS STATAMIC KOMMT:
+    - Alle Blog-Posts aus der Collection "posts"
+    - Sortierung nach Datum (neueste zuerst)
+    - Die Tags in der Übersicht (aus taxonomy:tags)
+    - Pagination (automatisch bei mehr als 9 Posts)
+
+    WIE DER INHALT INS TEMPLATE GELANGT:
+    collection:posts → holt alle Einträge aus der "posts"-Collection in Statamic
+    Jeder Eintrag wird dann an post-card weitergegeben (als Partial/Komponente)
+#}}
+
+{{# HERO-BEREICH: Seitentitel + Beschreibung + Tag-Filter
+    Dieser Block ist eine wiederverwendbare Komponente aus components/hero.antlers.html
+    title= und description= sind Parameter die wir übergeben #}}
 {{ partial:components/hero
     title="Blog"
     description="This is description of the type of content you would expect to read here on this blog."
@@ -6,11 +29,22 @@
 <section>
     <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
 
+        {{#
+            collection:posts — holt Posts aus Statamic
+            sort="date:desc"   → neueste zuerst
+            limit="9"          → max. 9 Posts pro Seite
+            paginate="true"    → aktiviert Blättern (Seite 1, 2, 3...)
+            as="posts"         → gibt den Posts den Namen "posts" damit die Pagination funktioniert
+        #}}
         {{ collection:posts sort="date:desc" limit="9" paginate="true" as="posts" }}
+
+            {{# Schleife: für jeden Post wird eine Karte gerendert #}}
             {{ posts }}
+                {{# post-card ist eine Komponente: resources/views/components/post-card.antlers.html #}}
                 {{ partial:components/post-card }}
             {{ /posts }}
 
+            {{# PAGINATION: Zurück/Weiter-Buttons wenn es mehr als 9 Posts gibt #}}
             {{ paginate }}
                 {{ if total_pages > 1 }}
                     <div class="flex items-center justify-center col-span-full gap-3 pt-4 font-sans text-sm font-semibold">
@@ -20,6 +54,7 @@
                     </div>
                 {{ /if }}
             {{ /paginate }}
+
         {{ /collection:posts }}
 
     </div>

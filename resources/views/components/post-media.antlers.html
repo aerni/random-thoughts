@@ -1,5 +1,28 @@
+{{#
+    components/post-media.antlers.html — BILD ODER VIDEO
+    ======================================================
+    Diese Komponente entscheidet automatisch: Gibt es ein Video? → Video zeigen.
+    Sonst: Bild zeigen.
+
+    WO WIRD SIE VERWENDET?
+    - post-card.antlers.html (Karten in der Übersicht)
+    - post.antlers.html (Detailseite eines Posts)
+
+    WIE WIRD SIE AUFGERUFEN?
+    {{ partial:components/post-media media_class="object-cover w-full h-72" }}
+    Der Parameter media_class bestimmt die Grösse/Form des Bildes/Videos.
+
+    WAS KOMMT AUS STATAMIC?
+    - teaser_video → wird im CP hochgeladen (mp4, webm, mov)
+    - teaser_image → wird im CP hochgeladen (jpg, png, webp...)
+    - title → wird als alt-Text für das Bild verwendet (für Barrierefreiheit)
+#}}
+
+{{# Wenn ein Video vorhanden ist → Video anzeigen (autoplay, Loop, kein Ton) #}}
 {{ if teaser_video }}
     <video src="{{ teaser_video }}" autoplay loop muted playsinline class="{{ media_class }}"></video>
+
+{{# Sonst → Bild anzeigen #}}
 {{ else }}
     <img src="{{ teaser_image }}" alt="{{ title }}" class="{{ media_class }}">
 {{ /if }}

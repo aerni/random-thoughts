@@ -1,6 +1,7 @@
 title: Post
 tabs:
   main:
+    display: Main
     sections:
       -
         fields:
@@ -10,6 +11,8 @@ tabs:
               type: text
               required: true
               display: Titel
+              validate:
+                - required
           -
             handle: author
             field:
@@ -19,6 +22,11 @@ tabs:
                 - authors
               max_items: 1
               mode: select
+          -
+            handle: spotify_link
+            field:
+              type: text
+              display: Spotify-Link
           -
             handle: teaser_image
             field:
@@ -30,7 +38,7 @@ tabs:
             handle: teaser_video
             field:
               type: assets
-              display: Teaser-Video (optional)
+              display: 'Teaser-Video (optional)'
               container: assets
               max_files: 1
               extensions:
@@ -42,7 +50,8 @@ tabs:
             field:
               type: textarea
               display: Einleitung
-              required: true
+              validate:
+                - required
           -
             handle: content
             field:
@@ -71,6 +80,7 @@ tabs:
                 - tags
               mode: select
   sidebar:
+    display: Sidebar
     sections:
       -
         fields:
@@ -86,3 +96,5 @@ tabs:
               type: date
               required: true
               default: now
+              validate:
+                - required

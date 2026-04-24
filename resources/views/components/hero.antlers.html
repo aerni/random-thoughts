@@ -1,11 +1,45 @@
+{{#
+    components/hero.antlers.html — SEITEN-HEADER
+    ==============================================
+    Zeigt einen grossen Titel + Beschreibungstext oben auf einer Seite.
+
+    WO WIRD SIE VERWENDET?
+    - Nur in blog.antlers.html (ganz oben auf der Blog-Übersicht)
+    - NICHT auf Post-Unterseiten — die haben ihren eigenen Header in post.antlers.html
+
+    WIE WIRD SIE AUFGERUFEN?
+    {{ partial:components/hero title="Blog" description="Mein Text hier..." }}
+    Die Werte für title und description werden beim Aufruf mitgegeben (statisch).
+
+    WAS KOMMT AUS STATAMIC?
+    - {{ taxonomy:tags }} → holt alle Tags aus der Taxonomy "tags" in Statamic
+    - Jedes Tag hat eine {{ url }} (z.B. /tags/technologie) und einen {{ title }}
+
+    DIE TAG-BUTTONS:
+    Die Buttons sehen aus wie Filter, sind aber einfach Links zu den Tag-Seiten.
+    Klick auf "Technologie" → öffnet /tags/technologie (neue Seite lädt).
+    Es gibt keinen Filter der die aktuelle Seite ohne Reload ändert.
+#}}
+
 <section>
     <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+
+        {{# Grosser Seitentitel — wird beim Aufruf übergeben (z.B. title="Blog") #}}
         <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+
+        {{# Beschreibungstext — wird beim Aufruf übergeben #}}
         <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ description }}</p>
+
+        {{#
+            TAG-LINKS: sehen aus wie Filter, sind aber Links zu den Tag-Seiten.
+            Klick auf "Technologie" → öffnet /tags/technologie (neue Seite lädt).
+            first/last werden genutzt um das <div> nur einmal zu öffnen/schliessen.
+        #}}
         {{ taxonomy:tags }}
             {{ if first }}<div class="flex flex-wrap items-center justify-center gap-2">{{ /if }}
                 <a href="{{ url }}" class="px-4 py-1.5 font-sans text-sm font-semibold rounded-full bg-white shadow hover:bg-hot-pink hover:text-white transition ease-out">{{ title }}</a>
             {{ if last }}</div>{{ /if }}
         {{ /taxonomy:tags }}
+
     </div>
 </section>

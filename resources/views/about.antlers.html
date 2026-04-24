@@ -1,14 +1,48 @@
+{{#
+    about.antlers.html — DIE ABOUT-SEITE
+    ======================================
+    Diese Seite stellt den Blog und die Autor:innen vor.
+    URL: /about
+
+    WAS STATISCH IST:
+    - Der Titel "About" (hardcoded)
+    - Der Abschnittstitel "Die Autor:innen"
+    - Das Layout (Grid, Abstände)
+
+    WAS AUS STATAMIC KOMMT:
+    - {{ intro }}  → Einleitungstext der About-Seite (im CP unter Pages > About)
+    - {{ bio }}    → Längerer Fliesstext der About-Seite (Replicator mit Absätzen)
+    - collection:authors → alle Autoren-Profile aus der "authors"-Collection
+
+    WIE DER INHALT INS TEMPLATE GELANGT:
+    Statamic schaut: welche Seite hat die URL /about?
+    → findet den Eintrag in der "pages"-Collection
+    → gibt dessen Felder (intro, bio) an dieses Template weiter
+#}}
+
+{{# HEADER: Seitentitel + Einleitungstext #}}
 <section>
     <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+
+        {{# Statischer Titel — könnte man auch dynamisch aus Statamic holen #}}
         <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">About</h1>
+
+        {{# Intro-Text aus Statamic CP (Pages > About) — nur anzeigen wenn vorhanden #}}
         {{ if intro }}
             <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ intro }}</p>
         {{ /if }}
+
     </div>
 </section>
 
+{{# HAUPTINHALT: Bio-Text + Autoren-Grid #}}
 <section>
     <div class="max-w-4xl px-6 mx-auto md:px-16">
+
+        {{#
+            Bio: längerer Fliesstext aus Statamic (Replicator-Feld)
+            Besteht aus Absätzen (type="paragraph"), jeder wird als <p> gerendert
+        #}}
         {{ if bio }}
             <div class="flex flex-col gap-6 font-sans text-base leading-7 md:text-lg md:leading-8 mb-16">
                 {{ bio }}
@@ -19,10 +53,16 @@
             </div>
         {{ /if }}
 
+        {{# AUTOREN-GRID: alle Autoren aus der "authors"-Collection #}}
         <h2 class="mb-8 font-sans text-3xl font-semibold md:text-4xl">Die Autor:innen</h2>
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+
+            {{# Schleife über alle Autoren, alphabetisch sortiert #}}
             {{ collection:authors sort="title:asc" }}
+                {{# Jeder Autor ist eine anklickbare Karte → führt zur Autoren-Seite #}}
                 <a href="{{ url }}" class="flex items-center gap-5 p-6 bg-white rounded-3xl rounded-tl-none shadow-lg transition ease-out hover:-translate-y-1 hover:shadow-xl">
+
+                    {{# Profilbild — oder Initialen in pinkem Kreis wenn kein Bild vorhanden #}}
                     {{ if avatar }}
                         <img src="{{ avatar }}" alt="{{ title }}" class="w-16 h-16 rounded-full object-cover shrink-0">
                     {{ else }}
@@ -30,14 +70,19 @@
                             {{ title | upper | truncate:2:'' }}
                         </div>
                     {{ /if }}
+
                     <div>
+                        {{# Autorenname #}}
                         <p class="font-sans font-semibold text-lg">{{ title }}</p>
+                        {{# Kurze Bio — wird nach 60 Zeichen abgeschnitten (truncate) #}}
                         {{ if bio }}
                             <p class="font-sans text-sm text-black/50 mt-1">{{ bio | truncate:60:'…' }}</p>
                         {{ /if }}
                     </div>
+
                 </a>
             {{ /collection:authors }}
+
         </div>
     </div>
 </section>

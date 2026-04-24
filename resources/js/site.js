@@ -1,7 +1,25 @@
-// Custom cursor
+// =============================================================
+// site.js — JAVASCRIPT FÜR DIE GANZE WEBSITE
+// =============================================================
+// Diese Datei wird auf jeder Seite geladen (via layout.antlers.html).
+// Hier sind zwei interaktive Features: Custom Cursor + Favicon-Wechsel.
+// (Der Favicon-Wechsel ist direkt in layout.antlers.html, nicht hier.)
+// =============================================================
+
+
+// CUSTOM CURSOR — EIGENER MAUSZEIGER
+// ---------------------------------------------------------------
+// Wir ersetzen den normalen Mauszeiger durch zwei Elemente:
+//   1. dot  → kleiner pinker Punkt, folgt der Maus exakt
+//   2. ring → grösserer Ring, folgt mit leichtem Nachzieh-Effekt
+
+// Dot: kleiner pinker Punkt
 const dot = document.createElement('div');
+
+// Ring: grösserer transparenter Kreis
 const ring = document.createElement('div');
 
+// Styling des Dots direkt per JavaScript (kein CSS nötig)
 dot.style.cssText = `
     position: fixed; pointer-events: none; z-index: 9999;
     width: 8px; height: 8px; border-radius: 50%;
@@ -10,6 +28,7 @@ dot.style.cssText = `
     transition: transform 0.1s ease, opacity 0.3s ease;
 `;
 
+// Styling des Rings
 ring.style.cssText = `
     position: fixed; pointer-events: none; z-index: 9998;
     width: 36px; height: 36px; border-radius: 50%;
@@ -19,12 +38,17 @@ ring.style.cssText = `
     opacity: 0.5;
 `;
 
+// Beide Elemente ins HTML einfügen
 document.body.appendChild(dot);
 document.body.appendChild(ring);
 
+// Aktuelle Mausposition
 let mouseX = 0, mouseY = 0;
+
+// Position des Rings (startet bei 0, folgt mit Verzögerung)
 let ringX = 0, ringY = 0;
 
+// Mausbewegung verfolgen → Dot folgt sofort
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
@@ -32,22 +56,25 @@ document.addEventListener('mousemove', (e) => {
     dot.style.top = mouseY + 'px';
 });
 
+// Ring folgt mit Nachzieh-Effekt (Lerp = lineare Interpolation)
+// 0.12 = Geschwindigkeit: 12% der Distanz pro Frame → weicher Nachzug
 (function animate() {
     ringX += (mouseX - ringX) * 0.12;
     ringY += (mouseY - ringY) * 0.12;
     ring.style.left = ringX + 'px';
     ring.style.top = ringY + 'px';
-    requestAnimationFrame(animate);
+    requestAnimationFrame(animate); // wiederholt sich ~60x pro Sekunde
 })();
 
+// Hover-Effekt: Cursor wird grösser wenn man über Links oder Buttons fährt
 document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseenter', () => {
-        dot.style.transform = 'translate(-50%, -50%) scale(2)';
-        ring.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        dot.style.transform = 'translate(-50%, -50%) scale(2)';  // Dot doppelt so gross
+        ring.style.transform = 'translate(-50%, -50%) scale(1.5)'; // Ring 1.5x grösser
         ring.style.opacity = '0.8';
     });
     el.addEventListener('mouseleave', () => {
-        dot.style.transform = 'translate(-50%, -50%) scale(1)';
+        dot.style.transform = 'translate(-50%, -50%) scale(1)';  // zurück zu normal
         ring.style.transform = 'translate(-50%, -50%) scale(1)';
         ring.style.opacity = '0.5';
     });

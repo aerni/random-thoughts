@@ -1,15 +1,39 @@
+/* =============================================================
+   site.css — STYLING DER GANZEN WEBSITE
+   =============================================================
+   Hier definieren wir unsere eigenen Design-Variablen (Farben, Fonts)
+   und laden Tailwind CSS.
+
+   WIE ES FUNKTIONIERT:
+   Tailwind CSS ist ein "Utility-First"-Framework: statt eigene CSS-Klassen
+   zu schreiben, kombiniert man fertige Hilfsklassen direkt im HTML.
+   z.B.  class="text-hot-pink font-sans"  statt  color: #FD2D78; font-family: Poppins;
+
+   @theme definiert eigene Variablen die dann als Tailwind-Klassen verfügbar sind:
+   --color-hot-pink → verwendbar als bg-hot-pink, text-hot-pink, border-hot-pink
+   --font-display   → verwendbar als font-display
+   ============================================================= */
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+/* Scannt diese Ordner nach Tailwind-Klassen (für den Build) */
 @source "../views";
 @source "../../content";
 
+/* Versteckt den Standard-Mauszeiger — wir haben unseren eigenen (in site.js) */
 * { cursor: none; }
 
 @theme {
-    --color-black: #12151E;
-    --color-linen: #FFFBF6;
-    --color-hot-pink: #FD2D78;
-    --font-display: Londrina Solid, sans-serif;
-    --font-sans: Poppins, sans-serif;
-    --container-8xl: 88rem;
+    /* FARBEN */
+    --color-black: #12151E;          /* Fast-Schwarz für Text */
+    --color-linen: #FFFBF6;          /* Cremeweiß für Hintergrund */
+    --color-hot-pink: #FD2D78;       /* Pink für Akzente, Cursor, Buttons */
+
+    /* SCHRIFTEN */
+    --font-display: Londrina Solid, sans-serif;  /* Für grosse Titel (H1) */
+    --font-sans: Poppins, sans-serif;            /* Für normalen Text */
+
+    /* CONTAINER */
+    --container-8xl: 88rem;          /* Maximale Breite für das Post-Grid */
 }

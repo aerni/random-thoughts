@@ -1,3 +1,20 @@
+{{#
+    layout.antlers.html — DAS GRUNDGERÜST DER GANZEN WEBSITE
+    ============================================================
+    Diese Datei wird auf JEDER Seite geladen.
+    Sie enthält alles was immer gleich bleibt: Kopfzeile (Navigation),
+    Fusszeile, und den Bereich in der Mitte wo die Seiteninhalte erscheinen.
+
+    STATISCH hier:
+    - Die Navigation "Random Thoughts" (Titel hardcoded)
+    - Das Footer-Jahr (hardcoded)
+
+    AUS STATAMIC hier:
+    - {{ site:short_locale }} → Sprache der Website (aus Statamic-Einstellungen)
+    - {{ title ?? site:name }} → Seitentitel im Browser-Tab (kommt vom jeweiligen Post/Seite)
+    - {{ nav:main }} → Navigationslinks aus dem CP unter "Navigation"
+    - {{ template_content }} → hier wird der Inhalt der jeweiligen Unterseite eingesetzt
+#}}
 <!doctype html>
 <html lang="{{ site:short_locale }}">
 
@@ -5,19 +22,29 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {{# Seitentitel im Browser-Tab: nimmt den Post-Titel, sonst den Website-Namen #}}
         <title>{{ title ?? site:name }}</title>
+
+        {{# Favicon = das kleine Icon im Browser-Tab (wechselt wenn Tab inaktiv ist) #}}
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" id="favicon">
+
+        {{# Lädt CSS (Styling) und JavaScript (Interaktionen) via Vite #}}
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
+
+        {{# Google Fonts: Londrina Solid (für Titel) + Poppins (für Text) #}}
         <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Poppins:ital,wght@0,400;0,600;1,400;1,700&display=swap" rel="stylesheet">
     </head>
 
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-black bg-linen">
 
+        {{# NAVIGATION — erscheint auf jeder Seite oben #}}
         <header>
             <nav>
                 <div class="flex items-start justify-between px-6 py-6 font-sans text-base font-semibold md:text-xl md:px-16">
                     <a href="/">Random Thoughts</a>
                     <div class="flex items-center gap-4 md:gap-8">
+                        {{# nav:main holt die Navigationslinks aus Statamic CP > Navigation > main #}}
                         {{ nav:main }}
                             <a href="{{ url }}">{{ title }}</a>
                         {{ /nav:main }}
@@ -26,10 +53,12 @@
             </nav>
         </header>
 
+        {{# HAUPTINHALT — hier wird die jeweilige Unterseite eingesetzt (z.B. blog.antlers.html) #}}
         <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
             {{ template_content }}
         </main>
 
+        {{# FOOTER — erscheint auf jeder Seite unten #}}
         <footer>
             <div class="flex items-start justify-center px-6 py-10 font-sans text-sm md:px-16">
                 <p>&copy; 2026 Random Thoughts</p>
@@ -38,6 +67,7 @@
 
     </body>
 
+        {{# FAVICON-WECHSEL: wechselt zu "schlafend" wenn Tab nicht aktiv ist #}}
         <script>
             const favicon = document.getElementById('favicon');
             document.addEventListener('visibilitychange', () => {

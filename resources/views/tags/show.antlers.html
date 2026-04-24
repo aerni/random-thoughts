@@ -1,19 +1,55 @@
+{{#
+    tags/show.antlers.html — DIE TAG-SEITE
+    =========================================
+    Diese Seite zeigt alle Posts zu einem bestimmten Tag.
+    URL: /tags/{slug}  (z.B. /tags/technologie)
+
+    WAS AUS STATAMIC KOMMT:
+    - {{ title }}           → Name des Tags (z.B. "Technologie") — aus der Taxonomy
+    - {{ slug }}            → URL-freundlicher Name (z.B. "technologie") — für den Filter
+    - total_results         → Anzahl Posts mit diesem Tag
+    - collection:posts      → alle Posts gefiltert nach diesem Tag
+    - post-card Komponente  → zeigt jeden Post als Karte
+
+    WIE DER FILTER FUNKTIONIERT:
+    :taxonomy:tags="slug"  →  der Doppelpunkt vor taxonomy bedeutet: slug ist eine VARIABLE
+                               (der aktuelle Tag-Slug aus der URL), nicht der Text "slug"
+#}}
+
+{{# HEADER: Tag-Name + Anzahl Posts #}}
 <section>
     <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+
+        {{# Grosser Tag-Titel — kommt aus Statamic Taxonomy #}}
         <h1 class="text-6xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+
+        {{#
+            Anzahl Posts mit diesem Tag
+            as="posts" → verhindert dass die Zahl für jeden Post wiederholt wird
+            total_results → gibt die Gesamtanzahl zurück (nicht den einzelnen Wert pro Post)
+        #}}
         <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ collection:posts :taxonomy:tags="slug" as="posts" }}{{ total_results }}{{ /collection:posts }}
  Posts mit diesem Tag</p>
+
+        {{# Link zurück zur Übersicht #}}
         <a href="/" class="font-sans text-sm font-semibold text-hot-pink hover:underline">&larr; Alle Posts</a>
     </div>
 </section>
 
+{{# POST-GRID: alle Posts mit diesem Tag als Karten #}}
 <section>
     <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
+
+        {{#
+            Holt Posts gefiltert nach dem aktuellen Tag
+            :taxonomy:tags="slug" → filtert nach dem Tag dessen Slug in der URL steht
+        #}}
         {{ collection:posts sort="date:desc" limit="9" paginate="true" as="posts" :taxonomy:tags="slug" }}
             {{ posts }}
                 {{ partial:components/post-card }}
             {{ /posts }}
 
+            {{# PAGINATION: Zurück/Weiter wenn mehr als 9 Posts #}}
             {{ paginate }}
                 {{ if total_pages > 1 }}
                     <div class="flex items-center justify-center col-span-full gap-3 pt-4 font-sans text-sm font-semibold">

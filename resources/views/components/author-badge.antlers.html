@@ -1,10 +1,42 @@
+{{#
+    components/author-badge.antlers.html — AUTOREN-AVATAR + NAME
+    ==============================================================
+    Zeigt den Autor eines Posts: kleines rundes Profilbild (oder Initialen) + Name.
+
+    WO WIRD SIE VERWENDET?
+    - post-card.antlers.html (in der Karten-Übersicht)
+
+    WICHTIG — Warum <div> und nicht <a href>?
+    Die Autoren-Seite wäre logisch verlinkt — aber post-card ist bereits ein grosser <a>-Link.
+    In HTML darf kein Link in einem Link stecken (verschachtelte <a>-Tags).
+    Wenn wir das trotzdem machen, bricht der Browser das Layout (Titel verschwindet etc.).
+    Deshalb: <div> statt <a> hier. Auf der Post-Detailseite (post.antlers.html) ist der
+    Autor ein <a>, weil dort kein übergeordneter Link existiert.
+
+    PARAMETER (können beim Aufrufen übergeben werden):
+    - avatar_size → CSS-Klassen für Bildgrösse, Standard: w-8 h-8
+    - text_size   → CSS-Klassen für Schriftgrösse, Standard: text-xs
+
+    WAS KOMMT AUS STATAMIC?
+    - author → verweist auf einen Eintrag in der "authors"-Collection
+    - avatar → Profilbild des Autors (im CP hochgeladen)
+    - title  → Name des Autors
+#}}
+
 {{ author }}
+    {{# <div> statt <a> — verhindert verschachtelte Links (siehe Erklärung oben) #}}
     <div class="flex items-center gap-2 hover:opacity-70 transition">
+
         {{ if avatar }}
+            {{# Profilbild vorhanden → zeigen #}}
             <img src="{{ avatar }}" alt="{{ title }}" class="rounded-full object-cover shrink-0 {{ avatar_size ?? 'w-8 h-8' }}">
         {{ else }}
+            {{# Kein Bild → Initialen in pinkem Kreis (z.B. "LR" für Leonina Rieder) #}}
             <div class="flex items-center justify-center text-xs font-semibold text-white rounded-full bg-hot-pink shrink-0 {{ avatar_size ?? 'w-8 h-8' }}">{{ title | upper | substr:0:2 }}</div>
         {{ /if }}
+
+        {{# Autorenname #}}
         <span class="font-sans font-medium {{ text_size ?? 'text-xs' }}">{{ title }}</span>
+
     </div>
 {{ /author }}

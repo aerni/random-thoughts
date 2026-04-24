@@ -1,8 +1,36 @@
+{{#
+    post.antlers.html — DIE POST-DETAILSEITE
+    ==========================================
+    Diese Seite zeigt einen einzelnen Blog-Post mit vollem Inhalt.
+    URL: /posts/{slug}  (z.B. /posts/mein-erster-post)
+
+    ALLES KOMMT AUS STATAMIC (aus dem jeweiligen Post im CP):
+    - {{ title }}   → Titel des Posts
+    - {{ intro }}   → Einleitungstext
+    - {{ tags }}    → zugewiesene Tags (verlinkt zu Tag-Seiten)
+    - {{ author }}  → Autor (verlinkt zur Autoren-Seite) — hier <a> erlaubt, kein übergeordneter Link
+    - {{ date }}    → Veröffentlichungsdatum
+    - {{ content }} → Inhalt (Replicator: sections mit heading + text)
+    - post-media   → Bild oder Video (via Komponente)
+
+    UNTERSCHIED ZU post-card:
+    Hier ist der Autor als <a> verlinkt (weil kein übergeordneter Link existiert).
+    In post-card ist der Autor <div> weil der Card selbst ein <a> ist.
+#}}
+
 <article class="contents">
+
+    {{# HEADER-BEREICH: Titel, Intro, Tags, Autor, Datum #}}
     <section>
         <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+
+            {{# Post-Titel aus Statamic CP #}}
             <h1 class="text-5xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+
+            {{# Einleitungstext aus Statamic CP #}}
             <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ intro }}</p>
+
+            {{# Tags: nur wenn vorhanden — jedes Tag führt zu seiner Tag-Seite #}}
             {{ if tags }}
                 <div class="flex flex-wrap items-center justify-center gap-2">
                     {{ tags }}
@@ -11,6 +39,7 @@
                 </div>
             {{ /if }}
 
+            {{# AUTOR + DATUM — hier <a> erlaubt weil kein übergeordneter Link #}}
             <div class="flex items-center gap-3">
                 {{ author }}
                     <a href="{{ url }}" class="flex items-center gap-2 hover:opacity-70 transition">
@@ -21,17 +50,27 @@
                     </a>
                 {{ /author }}
                 <span class="text-black/30">&middot;</span>
+                {{# Datum formatiert: z.B. "24. April 2026" #}}
                 <p class="font-sans text-sm">{{ date format="j. F Y" }}</p>
             </div>
+
         </div>
     </section>
 
+    {{# MEDIEN + INHALT #}}
     <section>
         <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+
+            {{# Bild oder Video (Komponente entscheidet) — breites Format mit abgerundeten Ecken #}}
             <div class="px-6 mx-auto max-w-7xl md:px-16">
                 {{ partial:components/post-media media_class="object-cover w-full aspect-2/1 rounded-xl" }}
             </div>
 
+            {{#
+                INHALT: Replicator-Felder aus Statamic
+                Der Inhalt besteht aus Sektionen (type="section")
+                Jede Sektion kann ein heading und einen text haben
+            #}}
             <div class="max-w-4xl px-6 mx-auto md:px-16">
                 {{ content }}
                     {{ if type == "section" }}
@@ -42,6 +81,8 @@
                     {{ /if }}
                 {{ /content }}
             </div>
+
         </div>
     </section>
+
 </article>
