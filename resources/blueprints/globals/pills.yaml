@@ -12,5 +12,4 @@ fields:
       type: assets
       display: 'Floating Images'
       container: assets
-      instructions: 'SVG or PNG files to float alongside the text pills.'
-      restrict: false
+      instructions: 'Select images to float. Tag and home/post visibility is set on each asset.'

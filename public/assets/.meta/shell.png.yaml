@@ -1,4 +1,20 @@
-data: {  }
+data:
+  tags:
+    - aging
+    - archeology
+    - art
+    - art-nouveau
+    - collecting
+    - feelings
+    - game-design
+    - journaling
+    - looking
+    - noticing
+    - ordinary
+    - plants
+    - writing
+    - worldbuilding
+    - tattoo
 size: 809880
 last_modified: 1777037702
 width: 1075

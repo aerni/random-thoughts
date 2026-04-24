@@ -7,3 +7,46 @@ items:
   - Things worth keeping
   - Looking carefully
   - What remains
+images:
+  -
+    type: floating_image
+    enabled: true
+    file: car.png
+    tags: []
+    show_on_home: true
+  -
+    type: floating_image
+    enabled: true
+    file: le.png
+    tags: []
+    show_on_home: true
+  -
+    type: floating_image
+    enabled: true
+    file: mush1.png
+    tags: []
+    show_on_home: true
+  -
+    type: floating_image
+    enabled: true
+    file: mush2.png
+    tags: []
+    show_on_home: true
+  -
+    type: floating_image
+    enabled: true
+    file: mush3.png
+    tags: []
+    show_on_home: true
+  -
+    type: floating_image
+    enabled: true
+    file: mush4.png
+    tags: []
+    show_on_home: true
+  -
+    type: floating_image
+    enabled: true
+    file: mush5.png
+    tags: []
+    show_on_home: true

@@ -1,4 +1,5 @@
-data: {  }
+data:
+  show_on_home: false
 size: 141896
 last_modified: 1776502834
 width: 1080

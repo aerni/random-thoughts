@@ -14,6 +14,21 @@ document.fonts.ready.then(() => requestAnimationFrame(() => {
     const container = els[0].closest('.pills-container')
     const bounds = () => container.getBoundingClientRect()
 
+    // On post pages, only activate images whose tags match the post's tags
+    const rawPostTags = container.dataset.postTags
+    const postTags = rawPostTags !== undefined
+        ? rawPostTags.split(',').filter(Boolean)
+        : null
+
+    const activeEls = postTags !== null
+        ? Array.from(els).filter(el => {
+            const elTags = el.dataset.tags ? el.dataset.tags.split(',').filter(Boolean) : []
+            return elTags.some(t => postTags.includes(t))
+        })
+        : Array.from(els)
+
+    if (!activeEls.length) return
+
     class Pill {
         constructor(el) {
             this.el = el
@@ -35,7 +50,7 @@ document.fonts.ready.then(() => requestAnimationFrame(() => {
             this.prevDragX = this.x
             this.prevDragY = this.y
             this.velocityHistory = []
-            gsap.set(el, { x: this.x, y: this.y })
+            gsap.set(el, { x: this.x, y: this.y, opacity: 1 })
         }
 
         update(dt) {
@@ -96,7 +111,7 @@ document.fonts.ready.then(() => requestAnimationFrame(() => {
         }
     }
 
-    const pills = Array.from(els).map(el => new Pill(el))
+    const pills = activeEls.map(el => new Pill(el))
 
     function resolveCollisions() {
         for (let i = 0; i < pills.length; i++) {

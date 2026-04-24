@@ -1,5 +1,13 @@
 {{ partial:header }}
 
+<div class="pills-container fixed inset-0 z-0 overflow-hidden pointer-events-none" data-post-tags="{{ tags }}{{ slug }},{{ /tags }}">
+    {{ assets container="assets" }}
+        {{ if tags }}
+        <img src="{{ url }}" alt="{{ alt }}" data-tags="{{ tags }}{{ slug }},{{ /tags }}" class="floating-pill pointer-events-auto absolute w-16 h-16 object-contain cursor-grab active:cursor-grabbing select-none opacity-0 md:w-24 md:h-24">
+        {{ /if }}
+    {{ /assets }}
+</div>
+
 <main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
     <article class="contents">
         <section>
