@@ -1,0 +1,17 @@
+{{ partial:components/hero
+    :title="title"
+    description=""
+}}
+
+<section>
+    <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
+        {{ collection:article taxonomy:tags="{ slug }" sort="date:desc" }}
+            {{ partial:components/card
+                image="{ assets_field:0:url }"
+                title="{ title }"
+                date="{ date format='d. F Y' }"
+                url="{ url }"
+            }}
+        {{ /collection:article }}
+    </div>
+</section>

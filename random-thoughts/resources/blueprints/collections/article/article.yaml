@@ -21,16 +21,10 @@ tabs:
               localizable: true
               max_items: 1
           -
-            handle: content
+            handle: lead
             field:
-              type: markdown
-              display: Content
-              localizable: true
-          -
-            handle: template
-            field:
-              type: template
-              display: Template
+              type: textarea
+              display: Lead
               localizable: true
           -
             handle: assets_field
@@ -38,6 +32,38 @@ tabs:
               container: assets
               type: assets
               display: 'Assets Field'
+          -
+            handle: content
+            field:
+              type: markdown
+              display: Content
+              localizable: true
+          -
+            handle: video_field
+            field:
+              type: video
+              display: 'Video Field'
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
+      -
+        display: 'Info Post'
+        fields:
+          -
+            handle: icon_field
+            field:
+              type: icon
+              display: 'Icon Field'
+          -
+            handle: date_field
+            field:
+              type: date
+              display: 'Date Field'
   sidebar:
     display: Sidebar
     sections:
@@ -49,3 +75,11 @@ tabs:
               type: slug
               localizable: true
               validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required

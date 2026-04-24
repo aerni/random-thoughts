@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Thoughts — Lerndokumentation</title>
+    <style>
+        :root {
+            --bg: #F7F4EF;
+            --surface: #FFFFFF;
+            --surface-2: #F0EDE8;
+            --border: #E2DDD6;
+            --text: #1C1917;
+            --text-muted: #6B6560;
+            --accent: #2D6A4F;
+            --accent-light: #E0F0E8;
+            --accent-2: #B5631A;
+            --accent-2-light: #FDF0E0;
+            --code-bg: #23201C;
+            --code-text: #D4C8BC;
+            --radius: 10px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            font-size: 16px;
+        }
+
+        .page-wrap {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: 100vh;
+        }
+
+        /* ── Sidebar ── */
+        nav {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 36px 24px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        nav .logo {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 32px;
+            display: block;
+        }
+
+        nav ul { list-style: none; }
+        nav ul li { margin-bottom: 4px; }
+
+        nav ul li a {
+            display: block;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        nav .nav-section {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin: 20px 0 6px 10px;
+        }
+
+        /* ── Main ── */
+        main {
+            padding: 60px 72px 100px;
+            max-width: 860px;
+        }
+
+        /* ── Header ── */
+        .doc-header {
+            margin-bottom: 56px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .doc-header .badge {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .doc-header h1 {
+            font-size: 40px;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .doc-header h1 em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .doc-header p {
+            font-size: 17px;
+            color: var(--text-muted);
+            max-width: 560px;
+        }
+
+        /* ── Sections ── */
+        section {
+            margin-bottom: 64px;
+        }
+
+        section h2 {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            color: var(--text);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        section h3 {
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            margin: 28px 0 10px;
+            letter-spacing: 0.01em;
+        }
+
+        section p {
+            color: var(--text);
+            margin-bottom: 14px;
+            font-size: 15.5px;
+        }
+
+        /* ── Cards ── */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+
+        .card .card-icon { font-size: 22px; margin-bottom: 8px; }
+
+        .card .card-title {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .card .card-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .card .card-tag {
+            display: inline-block;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .tag-tool   { background: var(--accent-light); color: var(--accent); }
+        .tag-ext    { background: var(--accent-2-light); color: var(--accent-2); }
+        .tag-branch { background: #EDE9FE; color: #5B21B6; }
+
+        /* ── Code ── */
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            overflow-x: auto;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 13px;
+            line-height: 1.7;
+            margin: 14px 0 20px;
+        }
+
+        code {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 13px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent-2);
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
+        }
+
+        .c-tag    { color: #7EC8A4; }
+        .c-attr   { color: #F4A261; }
+        .c-val    { color: #A8D8B9; }
+        .c-var    { color: #FFD166; }
+        .c-comment{ color: #555; font-style: italic; }
+        .c-str    { color: #A8D8B9; }
+        .c-cmd    { color: #7EC8A4; }
+
+        /* ── Compare ── */
+        .compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        .compare-block { border-radius: var(--radius); overflow: hidden; }
+
+        .compare-label {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 8px 16px;
+        }
+
+        .compare-block.before .compare-label { background: #FEE2E2; color: #991B1B; }
+        .compare-block.after  .compare-label { background: var(--accent-light); color: var(--accent); }
+        .compare-block pre { margin: 0; border-radius: 0; }
+
+        /* ── Flow ── */
+        .flow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .flow-node {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 16px;
+            text-align: center;
+            min-width: 110px;
+        }
+
+        .flow-node .fn-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .flow-node .fn-name { font-weight: 600; color: var(--text); font-size: 13px; }
+        .flow-arrow { color: var(--text-muted); font-size: 18px; }
+
+        /* ── Step List ── */
+        .step-list {
+            counter-reset: steps;
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .step-list li {
+            counter-increment: steps;
+            display: flex;
+            gap: 14px;
+            margin-bottom: 14px;
+            align-items: flex-start;
+        }
+
+        .step-list li::before {
+            content: counter(steps);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1.5px solid var(--accent);
+            color: var(--accent);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        /* ── Callouts ── */
+        .callout {
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin: 18px 0;
+            display: flex;
+            gap: 12px;
+            font-size: 14.5px;
+        }
+
+        .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+        .callout-body p { margin: 0; color: var(--text); }
+        .callout.tip  { background: var(--accent-light); border-left: 3px solid var(--accent); }
+        .callout.note { background: var(--accent-2-light); border-left: 3px solid var(--accent-2); }
+        .callout.info { background: #EDE9FE; border-left: 3px solid #7C3AED; }
+
+        /* ── Table ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin: 16px 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        th {
+            background: var(--surface-2);
+            padding: 10px 14px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            vertical-align: top;
+        }
+
+        tr:last-child td { border-bottom: none; }
+
+        @media (max-width: 800px) {
+            .page-wrap { grid-template-columns: 1fr; }
+            nav { position: static; height: auto; }
+            main { padding: 32px 24px 80px; }
+            .card-grid, .compare { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+    <nav>
+        <span class="logo">🌿 Lerndoku</span>
+        <ul>
+            <li><a href="#intro">Projektübersicht</a></li>
+            <li class="nav-section">Werkzeuge</li>
+            <li><a href="#tools">Programme &amp; Extensions</a></li>
+            <li><a href="#herd">Laravel Herd (lokal)</a></li>
+            <li><a href="#git">Git &amp; Tower</a></li>
+            <li><a href="#claude">Claude Code in VS Code</a></li>
+            <li class="nav-section">Templating</li>
+            <li><a href="#antlers">Antlers Grundlagen</a></li>
+            <li><a href="#statamic">Statamic &amp; CMS</a></li>
+            <li><a href="#static-vs-dynamic">Statisch → Dynamisch</a></li>
+            <li class="nav-section">Projekt</li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#branches">Branches &amp; Workflow</a></li>
+            <li><a href="#zusammenhang">Gesamtzusammenhang</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="doc-header">
+            <span class="badge">Coding Basics</span>
+            <h1>Random Thoughts<br><em>Lerndokumentation</em></h1>
+            <p>Schritt-für-Schritt Übersicht über das Projekt, die verwendeten Werkzeuge und wie alles zusammenhängt — von HTML bis zum dynamischen CMS.</p>
+        </div>
+
+        <!-- 1. Projektübersicht -->
+        <section id="intro">
+            <h2><span class="step-num">1</span> Was ist dieses Projekt?</h2>
+            <p><strong>Random Thoughts</strong> ist ein einfacher Blog, den du von Grund auf selbst aufbaust. Du lernst dabei zwei Phasen kennen:</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🖼️</div>
+                    <div class="card-title">Phase 1 — Statisch</div>
+                    <div class="card-desc">Du setzt das Design aus Figma mit reinem HTML und Tailwind CSS um. Alle Texte, Bilder und Daten sind direkt im Code hartkodiert.</div>
+                    <span class="card-tag tag-branch">Branch: static</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-title">Phase 2 — Dynamisch</div>
+                    <div class="card-desc">Du bindest Statamic an. Inhalte kommen aus dem CMS — du pflegst sie im Control Panel, nicht mehr im Code.</div>
+                    <span class="card-tag tag-branch">Branch: main</span>
+                </div>
+            </div>
+            <div class="callout tip">
+                <span class="callout-icon">💡</span>
+                <div class="callout-body"><p>Die fertige statische Referenzversion ist unter <code>http://random-thoughts.test/static/blog</code> und <code>/static/post</code> erreichbar — als Vergleich wenn du nicht weiterkommst.</p></div>
+            </div>
+        </section>
+
+        <!-- 2. Tools -->
+        <section id="tools">
+            <h2><span class="step-num">2</span> Programme &amp; VS Code Extensions</h2>
+            <p>Folgende Programme und Erweiterungen werden für das Projekt benötigt:</p>
+
+            <h3>Programme</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🐘</div>
+                    <div class="card-title">Laravel Herd</div>
+                    <div class="card-desc">Lokale Entwicklungsumgebung. Stellt PHP-Projekte automatisch unter einer <code>*.test</code>-URL bereit — kein Apache, kein Docker nötig.</div>
+                    <span class="card-tag tag-tool">Lokal</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🗼</div>
+                    <div class="card-title">Git Tower</div>
+                    <div class="card-desc">Grafischer Git-Client. Branches, Commits und Pull Requests verwalten ohne Terminal — übersichtlich mit GUI.</div>
+                    <span class="card-tag tag-tool">Version Control</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-title">Claude Code</div>
+                    <div class="card-desc">KI-Programmierassistent von Anthropic. Läuft direkt im Terminal oder als VS Code Extension — hilft beim Coden, Erklären und Debuggen.</div>
+                    <span class="card-tag tag-tool">KI-Assistent</span>
+                </div>
+            </div>
+
+            <h3>VS Code Extensions</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🦌</div>
+                    <div class="card-title">Antlers Toolbox</div>
+                    <div class="card-desc">Syntaxhervorhebung und Autovervollständigung für Antlers-Templates (<code>.antlers.html</code>). Unverzichtbar beim Schreiben von Statamic-Templates.</div>
+                    <span class="card-tag tag-ext">Extension</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧩</div>
+                    <div class="card-title">Laravel Extension</div>
+                    <div class="card-desc">Offizielle Laravel-Erweiterung mit Autovervollständigung für Routes, Views und Configs. Erleichtert die Navigation im Projekt.</div>
+                    <span class="card-tag tag-ext">Extension</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <div class="card-title">Claude Code Extension</div>
+                    <div class="card-desc">Bindet Claude Code direkt in VS Code ein — du kannst den KI-Assistenten im Editor befragen, ohne das Fenster zu wechseln.</div>
+                    <span class="card-tag tag-ext">Extension</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Laravel Herd -->
+        <section id="herd">
+            <h2><span class="step-num">3</span> Laravel Herd — Lokal entwickeln</h2>
+            <p>Laravel Herd ist wie ein «Mini-Webserver» auf deinem Mac. Er sorgt dafür, dass du PHP-Projekte lokal im Browser aufrufen kannst — ohne manuellen Server-Setup.</p>
+
+            <h3>Wie funktioniert das?</h3>
+            <p>Herd überwacht den Ordner <code>~/Herd</code> auf deinem Computer. Jedes darin geklonte Projekt ist automatisch unter einer <code>.test</code>-URL erreichbar:</p>
+
+            <div class="flow">
+                <div class="flow-node">
+                    <div class="fn-label">Ordner auf Mac</div>
+                    <div class="fn-name">~/Herd/<br>random-thoughts</div>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">
+                    <div class="fn-label">Herd</div>
+                    <div class="fn-name">erkennt<br>automatisch</div>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">
+                    <div class="fn-label">Browser</div>
+                    <div class="fn-name">random-thoughts<br>.test</div>
+                </div>
+            </div>
+
+            <h3>Die .env-Datei konfigurieren</h3>
+            <p>Die <code>.env</code>-Datei enthält die Konfiguration deiner App — unter anderem die lokale URL. Nach dem Klonen musst du diese einmalig anpassen:</p>
+            <pre><code><span class="c-comment"># 1. Beispieldatei kopieren</span>
+cp .env.example .env
+
+<span class="c-comment"># 2. In der neuen .env diesen Wert setzen:</span>
+APP_URL=http://random-thoughts.test</code></pre>
+
+            <div class="callout note">
+                <span class="callout-icon">📁</span>
+                <div class="callout-body"><p>Das Projekt <strong>muss</strong> im Ordner <code>~/Herd</code> liegen, damit Herd es erkennt. An einem anderen Ort ist die <code>.test</code>-URL nicht verfügbar.</p></div>
+            </div>
+        </section>
+
+        <!-- 4. Git & Tower -->
+        <section id="git">
+            <h2><span class="step-num">4</span> Git &amp; Tower</h2>
+            <p>Git ist das Versionsverwaltungs-Werkzeug, das alle Codeänderungen verfolgt und speichert. <strong>Git Tower</strong> ist eine grafische Oberfläche dazu — du siehst Branches, Commits und den Verlauf ohne Terminal-Kenntnisse.</p>
+
+            <h3>Die wichtigsten Konzepte</h3>
+            <table>
+                <thead>
+                    <tr><th>Begriff</th><th>Was es bedeutet</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Repository</code></td>
+                        <td>Der Projekt-Ordner mit dem gesamten Code und der vollständigen Versionsgeschichte</td>
+                    </tr>
+                    <tr>
+                        <td><code>Branch</code></td>
+                        <td>Ein paralleler Arbeitszweig — du kannst neue Dinge ausprobieren, ohne den Hauptstand zu verändern</td>
+                    </tr>
+                    <tr>
+                        <td><code>Commit</code></td>
+                        <td>Ein Schnappschuss deiner Änderungen mit einer Beschreibung — wie ein «Speicherpunkt»</td>
+                    </tr>
+                    <tr>
+                        <td><code>Clone</code></td>
+                        <td>Das Herunterladen eines Repositories auf deinen Computer</td>
+                    </tr>
+                    <tr>
+                        <td><code>Push / Pull</code></td>
+                        <td>Änderungen auf GitHub hochladen (push) oder von dort herunterladen (pull)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Branches in diesem Projekt</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🌱</div>
+                    <div class="card-title">Branch: <code>static</code></div>
+                    <div class="card-desc">Dein Startpunkt. Hier baust du das Figma-Design statisch nach. Die Template-Dateien <code>blog.antlers.html</code> und <code>post.antlers.html</code> sind leer und warten auf dich.</div>
+                    <span class="card-tag tag-branch">Startpunkt</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✅</div>
+                    <div class="card-title">Branch: <code>main</code></div>
+                    <div class="card-desc">Der fertige Referenzstand mit allem korrekt umgesetzt — als Hilfe wenn du nicht weiterkommst oder etwas vergleichen möchtest.</div>
+                    <span class="card-tag tag-branch">Referenz</span>
+                </div>
+            </div>
+
+            <h3>Typischer Workflow mit Tower</h3>
+            <ol class="step-list">
+                <li>Repo klonen: In Tower «Clone» wählen → URL eingeben → Zielordner <code>~/Herd</code> setzen</li>
+                <li>Branch wechseln: Links auf «Branches» → <code>static</code> doppelklicken</li>
+                <li>Code schreiben in VS Code</li>
+                <li>Änderungen committen: Dateien in Tower «stagen» → Nachricht eingeben → «Commit»</li>
+            </ol>
+        </section>
+
+        <!-- 5. Claude Code -->
+        <section id="claude">
+            <h2><span class="step-num">5</span> Claude Code in VS Code</h2>
+            <p>Claude Code ist ein KI-Assistent, der direkt in deiner Entwicklungsumgebung mitarbeitet. Er kennt dein Projekt und kann Code erklären, schreiben und debuggen.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🖥️</div>
+                    <div class="card-title">Im Terminal (CLI)</div>
+                    <div class="card-desc">Du öffnest das Terminal in VS Code und tippst <code>claude</code>. Er sieht deinen Code und kann Dateien direkt lesen und bearbeiten.</div>
+                    <span class="card-tag tag-tool">CLI</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <div class="card-title">In VS Code (Extension)</div>
+                    <div class="card-desc">Die Claude Code Extension öffnet einen Chat-Bereich in VS Code. Du markierst Code, stellst Fragen — alles ohne Fensterwechsel.</div>
+                    <span class="card-tag tag-ext">Extension</span>
+                </div>
+            </div>
+
+            <h3>Beispiel-Anfragen die du stellen kannst</h3>
+            <pre><code><span class="c-comment"># Im Terminal</span>
+<span class="c-cmd">claude</span> <span class="c-str">"Erkläre mir was {{ partial:components/card }} macht"</span>
+<span class="c-cmd">claude</span> <span class="c-str">"Baue die Blog-Card aus dem Figma als Antlers-Partial nach"</span>
+<span class="c-cmd">claude</span> <span class="c-str">"Warum funktioniert mein Antlers-Loop nicht?"</span>
+<span class="c-cmd">claude</span> <span class="c-str">"Was ist der Unterschied zwischen static und main Branch?"</span></code></pre>
+
+            <div class="callout info">
+                <span class="callout-icon">🔗</span>
+                <div class="callout-body"><p>Claude Code ist im Projekt auch als <strong>MCP-Server</strong> eingebunden — das bedeutet, er hat direkten Zugriff auf Statamic-Inhalte, Blueprints und Collections und kann dadurch noch präziser helfen.</p></div>
+            </div>
+        </section>
+
+        <!-- 6. Antlers -->
+        <section id="antlers">
+            <h2><span class="step-num">6</span> Antlers — Statamics Template-Sprache</h2>
+            <p>Antlers ist die Template-Sprache von Statamic. Dateien mit der Endung <code>.antlers.html</code> sind normales HTML — ergänzt mit doppelten geschweiften Klammern <code>{{ }}</code> für dynamische Werte aus dem CMS.</p>
+
+            <h3>Variablen ausgeben</h3>
+            <pre><code><span class="c-comment">&lt;!-- Statisch (hartkodiert): --&gt;</span>
+<span class="c-tag">&lt;h1&gt;</span>Blog<span class="c-tag">&lt;/h1&gt;</span>
+
+<span class="c-comment">&lt;!-- Mit Antlers (Wert kommt aus dem CMS): --&gt;</span>
+<span class="c-tag">&lt;h1&gt;</span><span class="c-var">{{ title }}</span><span class="c-tag">&lt;/h1&gt;</span>
+
+<span class="c-comment">&lt;!-- Mit Fallback-Wert falls kein Titel vorhanden: --&gt;</span>
+<span class="c-tag">&lt;title&gt;</span><span class="c-var">{{ title ?? site:name }}</span><span class="c-tag">&lt;/title&gt;</span></code></pre>
+
+            <h3>Partials — wiederverwendbare Bausteine</h3>
+            <p>Ein Partial ist ein ausgelagertes HTML-Snippet, das du an mehreren Orten einbinden kannst. Statt Code zu wiederholen, rufst du das Partial mit Parametern auf:</p>
+
+            <div class="compare">
+                <div class="compare-block before">
+                    <div class="compare-label">❌ Ohne Partials (Wiederholung)</div>
+                    <pre><code><span class="c-comment">&lt;!-- Jede Card manuell ausschreiben --&gt;</span>
+<span class="c-tag">&lt;article&gt;</span>
+  <span class="c-tag">&lt;a href="#"&gt;</span>
+    <span class="c-tag">&lt;img</span> <span class="c-attr">src</span>=<span class="c-val">"/assets/bild1.jpg"</span><span class="c-tag">&gt;</span>
+    <span class="c-tag">&lt;h2&gt;</span>Titel Eins<span class="c-tag">&lt;/h2&gt;</span>
+    <span class="c-tag">&lt;p&gt;</span>15. April 2025<span class="c-tag">&lt;/p&gt;</span>
+  <span class="c-tag">&lt;/a&gt;</span>
+<span class="c-tag">&lt;/article&gt;</span>
+
+<span class="c-comment">&lt;!-- Dasselbe nochmals für Artikel 2... --&gt;</span>
+<span class="c-tag">&lt;article&gt;</span>
+  ...
+<span class="c-tag">&lt;/article&gt;</span></code></pre>
+                </div>
+                <div class="compare-block after">
+                    <div class="compare-label">✅ Mit Partials (sauber)</div>
+                    <pre><code><span class="c-comment">&lt;!-- Partial einbinden mit Parametern --&gt;</span>
+<span class="c-var">{{ partial:components/card
+    image="/assets/bild1.jpg"
+    title="Titel Eins"
+    date="15. April 2025"
+    url="#"
+    class="md:col-span-2"
+}}</span>
+
+<span class="c-var">{{ partial:components/card
+    image="/assets/bild2.jpg"
+    title="Titel Zwei"
+    date="15. April 2025"
+    url="#"
+}}</span></code></pre>
+                </div>
+            </div>
+
+            <h3>Das Card-Partial aus dem Projekt</h3>
+            <p>So sieht <code>resources/views/components/card.antlers.html</code> aus. Es empfängt die übergebenen Werte als Variablen und baut daraus den HTML-Artikel zusammen:</p>
+            <pre><code><span class="c-tag">&lt;article</span> <span class="c-attr">class</span>=<span class="c-val">"<span class="c-var">{{ class }}</span>"</span><span class="c-tag">&gt;</span>
+    <span class="c-tag">&lt;a</span> <span class="c-attr">href</span>=<span class="c-val">"<span class="c-var">{{ url }}</span>"</span>
+       <span class="c-attr">class</span>=<span class="c-val">"flex flex-col h-full overflow-hidden bg-white shadow-lg rounded-xl hover:-translate-y-1"</span><span class="c-tag">&gt;</span>
+        <span class="c-tag">&lt;img</span> <span class="c-attr">src</span>=<span class="c-val">"<span class="c-var">{{ image }}</span>"</span> <span class="c-attr">alt</span>=<span class="c-val">"<span class="c-var">{{ image:alt }}</span>"</span> <span class="c-attr">class</span>=<span class="c-val">"object-cover w-full h-72"</span><span class="c-tag">&gt;</span>
+        <span class="c-tag">&lt;div</span> <span class="c-attr">class</span>=<span class="c-val">"flex flex-col justify-between flex-1 gap-4 p-6"</span><span class="c-tag">&gt;</span>
+            <span class="c-tag">&lt;h2</span> <span class="c-attr">class</span>=<span class="c-val">"font-sans text-xl font-semibold"</span><span class="c-tag">&gt;</span><span class="c-var">{{ title }}</span><span class="c-tag">&lt;/h2&gt;</span>
+            <span class="c-tag">&lt;p</span> <span class="c-attr">class</span>=<span class="c-val">"font-sans text-xs"</span><span class="c-tag">&gt;</span><span class="c-var">{{ date }}</span><span class="c-tag">&lt;/p&gt;</span>
+        <span class="c-tag">&lt;/div&gt;</span>
+    <span class="c-tag">&lt;/a&gt;</span>
+<span class="c-tag">&lt;/article&gt;</span></code></pre>
+
+            <h3>Das Layout-System</h3>
+            <p>Statamic hat ein hierarchisches Layout-System. Das Haupt-Layout (<code>layout/main.antlers.html</code>) umhüllt alle Seiten. Der Platzhalter <code>{{ template_content }}</code> markiert wo der jeweilige Seiteninhalt eingefügt wird:</p>
+            <pre><code><span class="c-comment">&lt;!-- resources/views/layout/main.antlers.html --&gt;</span>
+<span class="c-tag">&lt;main</span> <span class="c-attr">class</span>=<span class="c-val">"grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24"</span><span class="c-tag">&gt;</span>
+    <span class="c-var">{{ template_content }}</span>
+    <span class="c-comment">&lt;!-- ↑ Hier wird z.B. blog.antlers.html oder post.antlers.html eingefügt --&gt;</span>
+<span class="c-tag">&lt;/main&gt;</span></code></pre>
+        </section>
+
+        <!-- 7. Statamic -->
+        <section id="statamic">
+            <h2><span class="step-num">7</span> Statamic — Das CMS</h2>
+            <p>Statamic ist ein CMS (Content Management System), das auf Laravel aufbaut. Es speichert Inhalte als einfache Markdown/YAML-Dateien — keine Datenbank nötig. Änderungen am Inhalt sind direkt als Dateien im Projektordner sichtbar.</p>
+
+            <h3>Die wichtigsten Konzepte</h3>
+            <table>
+                <thead>
+                    <tr><th>Begriff</th><th>Was es ist</th><th>Im Projekt</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Collection</strong></td>
+                        <td>Eine Gruppe zusammengehöriger Inhalte</td>
+                        <td>Die Blog-Posts sind eine Collection</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Entry</strong></td>
+                        <td>Ein einzelner Inhalt in einer Collection</td>
+                        <td>Jeder Blog-Post ist ein Entry</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blueprint</strong></td>
+                        <td>Definiert welche Felder ein Entry hat</td>
+                        <td>Titel, Datum, Bild, Beschreibung, Text…</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Template</strong></td>
+                        <td>Das Antlers-HTML, das den Entry darstellt</td>
+                        <td><code>blog.antlers.html</code>, <code>post.antlers.html</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Control Panel</strong></td>
+                        <td>Die grafische Admin-Oberfläche</td>
+                        <td>Unter <code>/cp</code> — zum Inhalte pflegen</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Im Control Panel einloggen</h3>
+            <pre><code>URL:       http://random-thoughts.test/cp
+Benutzer:  coding@basics.ch
+Passwort:  codingbasics</code></pre>
+
+            <div class="callout tip">
+                <span class="callout-icon">🎛️</span>
+                <div class="callout-body"><p>Im Control Panel kannst du Blog-Posts erstellen, bearbeiten und die Felder-Struktur (Blueprint) konfigurieren — alles ohne Code anfassen zu müssen.</p></div>
+            </div>
+        </section>
+
+        <!-- 8. Statisch → Dynamisch -->
+        <section id="static-vs-dynamic">
+            <h2><span class="step-num">8</span> Statisch → Dynamisch</h2>
+            <p>Das ist der Kernunterschied zwischen den zwei Projekt-Phasen. Im <code>static</code>-Branch sind alle Inhalte fix im HTML. Im <code>main</code>-Branch kommen sie dynamisch aus dem CMS.</p>
+
+            <div class="compare">
+                <div class="compare-block before">
+                    <div class="compare-label">Statisch — Branch: static</div>
+                    <pre><code><span class="c-comment">&lt;!-- Jeder Post hartkodiert --&gt;</span>
+<span class="c-var">{{ partial:components/card
+    image="/assets/octopus.jpg"
+    title="There's something
+      secret and dangerous..."
+    date="15. April 2025"
+    url="#"
+    class="md:col-span-2"
+}}</span>
+
+<span class="c-comment">&lt;!-- 5x manuell wiederholt --&gt;</span></code></pre>
+                </div>
+                <div class="compare-block after">
+                    <div class="compare-label">Dynamisch — Branch: main</div>
+                    <pre><code><span class="c-comment">&lt;!-- Loop über alle CMS-Posts --&gt;</span>
+<span class="c-var">{{ collection:posts
+    sort="date:desc" }}</span>
+
+  <span class="c-var">{{ partial:components/card
+      image="{ cover }"
+      title="{ title }"
+      date="{ date | format:d. F Y }"
+      url="{ url }"
+  }}</span>
+
+<span class="c-var">{{ /collection:posts }}</span></code></pre>
+                </div>
+            </div>
+
+            <p>Im dynamischen Ansatz iteriert Antlers automatisch über alle Einträge in der Collection <code>posts</code> und rendert für jeden Eintrag eine Card mit den echten CMS-Daten. Kommt ein neuer Post im Control Panel hinzu, erscheint er sofort auf der Blog-Seite — ohne Code-Änderung.</p>
+
+            <div class="callout tip">
+                <span class="callout-icon">✨</span>
+                <div class="callout-body"><p>Das ist der eigentliche Mehrwert eines CMS: <strong>Redakteure können Inhalte pflegen</strong>, ohne den Code zu kennen. Der Entwickler baut die Struktur einmal — der Rest passiert im Control Panel.</p></div>
+            </div>
+        </section>
+
+        <!-- 9. Installation -->
+        <section id="installation">
+            <h2><span class="step-num">9</span> Installation Schritt für Schritt</h2>
+            <p>So richtest du das Projekt lokal ein:</p>
+
+            <ol class="step-list">
+                <li>
+                    <div>
+                        <strong>Repository in den Herd-Ordner klonen</strong><br>
+                        Entweder in Tower («Clone») oder im Terminal:<br>
+                        <pre><code>cd ~/Herd
+git clone [repo-url] random-thoughts</code></pre>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Projekt in VS Code öffnen</strong><br>
+                        <code>code ~/Herd/random-thoughts</code>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>.env Datei anlegen und URL setzen</strong><br>
+                        <pre><code>cp .env.example .env
+<span class="c-comment"># In .env dann ändern:</span>
+APP_URL=http://random-thoughts.test</code></pre>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>PHP-Abhängigkeiten installieren</strong> (Statamic, Laravel, etc.)<br>
+                        <pre><code>composer install</code></pre>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>App-Schlüssel generieren</strong> (Sicherheits-Token für die App)<br>
+                        <pre><code>php artisan key:generate</code></pre>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Frontend-Pakete installieren</strong> (Tailwind CSS, Vite, Alpine.js)<br>
+                        <pre><code>npm install</code></pre>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Frontend-Build starten</strong> (CSS und JS werden kompiliert)<br>
+                        <pre><code>npm run dev</code></pre>
+                    </div>
+                </li>
+            </ol>
+
+            <div class="callout note">
+                <span class="callout-icon">🔄</span>
+                <div class="callout-body"><p><code>npm run dev</code> muss im Hintergrund aktiv bleiben während du entwickelst. Es überwacht deine CSS/JS-Dateien und kompiliert Änderungen automatisch. Ohne diesen Prozess sehen neue Tailwind-Klassen keine Wirkung.</p></div>
+            </div>
+        </section>
+
+        <!-- 10. Branches -->
+        <section id="branches">
+            <h2><span class="step-num">10</span> Branches &amp; Arbeitsablauf</h2>
+
+            <div class="flow">
+                <div class="flow-node">
+                    <div class="fn-label">Start</div>
+                    <div class="fn-name">Branch<br><code>static</code></div>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">
+                    <div class="fn-label">Du baust</div>
+                    <div class="fn-name">HTML mit<br>Tailwind CSS</div>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">
+                    <div class="fn-label">Vergleich</div>
+                    <div class="fn-name">Branch<br><code>main</code></div>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-node">
+                    <div class="fn-label">Lernziel</div>
+                    <div class="fn-name">Statamic<br>anbinden</div>
+                </div>
+            </div>
+
+            <h3>Branch wechseln im Terminal</h3>
+            <pre><code><span class="c-comment"># Auf deinen Arbeits-Branch wechseln</span>
+git checkout static
+
+<span class="c-comment"># Fertigen Referenzstand anschauen</span>
+git checkout main
+
+<span class="c-comment"># Zurück zu deinem Arbeits-Stand</span>
+git checkout static</code></pre>
+
+            <div class="callout tip">
+                <span class="callout-icon">🗼</span>
+                <div class="callout-body"><p>In <strong>Git Tower</strong> reicht ein Doppelklick auf den Branch-Namen in der Sidebar — kein Terminal-Befehl nötig.</p></div>
+            </div>
+        </section>
+
+        <!-- 11. Zusammenhang -->
+        <section id="zusammenhang">
+            <h2><span class="step-num">11</span> Gesamtzusammenhang</h2>
+            <p>Hier der Überblick, wie alle Teile des Projekts miteinander zusammenarbeiten:</p>
+
+            <div class="flow" style="flex-direction:column; align-items:flex-start; gap:8px;">
+                <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                    <div class="flow-node" style="background:var(--accent-light);">
+                        <div class="fn-label">Design</div>
+                        <div class="fn-name">Figma</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-node">
+                        <div class="fn-label">Umsetzung</div>
+                        <div class="fn-name">HTML +<br>Tailwind CSS</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-node">
+                        <div class="fn-label">Templating</div>
+                        <div class="fn-name">Antlers<br>.antlers.html</div>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-node">
+                        <div class="fn-label">Inhalte</div>
+                        <div class="fn-name">Statamic<br>Control Panel</div>
+                    </div>
+                </div>
+                <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:4px;">
+                    <div class="flow-node">
+                        <div class="fn-label">Lokal laufen</div>
+                        <div class="fn-name">Laravel Herd<br>*.test</div>
+                    </div>
+                    <span class="flow-arrow">+</span>
+                    <div class="flow-node">
+                        <div class="fn-label">Versionierung</div>
+                        <div class="fn-name">Git Tower<br>Branches</div>
+                    </div>
+                    <span class="flow-arrow">+</span>
+                    <div class="flow-node">
+                        <div class="fn-label">KI-Hilfe</div>
+                        <div class="fn-name">Claude Code<br>VS Code / CLI</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Datei-Struktur im Überblick</h3>
+            <pre><code>random-thoughts/
+├── resources/
+│   └── views/
+│       ├── layout/
+│       │   └── main.antlers.html      <span class="c-comment"># Haupt-Layout (Header, Footer)</span>
+│       ├── components/
+│       │   ├── card.antlers.html      <span class="c-comment"># Partial: Blog-Card</span>
+│       │   ├── hero.antlers.html      <span class="c-comment"># Partial: Seitentitel-Bereich</span>
+│       │   └── article-hero.antlers.html
+│       ├── static/
+│       │   ├── blog.antlers.html      <span class="c-comment"># Referenz: statische Blog-Liste</span>
+│       │   └── post.antlers.html      <span class="c-comment"># Referenz: statischer Einzelpost</span>
+│       ├── blog.antlers.html          <span class="c-comment"># Deine Aufgabe (Blog-Liste)</span>
+│       └── post.antlers.html          <span class="c-comment"># Deine Aufgabe (Einzelpost)</span>
+├── content/
+│   └── collections/
+│       └── pages/                     <span class="c-comment"># Statamic Inhalte als .md-Dateien</span>
+├── .env                               <span class="c-comment"># Konfiguration (APP_URL, etc.)</span>
+└── composer.json                      <span class="c-comment"># PHP-Abhängigkeiten</span></code></pre>
+
+            <div class="callout info">
+                <span class="callout-icon">🎯</span>
+                <div class="callout-body"><p><strong>Dein Lernziel:</strong> Du startest auf dem Branch <code>static</code> mit leeren Template-Dateien und baust das Figma-Design nach. Am Ende verstehst du, wie aus hartkodiertem HTML ein CMS-getriebener Blog wird — der sich selbst aktualisiert, sobald im Control Panel neue Posts angelegt werden.</p></div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script>
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+                if (link) link.classList.add('active');
+            }
+        });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

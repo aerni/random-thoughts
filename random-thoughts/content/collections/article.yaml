@@ -1,6 +1,18 @@
 title: Article
-route: 'article/{slug}'
+taxonomies:
+  - tags
+icon: collections
+template: post_LOU
+layout: layout_LOU
 revisions: false
+route: '/{slug}'
+date: true
+sort_dir: asc
 date_behavior:
   past: public
   future: private
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true

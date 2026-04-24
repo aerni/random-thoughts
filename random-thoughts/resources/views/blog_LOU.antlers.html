@@ -1,44 +1,41 @@
+<div data-cursor-type="blog" hidden></div>
+
+<div id="read-later-list" class="hidden px-6 md:px-16 pt-10">
+    <h2 class="mb-4 font-sans text-xl font-semibold">🔖 Leseliste</h2>
+    <ul id="read-later-items" class="flex flex-col gap-2"></ul>
+</div>
+
 {{ partial:components/hero
     title="Blog Lou"
     description="This is description of the type of content you would expect to read here on this blog."
 }}
 
 <section>
+    <div class="flex flex-wrap gap-2 px-6 mx-auto mb-8 md:px-16 max-w-8xl">
+        <a href="{{ url }}" class="font-sans text-sm px-3 py-1 rounded-full bg-black text-linen hover:bg-hot-pink transition-colors">Alle</a>
+        {{ taxonomy:tags }}
+            <a href="{{ url }}" class="font-sans text-sm px-3 py-1 rounded-full border border-black hover:bg-black hover:text-linen transition-colors">{{ title }}</a>
+        {{ /taxonomy:tags }}
+    </div>
+
     <div class="grid grid-cols-1 gap-8 px-6 mx-auto md:px-16 max-w-8xl md:grid-cols-2 xl:grid-cols-3">
-        {{ partial:components/card
-            image="/assets/octopus.jpg"
-            title="There's something secret and dangerous lurking in your pocket"
-            date="15. April 2025"
-            url="#"
-            class="md:col-span-2"
-        }}
+        {{ collection:article sort="date:desc" limit="1" }}
+            {{ partial:components/card
+                image="{ assets_field:0:url }"
+                title="{ title }"
+                date="{ date format='d. F Y' }"
+                url="{ url }"
+                class="md:col-span-2"
+            }}
+        {{ /collection:article }}
 
-        {{ partial:components/card
-            image="/assets/donut.jpg"
-            title="Everything is better when donuts are involved"
-            date="20. Juli 2020"
-            url="#"
-        }}
-
-        {{ partial:components/card
-            image="/assets/pizza-wifi.jpg"
-            title="Test Louvies: Pizza WiFi"
-            date="15. April 2025"
-            url="#"
-        }}
-
-        {{ partial:components/card
-            image="/assets/blinking-carot.gif"
-            title="Beginnings are the best & the worst"
-            date="15. April 2025"
-            url="#"
-        }}
-
-        {{ partial:components/card
-            image="/assets/idea.jpg"
-            title="I had a really good idea but got sidetracked and forgot it."
-            date="15. April 2025"
-            url="#"
-        }}
+        {{ collection:article sort="date:desc" offset="1" }}
+            {{ partial:components/card
+                image="{ assets_field:0:url }"
+                title="{ title }"
+                date="{ date format='d. F Y' }"
+                url="{ url }"
+            }}
+        {{ /collection:article }}
     </div>
 </section>

@@ -1,64 +1,20 @@
-<div data-cursor-type="article" hidden></div>
-<article class="contents">
-    {{ partial:components/article-hero
-        :title="title"
-        :date="date"
+<main class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
+    {{ partial:components/hero
+        title="About Lou"
+        description="This is description of the type of content you would expect to read here on this blog."
     }}
 
     <section>
-        <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
-            {{ if lead }}
-            <div class="max-w-4xl px-6 mx-auto md:px-16">
-                <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ lead }}</p>
-            </div>
-            {{ /if }}
-
-            {{ if assets_field }}
-            <div class="px-6 mx-auto max-w-7xl md:px-16">
-                {{ assets_field }}
-                <img src="{{ url }}" alt="{{ alt }}" class="object-cover w-full aspect-2/1 rounded-xl bg-hot-pink">
-                {{ /assets_field }}
-            </div>
-            {{ /if }}
-
-            {{ if video_field }}
-            <div class="px-6 mx-auto w-full max-w-7xl md:px-16">
-                <div class="overflow-hidden rounded-xl aspect-video">
-                    <iframe src="{{ video_field }}" class="w-full h-full" allowfullscreen></iframe>
-                </div>
-            </div>
-            {{ /if }}
-
-            {{ if icon_field or date_field }}
-            <div class="flex items-center gap-4 max-w-4xl px-6 mx-auto md:px-16 font-sans text-sm">
-                {{ if icon_field }}
-                <span class="text-2xl">{{ svg:icon_field }}</span>
-                {{ /if }}
-                {{ if date_field }}
-                <span>{{ date_field format="j. F Y" }}</span>
-                {{ /if }}
-            </div>
-
-            {{ /if }}
-
-            <div class="max-w-4xl px-6 mx-auto md:px-16 prose prose-lg">
-                {{ content }}
-            </div>
-
-            <div class="max-w-4xl px-6 mx-auto md:px-16">
-                <button data-share class="flex items-center gap-2 font-sans text-sm px-4 py-2 rounded-full border border-current opacity-60 hover:opacity-100 transition-opacity">
-                    🔗 <span>Link kopieren</span>
-                </button>
-            </div>
+        <div class="max-w-4xl px-6 mx-auto md:px-16 prose prose-lg">
+            <h2>About Lou und diese Page</h2>
+            <p>Hallo, das wäre die about-Seite. Diese ist hier in diesem Bereich nur statisch.</p>
+            <p>Aber schau mal unten - das ist alles dynamisch aufgebaut.</p>
         </div>
     </section>
 
-
-<div class="grid gap-16 py-10 md:gap-20 md:py-20 lg:gap-24">
-
     <section>
         <div class="px-6 mx-auto md:px-16 max-w-8xl">
-            <h2 class="mb-6 font-sans text-xl font-semibold">Neuste Blogbeiträge</h2>
+            <h2 class="mb-6 font-sans text-xl font-semibold">Latest Articles</h2>
 
             <div data-carousel class="relative px-2.5 py-2.5">
                 <button data-carousel-prev class="absolute left-0 top-1/2 z-10 flex items-center justify-center w-10 h-10 -translate-x-5 -translate-y-1/2 text-white transition rounded-full shadow-md bg-violet-600 hover:bg-violet-700 disabled:opacity-30 disabled:cursor-not-allowed">
@@ -91,7 +47,7 @@
             <div data-carousel-dots class="flex justify-center gap-2 mt-6"></div>
         </div>
     </section>
-</div>
+</main>
 
 <script>
     document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
@@ -142,8 +98,3 @@
         update();
     });
 </script>
-
-
-
-
-</article>

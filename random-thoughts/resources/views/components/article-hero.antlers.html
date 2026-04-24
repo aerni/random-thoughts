@@ -1,6 +1,11 @@
-<section>
-    <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-        <h1 class="text-5xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+<section class="relative overflow-hidden py-16 md:py-24">
+    {{ assets_field limit="1" }}
+    <div class="absolute inset-2.5 rounded-xl overflow-hidden">
+        <img src="{{ url }}" alt="{{ alt }}" class="object-cover w-full h-full {{ img_opacity ?? 'opacity-40' }} blur-sm">
+    </div>
+    {{ /assets_field }}
+    <div class="relative flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+        <h1 class="text-5xl leading-none uppercase font-display md:text-8xl drop-shadow-lg">{{ title }}</h1>
         <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ description }}</p>
         <p class="font-sans text-sm md:text-base">{{ date format="j. F Y" }}</p>
     </div>

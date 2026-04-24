@@ -1,0 +1,30 @@
+<div data-cursor-type="article" hidden></div>
+<article class="contents">
+    {{ partial:components/article-hero
+        :title="title"
+        :date="date"
+        img_opacity="opacity-10"
+    }}
+
+    <section>
+        <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+            {{ if assets_field }}
+            <div class="px-6 mx-auto max-w-7xl md:px-16">
+                {{ assets_field }}
+                <img src="{{ url }}" alt="{{ alt }}" class="object-cover w-full aspect-2/1 rounded-xl">
+                {{ /assets_field }}
+            </div>
+            {{ /if }}
+
+            <div class="max-w-4xl px-6 mx-auto md:px-16 prose prose-lg prose-invert">
+                {{ content }}
+            </div>
+
+            <div class="max-w-4xl px-6 mx-auto md:px-16">
+                <button data-share class="flex items-center gap-2 font-sans text-sm px-4 py-2 rounded-full border border-current opacity-60 hover:opacity-100 transition-opacity">
+                    🔗 <span>Link kopieren</span>
+                </button>
+            </div>
+        </div>
+    </section>
+</article>
