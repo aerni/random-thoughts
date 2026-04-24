@@ -55,22 +55,17 @@ tabs:
           -
             handle: content
             field:
-              type: replicator
+              type: bard
               display: Inhalt
-              sets:
-                section:
-                  display: Abschnitt
-                  fields:
-                    -
-                      handle: heading
-                      field:
-                        type: text
-                        display: Überschrift
-                    -
-                      handle: text
-                      field:
-                        type: textarea
-                        display: Text
+              toolbar:
+                - bold
+                - italic
+                - underline
+                - unorderedlist
+                - orderedlist
+                - heading
+                - link
+                - blockquote
           -
             handle: tags
             field:

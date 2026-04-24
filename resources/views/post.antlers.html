@@ -87,19 +87,12 @@
             </div>
 
             {{#
-                INHALT: Replicator-Felder aus Statamic
-                Der Inhalt besteht aus Sektionen (type="section")
-                Jede Sektion kann ein heading und einen text haben
+                INHALT: Bard-Editor aus Statamic
+                Bard gibt fertiges HTML aus — kein Loop nötig.
+                "prose" (Tailwind Typography) stylt Überschriften, Listen, Links etc. automatisch.
             #}}
-            <div class="max-w-4xl px-6 mx-auto md:px-16">
+            <div class="max-w-4xl px-6 mx-auto md:px-16 prose prose-lg prose-headings:font-sans prose-headings:font-semibold prose-p:font-sans prose-p:leading-8">
                 {{ content }}
-                    {{ if type == "section" }}
-                        {{ if heading }}
-                            <h2 class="mt-10 mb-4 font-sans text-3xl font-semibold md:mt-14 md:mb-6 md:text-4xl first:mt-0">{{ heading }}</h2>
-                        {{ /if }}
-                        <p class="mb-6 font-sans text-base leading-7 md:text-lg md:leading-8 last:mb-0">{{ text }}</p>
-                    {{ /if }}
-                {{ /content }}
             </div>
 
         </div>
