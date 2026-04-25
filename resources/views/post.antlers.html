@@ -1,1 +1,33 @@
-{{ title }}
+<article class="contents">
+    <section>
+        <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
+            <h1 class="text-5xl leading-none uppercase font-display md:text-8xl">{{ title }}</h1>
+            {{ if intro }}
+                <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ intro }}</p>
+            {{ /if }}
+            <p class="font-sans text-sm md:text-base">{{ date format="j. F Y" }}</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+            {{ if video }}
+                <div class="px-6 mx-auto max-w-7xl md:px-16">
+                    {{ video }}
+                        <video src="{{ url }}" autoplay muted loop playsinline class="object-cover w-full aspect-2/1 rounded-xl bg-hot-pink"></video>
+                    {{ /video }}
+                </div>
+            {{ elseif image }}
+                <div class="px-6 mx-auto max-w-7xl md:px-16">
+                    {{ image }}
+                        <img src="{{ url }}" alt="{{ title }}" class="object-cover w-full aspect-2/1 rounded-xl bg-hot-pink">
+                    {{ /image }}
+                </div>
+            {{ /if }}
+
+            <div class="max-w-4xl px-6 mx-auto prose prose-lg md:px-16">
+                {{ content }}
+            </div>
+        </div>
+    </section>
+</article>

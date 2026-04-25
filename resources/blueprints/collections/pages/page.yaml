@@ -17,6 +17,12 @@ tabs:
             field:
               type: template
               display: Template
+          -
+            handle: assets_field
+            field:
+              container: assets
+              type: assets
+              display: 'Assets Field'
   sidebar:
     display: Sidebar
     sections:
