@@ -24,10 +24,10 @@ tabs:
               type: text
               display: 'Text Field'
           -
-            handle: textarea_field
+            handle: markdown_field
             field:
-              type: textarea
-              display: 'Textarea Field'
+              type: markdown
+              display: 'Markdown Field'
           -
             handle: revealer_field
             field:
@@ -64,3 +64,11 @@ tabs:
               type: text
               default: layout_dark_LOU
               visibility: hidden
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select

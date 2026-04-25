@@ -16,6 +16,12 @@
             </div>
             {{ /if }}
 
+            {{ if lead }}
+            <div class="max-w-4xl px-6 mx-auto md:px-16">
+                <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10 opacity-80">{{ lead }}</p>
+            </div>
+            {{ /if }}
+
             <div class="max-w-4xl px-6 mx-auto md:px-16 prose prose-lg prose-invert">
                 {{ content }}
             </div>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title ?? site:name }}</title>
+        {{ vite src="resources/js/site.js|resources/css/site.css" }}
+        <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@900&family=Poppins:ital,wght@0,400;0,600;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-white" style="background-color: #2d0020;" data-cursor="{{ template }}">
+        {{ partial:layout/header }}
+        {{ partial:layout/main }}
+        {{ partial:layout/footer }}
+    </body>
+
+</html>
