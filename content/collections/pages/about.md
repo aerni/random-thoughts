@@ -5,7 +5,9 @@ title: About
 template: about
 hero_image: 46918985-58c2-4873-a5e2-43f4c9726ea3-(1).jpeg
 updated_by: 8e1e3b0f-c42c-4c75-b7bc-81db50612021
-updated_at: 1776506979
+updated_at: 1777110970
+tags:
+  - about
 content:
   -
     type: paragraph

@@ -12,13 +12,7 @@
     <article class="contents">
         <section>
             <div class="flex flex-col items-center max-w-4xl gap-6 px-6 mx-auto text-center md:gap-10 md:px-16">
-                {{ if tags }}
-                <div class="flex flex-wrap justify-center gap-2">
-                    {{ tags scope="tag" }}
-                    <a href="/tags?tag={{ tag:slug }}" class="font-sans text-xs px-3 py-1 rounded-full border border-orange-100/30 hover:border-orange-100/60 transition ease-out">{{ tag:title }}</a>
-                    {{ /tags }}
-                </div>
-                {{ /if }}
+                {{ partial:tag-pills }}
                 <h1 class="text-5xl leading-none tracking-tight font-bold font-display md:text-8xl">{{ title }}</h1>
                 <p class="font-sans text-xl leading-8 md:text-2xl md:leading-10">{{ intro }}</p>
                 <div class="flex flex-col items-center gap-2 md:flex-row md:gap-4">
@@ -59,5 +53,32 @@
         </section>
     </article>
 </main>
+
+<button
+    id="back-to-top"
+    aria-label="Back to top"
+    class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-10 h-10 rounded-full border border-orange-100/30 bg-zinc-900/80 text-orange-100 backdrop-blur-sm transition-all duration-300 ease-out opacity-0 translate-y-4 pointer-events-none hover:border-orange-100/60 hover:bg-zinc-800/80"
+>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 15l-6-6-6 6"/>
+    </svg>
+</button>
+
+<script>
+    (function () {
+        const btn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', function () {
+            const visible = window.scrollY > 400;
+            btn.classList.toggle('opacity-0', !visible);
+            btn.classList.toggle('translate-y-4', !visible);
+            btn.classList.toggle('pointer-events-none', !visible);
+        }, { passive: true });
+
+        btn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+</script>
 
 {{ partial:footer }}

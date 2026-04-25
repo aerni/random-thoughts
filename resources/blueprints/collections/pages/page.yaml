@@ -24,7 +24,6 @@ tabs:
               display: 'Hero Image'
               container: assets
               max_files: 1
-              mode: list
           -
             handle: intro
             field:
@@ -42,6 +41,14 @@ tabs:
                 - link
                 - unorderedlist
                 - orderedlist
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
   sidebar:
     display: Sidebar
     sections:
