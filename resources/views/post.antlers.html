@@ -98,4 +98,33 @@
         </div>
     </section>
 
+    {{# WEITERE POSTS — zeigt 3 andere Posts als einfache Teaserboxen ohne Bild #}}
+    <section>
+        <div class="max-w-4xl px-6 mx-auto md:px-16">
+
+            <h2 class="mb-6 font-sans text-lg font-semibold">Weitere Beiträge</h2>
+
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                {{# Holt 3 Posts, sortiert nach Datum, schliesst den aktuellen Post aus #}}
+                {{ collection:posts sort="date:desc" limit="3" :id:not="id" }}
+                    <a href="{{ url }}" class="flex flex-col gap-3 p-5 bg-white rounded-2xl shadow hover:shadow-md hover:-translate-y-0.5 transition ease-out">
+                        <p class="font-sans text-sm font-semibold leading-snug">{{ title }}</p>
+                        <div class="flex items-center gap-2 mt-auto">
+                            {{ author }}
+                                {{ if avatar }}
+                                    <img src="{{ avatar }}" alt="{{ title }}" class="w-6 h-6 rounded-full object-cover shrink-0">
+                                {{ else }}
+                                    <div class="flex items-center justify-center w-6 h-6 text-xs font-bold text-white rounded-full bg-hot-pink shrink-0">{{ title | upper | substr:0:2 }}</div>
+                                {{ /if }}
+                                <span class="font-sans text-xs text-black/50">{{ title }}</span>
+                            {{ /author }}
+                            <span class="font-sans text-xs text-black/30 ml-auto">{{ date format="j. M Y" }}</span>
+                        </div>
+                    </a>
+                {{ /collection:posts }}
+            </div>
+
+        </div>
+    </section>
+
 </article>
