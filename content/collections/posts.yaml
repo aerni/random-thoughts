@@ -1,0 +1,4 @@
+title: Posts
+route: '/blog/{slug}'
+date: true
+template: post

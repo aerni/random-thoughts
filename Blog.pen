@@ -1,0 +1,1256 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "CwK59",
+      "x": 3466,
+      "y": -45,
+      "name": "Post",
+      "width": 1513,
+      "height": 2752,
+      "fill": "#fffbf6ff",
+      "stroke": {
+        "align": "inside",
+        "thickness": 1
+      },
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "zTOSR",
+          "x": 229,
+          "y": 830,
+          "name": "donut.jpg",
+          "width": 1054,
+          "height": 527,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "images/image-import-1.jpg",
+            "mode": "fill"
+          },
+          "cornerRadius": 12,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "layout": "none"
+        },
+        {
+          "type": "frame",
+          "id": "FqgRF",
+          "x": 0.5,
+          "y": 0,
+          "name": "Navbar",
+          "width": 1512,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "gap": 826.8699951171875,
+          "padding": [
+            40,
+            120
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "text",
+              "id": "IKjtx",
+              "name": "Random Thoughts",
+              "fill": "#12151eff",
+              "content": "Random Thoughts",
+              "lineHeight": 1.5,
+              "textAlignVertical": "middle",
+              "fontFamily": "Poppins",
+              "fontSize": 20,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "qjxig",
+              "name": "Frame 1",
+              "width": "fill_container",
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "gap": 30,
+              "justifyContent": "end",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "8AMwN",
+                  "name": "Blog",
+                  "fill": "#12151eff",
+                  "content": "Blog",
+                  "lineHeight": 1.5,
+                  "textAlignVertical": "middle",
+                  "fontFamily": "Poppins",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "Mm6ih",
+                  "name": "About",
+                  "fill": "#12151eff",
+                  "content": "About",
+                  "lineHeight": 1.5,
+                  "textAlignVertical": "middle",
+                  "fontFamily": "Poppins",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Tsxvt",
+          "x": 342,
+          "y": 180,
+          "name": "Header",
+          "width": 829,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "layout": "vertical",
+          "gap": 40,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "OSaeC",
+              "name": "Everything is better when donuts are involved",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Everything is\nbetter when donuts\nare involved",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "textAlignVertical": "middle",
+              "fontFamily": "Londrina Solid",
+              "fontSize": 90,
+              "fontWeight": "900"
+            },
+            {
+              "type": "text",
+              "id": "pBjTE",
+              "name": "Job interviews are painful. But with a pocketful of donuts they are never a waste of time. Hate waiting at the DMV? Try pounding a dozen donuts and splattering jelly all over form 90210. You're welcome.",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Job interviews are painful. But with a pocketful of donuts they are never a waste of time. Hate waiting at the DMV? Try\npounding a dozen donuts and splattering jelly all over form\n90210. You're welcome.",
+              "lineHeight": 1.6666666666666667,
+              "textAlign": "center",
+              "textAlignVertical": "middle",
+              "fontFamily": "Poppins",
+              "fontSize": 24,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "kAPj8",
+              "name": "Time → 2020-09-08 00:00:00",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "15. April 2025",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "textAlignVertical": "middle",
+              "fontFamily": "Poppins",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "HsvaS",
+          "x": 337,
+          "y": 1477,
+          "name": "Sure they're not healthy for you, but neither is the stress you carry when you spend time doing things you hate. All of these things are better with donuts.",
+          "fill": "#12151eff",
+          "textGrowth": "fixed-width",
+          "width": 838,
+          "content": "Sure they're not healthy for you, but neither is the stress you\ncarry when you spend time doing things you hate. All of these\nthings are better with donuts.",
+          "lineHeight": 1.6666666666666667,
+          "fontFamily": "Poppins",
+          "fontSize": 24,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "group",
+          "id": "bgVNr",
+          "x": 337,
+          "y": 1714,
+          "name": "Group 3",
+          "children": [
+            {
+              "type": "text",
+              "id": "ulUBm",
+              "x": 0,
+              "y": 0,
+              "name": "Heading 2 → Spontaneous Combustion",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": 838,
+              "content": "Sugar Diplomacy",
+              "lineHeight": 1,
+              "fontFamily": "Poppins",
+              "fontSize": 36,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "O0wHA",
+              "x": 0,
+              "y": 66,
+              "name": "Donuts have a way of resolving conflict that no formal process ever could. Passive-aggressive email from accounting? Show up with a pink box and suddenly everyone is “circling back” with a much better attitude. Neighbors fighting over a hedge line? Glazed. Peace restored. World leaders spend billions on strategy, defense, and negotiation, yet somehow no one has seriously explored the stabilizing influence of a warm cruller. History may someday look back on this oversight with deep embarrassment.",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": 838,
+              "content": "Donuts have a way of resolving conflict that no formal process ever could. Passive-aggressive email from accounting? Show up with a pink box and suddenly everyone is “circling back” with a much better attitude. Neighbors fighting over a hedge line? Glazed. Peace restored. World leaders spend billions on strategy, defense, and negotiation, yet somehow no one has seriously explored the stabilizing influence of a warm cruller. History may someday look back on this oversight with deep embarrassment.",
+              "lineHeight": 1.6666666666666667,
+              "fontFamily": "Poppins",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "id": "C6Uy1",
+          "x": 337,
+          "y": 2020,
+          "name": "Group 2",
+          "children": [
+            {
+              "type": "text",
+              "id": "wFaMN",
+              "x": 0,
+              "y": 0,
+              "name": "Heading 2 → Slow Poisoning",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": 838,
+              "content": "Emotional Cushioning",
+              "lineHeight": 1,
+              "fontFamily": "Poppins",
+              "fontSize": 36,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "3AKAI",
+              "x": 0,
+              "y": 66,
+              "name": "Life insists on happening to you at full speed. Missed train. Weird text. Dentist appointment. The donut does not remove these burdens, but it does place a soft, frosted barrier between you and total psychological collapse. Experts agree that holding a donut in one hand makes any inconvenience feel 14% more manageable. This number was not verified, but it feels spiritually correct.",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": 838,
+              "content": "Life insists on happening to you at full speed. Missed train. Weird text. Dentist appointment. The donut does not remove these burdens, but it does place a soft, frosted barrier between you and total psychological collapse. Experts agree that holding a donut in one hand makes any inconvenience feel 14% more manageable. This number was not verified, but it feels spiritually correct.",
+              "lineHeight": 1.6666666666666667,
+              "fontFamily": "Poppins",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "id": "wUS3g",
+          "x": 337,
+          "y": 2296,
+          "name": "Group 1",
+          "children": [
+            {
+              "type": "text",
+              "id": "aRCHP",
+              "x": 0,
+              "y": 0,
+              "name": "Heading 2 → Strangulation",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": 838,
+              "content": "Tactical Celebration",
+              "lineHeight": 1,
+              "fontFamily": "Poppins",
+              "fontSize": 36,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "9yeX8",
+              "x": 0,
+              "y": 66,
+              "name": "Donuts are uniquely qualified for events that do not deserve a full cake but still require recognition. Survived Monday? Donut. Sent one difficult email? Donut. Made it through a social gathering without once saying “you too” to the waiter? Huge donut moment. Unlike other desserts, donuts understand the importance of immediacy. They ask for no plates, no ceremony, no long speech. They simply arrive, do the work, and leave a faint dusting of sugar as proof that joy briefly existed.",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": 838,
+              "content": "Donuts are uniquely qualified for events that do not deserve a full cake but still require recognition. Survived Monday? Donut. Sent one difficult email? Donut. Made it through a social gathering without once saying “you too” to the waiter? Huge donut moment. Unlike other desserts, donuts understand the importance of immediacy. They ask for no plates, no ceremony, no long speech. They simply arrive, do the work, and leave a faint dusting of sugar as proof that joy briefly existed.",
+              "lineHeight": 1.6666666666666667,
+              "fontFamily": "Poppins",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "86XzD",
+          "x": 1,
+          "y": 2651,
+          "name": "Footer",
+          "width": 1512,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "gap": 16,
+          "padding": 40,
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "text",
+              "id": "4p79H",
+              "name": "© 2026 Random Thoughts",
+              "fill": "#12151eff",
+              "content": "© 2026 Random Thoughts",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "textAlignVertical": "middle",
+              "fontFamily": "Poppins",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "UVxpj",
+      "x": 1914,
+      "y": -45,
+      "name": "Blog",
+      "width": 1512,
+      "height": 1655,
+      "fill": "#fffbf6ff",
+      "stroke": {
+        "align": "inside",
+        "thickness": 1
+      },
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "W4Zge",
+          "x": 342,
+          "y": 180,
+          "name": "Header",
+          "width": 829,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "layout": "vertical",
+          "gap": 40,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "S9JHk",
+              "name": "Blog",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Blog",
+              "lineHeight": 1,
+              "textAlign": "center",
+              "textAlignVertical": "middle",
+              "fontFamily": "Londrina Solid",
+              "fontSize": 90,
+              "fontWeight": "900"
+            },
+            {
+              "type": "text",
+              "id": "8B04c",
+              "name": "This is description of the type of content you would expect to read here on this blog.",
+              "fill": "#12151eff",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "This is description of the type of content you would expect to read here on this blog.",
+              "lineHeight": 1.6666666666666667,
+              "textAlign": "center",
+              "textAlignVertical": "middle",
+              "fontFamily": "Poppins",
+              "fontSize": 24,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "F4Raf",
+          "x": 120.5,
+          "y": 508,
+          "name": "Card",
+          "clip": true,
+          "width": 838,
+          "height": 468,
+          "fill": "#ffffffff",
+          "cornerRadius": 12,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "effect": [
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000000d",
+              "offset": {
+                "x": 0,
+                "y": 4
+              },
+              "blur": 5.25,
+              "spread": -2
+            },
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000001a",
+              "offset": {
+                "x": 0,
+                "y": 10
+              },
+              "blur": 13.125,
+              "spread": -3
+            }
+          ],
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "ou9b9",
+              "name": "Image",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "images/image-import-3.jpg",
+                "mode": "fill"
+              },
+              "width": "fill_container",
+              "height": 280,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              }
+            },
+            {
+              "type": "frame",
+              "id": "uu9Nz",
+              "name": "Container",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "cornerRadius": 12,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 30,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "G188m",
+                  "name": "Title",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width-height",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "content": "There's something secret and dangerous lurking in\nyour pocket",
+                  "lineHeight": 1.25,
+                  "fontFamily": "Poppins",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "AX3xK",
+                  "name": "15. April 2025",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "15. April 2025",
+                  "lineHeight": 1.3333333333333333,
+                  "textAlignVertical": "bottom",
+                  "fontFamily": "Poppins",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wweP6",
+          "x": 988.5,
+          "y": 508,
+          "name": "Card",
+          "clip": true,
+          "width": 404,
+          "fill": "#ffffffff",
+          "cornerRadius": 12,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "effect": [
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000000d",
+              "offset": {
+                "x": 0,
+                "y": 4
+              },
+              "blur": 5.25,
+              "spread": -2
+            },
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000001a",
+              "offset": {
+                "x": 0,
+                "y": 10
+              },
+              "blur": 13.125,
+              "spread": -3
+            }
+          ],
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "u6Qwb",
+              "name": "Image",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "images/image-import-1.jpg",
+                "mode": "fill"
+              },
+              "width": "fill_container",
+              "height": 280,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              }
+            },
+            {
+              "type": "frame",
+              "id": "g590Q",
+              "name": "Container",
+              "clip": true,
+              "width": "fill_container",
+              "cornerRadius": 12,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 30,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "nnqcp",
+                  "name": "Title",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Everything is better\nwhen donuts are\ninvolved",
+                  "lineHeight": 1.25,
+                  "textAlignVertical": "middle",
+                  "fontFamily": "Poppins",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "V9gJq",
+                  "name": "15. April 2025",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "15. April 2025",
+                  "lineHeight": 1.3333333333333333,
+                  "textAlignVertical": "bottom",
+                  "fontFamily": "Poppins",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "MmtL8",
+          "x": 120.5,
+          "y": 1006,
+          "name": "Card",
+          "clip": true,
+          "width": 404,
+          "height": 468,
+          "fill": "#ffffffff",
+          "cornerRadius": 12,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "effect": [
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000000d",
+              "offset": {
+                "x": 0,
+                "y": 4
+              },
+              "blur": 5.25,
+              "spread": -2
+            },
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000001a",
+              "offset": {
+                "x": 0,
+                "y": 10
+              },
+              "blur": 13.125,
+              "spread": -3
+            }
+          ],
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "Xs4QV",
+              "name": "Image",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "images/image-import.jpg",
+                "mode": "fill"
+              },
+              "width": "fill_container",
+              "height": 280,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              }
+            },
+            {
+              "type": "frame",
+              "id": "r6q30",
+              "name": "Container",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "cornerRadius": 12,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 30,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Ij18X",
+                  "name": "Title",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width-height",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "content": "Would you rather give\nup pizza or wifi?",
+                  "lineHeight": 1.25,
+                  "fontFamily": "Poppins",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "RHPfj",
+                  "name": "15. April 2025",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "15. April 2025",
+                  "lineHeight": 1.3333333333333333,
+                  "textAlignVertical": "bottom",
+                  "fontFamily": "Poppins",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "nbfoO",
+          "x": 554.5,
+          "y": 1006,
+          "name": "Card",
+          "clip": true,
+          "width": 404,
+          "height": 468,
+          "fill": "#ffffffff",
+          "cornerRadius": 12,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "effect": [
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000000d",
+              "offset": {
+                "x": 0,
+                "y": 4
+              },
+              "blur": 5.25,
+              "spread": -2
+            },
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000001a",
+              "offset": {
+                "x": 0,
+                "y": 10
+              },
+              "blur": 13.125,
+              "spread": -3
+            }
+          ],
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "nfqIA",
+              "name": "Image",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "images/image-import-1.png",
+                "mode": "fill"
+              },
+              "width": "fill_container",
+              "height": 280,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              }
+            },
+            {
+              "type": "frame",
+              "id": "RW76K",
+              "name": "Container",
+              "clip": true,
+              "width": "fill_container",
+              "height": "fill_container",
+              "cornerRadius": 12,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 30,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5zX14",
+                  "name": "Title",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width-height",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "content": "Beginnings are the best\n& the worst",
+                  "lineHeight": 1.25,
+                  "fontFamily": "Poppins",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "3mLfj",
+                  "name": "15. April 2025",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "15. April 2025",
+                  "lineHeight": 1.3333333333333333,
+                  "textAlignVertical": "bottom",
+                  "fontFamily": "Poppins",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "0uNxO",
+          "x": 988.5,
+          "y": 1006,
+          "name": "Card",
+          "clip": true,
+          "width": 404,
+          "fill": "#ffffffff",
+          "cornerRadius": 12,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "effect": [
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000000d",
+              "offset": {
+                "x": 0,
+                "y": 4
+              },
+              "blur": 5.25,
+              "spread": -2
+            },
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#0000001a",
+              "offset": {
+                "x": 0,
+                "y": 10
+              },
+              "blur": 13.125,
+              "spread": -3
+            }
+          ],
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "2zVbd",
+              "name": "Image",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "images/image-import-2.jpg",
+                "mode": "fill"
+              },
+              "width": "fill_container",
+              "height": 280,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              }
+            },
+            {
+              "type": "frame",
+              "id": "YsGPj",
+              "name": "Container",
+              "clip": true,
+              "width": "fill_container",
+              "cornerRadius": 12,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 30,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "goaiS",
+                  "name": "Title",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "I had a really good idea\nbut got sidetracked and\nforgot it.",
+                  "lineHeight": 1.25,
+                  "textAlignVertical": "middle",
+                  "fontFamily": "Poppins",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "jtC5a",
+                  "name": "15. April 2025",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "15. April 2025",
+                  "lineHeight": 1.3333333333333333,
+                  "textAlignVertical": "bottom",
+                  "fontFamily": "Poppins",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "qyfWS",
+          "x": 0,
+          "y": 0,
+          "name": "Navbar",
+          "width": 1512,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "gap": 826.8699951171875,
+          "padding": [
+            40,
+            120
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "text",
+              "id": "kqFEI",
+              "name": "Random Thoughts",
+              "fill": "#12151eff",
+              "content": "Random Thoughts",
+              "lineHeight": 1.5,
+              "textAlignVertical": "middle",
+              "fontFamily": "Poppins",
+              "fontSize": 20,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "4yCIF",
+              "name": "Frame 1",
+              "width": "fill_container",
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "gap": 30,
+              "justifyContent": "end",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wZOCR",
+                  "name": "Blog",
+                  "fill": "#12151eff",
+                  "content": "Blog",
+                  "lineHeight": 1.5,
+                  "textAlignVertical": "middle",
+                  "fontFamily": "Poppins",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "6208m",
+                  "name": "About",
+                  "fill": "#12151eff",
+                  "content": "About",
+                  "lineHeight": 1.5,
+                  "textAlignVertical": "middle",
+                  "fontFamily": "Poppins",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "bHw6G",
+          "x": 0,
+          "y": 1554,
+          "name": "Footer",
+          "width": 1512,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "gap": 16,
+          "padding": 40,
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "text",
+              "id": "ozR9d",
+              "name": "© 2026 Random Thoughts",
+              "fill": "#12151eff",
+              "content": "© 2026 Random Thoughts",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "textAlignVertical": "middle",
+              "fontFamily": "Poppins",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ZKaXo",
+      "x": 5019,
+      "y": -45,
+      "name": "About",
+      "width": 1512,
+      "height": 1001,
+      "fill": "#fffbf6ff",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "DGCWY",
+          "x": 0,
+          "y": 0,
+          "name": "Navbar",
+          "width": 1512,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "gap": 827,
+          "padding": [
+            40,
+            120
+          ],
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "text",
+              "id": "6ftag",
+              "name": "logo",
+              "fill": "#12151eff",
+              "content": "Random Thoughts",
+              "lineHeight": 1.5,
+              "textAlignVertical": "middle",
+              "fontFamily": "Poppins",
+              "fontSize": 20,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "hTcqt",
+              "name": "Frame 1",
+              "width": "fill_container",
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "gap": 30,
+              "justifyContent": "end",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AgkRK",
+                  "name": "navBlog",
+                  "fill": "#12151eff",
+                  "content": "Blog",
+                  "lineHeight": 1.5,
+                  "textAlignVertical": "middle",
+                  "fontFamily": "Poppins",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "FkG5J",
+                  "name": "navAbout",
+                  "fill": "#12151eff",
+                  "content": "About",
+                  "lineHeight": 1.5,
+                  "textAlignVertical": "middle",
+                  "fontFamily": "Poppins",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pkZ4s",
+          "x": 0,
+          "y": 900,
+          "name": "Footer",
+          "width": 1512,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1
+          },
+          "gap": 16,
+          "padding": 40,
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "text",
+              "id": "RZlW7",
+              "name": "footerText",
+              "fill": "#12151eff",
+              "content": "© 2026 Random Thoughts",
+              "lineHeight": 1.5,
+              "textAlign": "center",
+              "textAlignVertical": "middle",
+              "fontFamily": "Poppins",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Mg0uq",
+          "x": 341,
+          "y": 275,
+          "name": "Frame 2",
+          "layout": "vertical",
+          "gap": 60,
+          "children": [
+            {
+              "type": "frame",
+              "id": "cohIx",
+              "name": "Header",
+              "width": 829,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "layout": "vertical",
+              "gap": 40,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "l54SC",
+                  "name": "heading",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "About",
+                  "lineHeight": 1,
+                  "textAlign": "center",
+                  "textAlignVertical": "middle",
+                  "fontFamily": "Londrina Solid",
+                  "fontSize": 90,
+                  "fontWeight": "900"
+                },
+                {
+                  "type": "text",
+                  "id": "Fyxr3",
+                  "name": "intro",
+                  "fill": "#12151eff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Welcome to Random Thoughts, a place where ideas wander freely and every post is a small adventure in thinking out loud.",
+                  "lineHeight": 1.6666666666666667,
+                  "textAlign": "center",
+                  "textAlignVertical": "middle",
+                  "fontFamily": "Poppins",
+                  "fontSize": 24,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cjNj7",
+              "name": "Bio Section",
+              "width": 829,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1
+              },
+              "gap": 60,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "iDerw",
+                  "name": "Bio Text",
+                  "width": 829,
+                  "height": 182,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2Bsw1",
+                      "name": "bioName",
+                      "fill": "#FD2D78ff",
+                      "content": "Carlo",
+                      "lineHeight": 1,
+                      "fontFamily": "Londrina Solid",
+                      "fontSize": 42,
+                      "fontWeight": "900"
+                    },
+                    {
+                      "type": "text",
+                      "id": "U8Bga",
+                      "name": "bioBody",
+                      "fill": "#12151eff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Hey, ich bin Carlo. Ich schreibe hier über alles, was mir durch den Kopf geht. Ob Donuts, Design oder die grossen Fragen des Lebens. Random Thoughts ist mein persönlicher Raum für Gedanken, die nirgendwo anders hinpassen, aber trotzdem gesagt werden wollen. Schön, dass du vorbeischaust.",
+                      "lineHeight": 1.6666666666666667,
+                      "textAlign": "center",
+                      "fontFamily": "Poppins",
+                      "fontSize": 18,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

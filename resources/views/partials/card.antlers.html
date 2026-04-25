@@ -1,0 +1,17 @@
+<a href="{{ url }}" class="flex flex-col h-full overflow-hidden transition ease-out bg-white shadow-lg rounded-xl hover:-translate-y-1 hover:shadow-xl">
+    {{ if video }}
+        {{ video }}
+            <video src="{{ url }}" autoplay muted loop playsinline class="object-cover w-full h-72 bg-hot-pink"></video>
+        {{ /video }}
+    {{ elseif image }}
+        {{ image }}
+            <img src="{{ url }}" alt="{{ title }}" class="object-cover w-full h-72 bg-hot-pink">
+        {{ /image }}
+    {{ else }}
+        <div class="w-full h-72 bg-hot-pink"></div>
+    {{ /if }}
+    <div class="flex flex-col justify-between flex-1 gap-4 p-6 md:gap-5 md:p-8">
+        <h2 class="font-sans text-xl font-semibold md:text-2xl">{{ title }}</h2>
+        <p class="font-sans text-xs">{{ date format="j. F Y" }}</p>
+    </div>
+</a>
