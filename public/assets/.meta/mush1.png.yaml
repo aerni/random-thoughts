@@ -1,4 +1,6 @@
-data: {  }
+data:
+  tags:
+    - game-design
 size: 314629
 last_modified: 1777038610
 width: 846

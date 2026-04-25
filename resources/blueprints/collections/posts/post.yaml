@@ -33,6 +33,12 @@ tabs:
               container: assets
               max_files: 1
           -
+            handle: image_credit
+            field:
+              type: text
+              display: 'Image Credit'
+              instructions: 'Credit the image creator, e.g. "Photo by Jane Doe"'
+          -
             handle: content
             field:
               type: bard

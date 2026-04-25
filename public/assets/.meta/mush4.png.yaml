@@ -1,4 +1,6 @@
-data: {  }
+data:
+  tags:
+    - noticing
 size: 350265
 last_modified: 1777038610
 width: 352

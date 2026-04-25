@@ -44,6 +44,9 @@
                     {{ hero_image }}
                     <img src="{{ url }}" alt="{{ alt }}" class="object-cover w-full aspect-2/1 rounded-xl bg-hot-pink">
                     {{ /hero_image }}
+                    {{ if image_credit }}
+                    <p class="mt-2 font-sans text-xs text-orange-100/40">{{ image_credit }}</p>
+                    {{ /if }}
                 </div>
                 {{ /if }}
 
